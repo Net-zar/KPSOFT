@@ -1,0 +1,12 @@
+C:\NETZAR\KPSOFT\CNegocios\obj\Debug\CNegocios.csprojAssemblyReference.cache
+C:\NETZAR\KPSOFT\CNegocios\obj\Debug\CNegocios.csproj.CoreCompileInputs.cache
+C:\NETZAR\KPSOFT\CNegocios\bin\Debug\CNegocios.dll
+C:\NETZAR\KPSOFT\CNegocios\bin\Debug\CNegocios.pdb
+C:\NETZAR\KPSOFT\CNegocios\bin\Debug\CDatos.dll
+C:\NETZAR\KPSOFT\CNegocios\bin\Debug\CEntidades.dll
+C:\NETZAR\KPSOFT\CNegocios\bin\Debug\CDatos.pdb
+C:\NETZAR\KPSOFT\CNegocios\bin\Debug\CDatos.dll.config
+C:\NETZAR\KPSOFT\CNegocios\bin\Debug\CEntidades.pdb
+C:\NETZAR\KPSOFT\CNegocios\obj\Debug\CNegocios.csproj.CopyComplete
+C:\NETZAR\KPSOFT\CNegocios\obj\Debug\CNegocios.dll
+C:\NETZAR\KPSOFT\CNegocios\obj\Debug\CNegocios.pdb

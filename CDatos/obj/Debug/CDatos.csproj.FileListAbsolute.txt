@@ -1,0 +1,14 @@
+C:\NETZAR\KPSOFT\CDatos\obj\Debug\CDatos.csprojAssemblyReference.cache
+C:\NETZAR\KPSOFT\CDatos\obj\Debug\CDatos.csproj.CoreCompileInputs.cache
+C:\NETZAR\KPSOFT\CDatos\bin\Debug\CDatos.dll.config
+C:\NETZAR\KPSOFT\CDatos\bin\Debug\CDatos.dll
+C:\NETZAR\KPSOFT\CDatos\bin\Debug\CDatos.pdb
+C:\NETZAR\KPSOFT\CDatos\bin\Debug\CEntidades.dll
+C:\NETZAR\KPSOFT\CDatos\bin\Debug\EntityFramework.dll
+C:\NETZAR\KPSOFT\CDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\NETZAR\KPSOFT\CDatos\bin\Debug\CEntidades.pdb
+C:\NETZAR\KPSOFT\CDatos\bin\Debug\EntityFramework.xml
+C:\NETZAR\KPSOFT\CDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\NETZAR\KPSOFT\CDatos\obj\Debug\CDatos.csproj.CopyComplete
+C:\NETZAR\KPSOFT\CDatos\obj\Debug\CDatos.dll
+C:\NETZAR\KPSOFT\CDatos\obj\Debug\CDatos.pdb

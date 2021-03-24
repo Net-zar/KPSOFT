@@ -287,7 +287,44 @@ namespace CDatos
             return rpta;
 
         }
+    
+        // FUNCION DE LOGIN 
+
+        public DataTable Login(string usuario_nombre, string contraseña)
+        {
+
+            // se inicializa la clase Datareader para leer los datos de la base
+            SqlDataReader Dr;
+            // se declara el datatable para guardar la tabla en memoria
+            DataTable Dt = new DataTable();
+            SqlConnection Con = new SqlConnection();
+
+            try
+            {
+                Con = Conexion.getInstancia().CrearConexion();
+                SqlCommand cmd = new SqlCommand("usuario_login", Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@usuario", SqlDbType.VarChar).Value = usuario_nombre;
+                cmd.Parameters.Add("@contraseña", SqlDbType.VarChar).Value = contraseña;
+                Con.Open();
+                Dr = cmd.ExecuteReader();
+                Dt.Load(Dr);
+                return Dt;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+                throw ex;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open) Con.Close();
+            }
+        }
     }
+
+   
 
    
 

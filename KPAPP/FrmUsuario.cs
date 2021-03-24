@@ -40,6 +40,10 @@ namespace KPAPP
         {
             txtusuario.Clear();
             txtcontraseña.Clear();
+            btnActivar.Visible = false;
+            btnDesactivar.Visible = false;
+            BtnEliminar.Visible = false;
+            chkselec.Checked = false;
         }
         private void Listar()
         {
@@ -167,6 +171,137 @@ namespace KPAPP
         {
             this.Limpiar();
             TabGral.SelectedIndex = 0;
+        }
+
+        private void DgvUsuario_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == DgvUsuario.Columns["Seleccionar"].Index)
+            {
+                DataGridViewCheckBoxCell ChkEliminar = (DataGridViewCheckBoxCell)DgvUsuario.Rows[e.RowIndex].Cells["seleccionar"];
+                ChkEliminar.Value = !Convert.ToBoolean(ChkEliminar.Value);
+            }
+        }
+
+        private void chkselec_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkselec.Checked)
+            {
+                DgvUsuario.Columns[0].Visible = true;
+                btnActivar.Visible = true;
+                btnDesactivar.Visible = true;
+                BtnEliminar.Visible = true;
+
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("Realmente quiere Eliminar el/los usuarios?", "Admin de usuarios", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.OK)
+                {
+                    int Codigo;
+                    string rpta = "";
+
+                    foreach (DataGridViewRow row in DgvUsuario.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToInt32(row.Cells[1].Value);
+                            rpta = NUsuario.Eliminar(Codigo);
+
+                            if (rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se eliminó el usuario: " + Convert.ToString(row.Cells[3].Value));
+                            }
+                            else
+                            {
+                                this.MensajeError(rpta);
+                            }
+                        }
+                    }
+                    this.Listar();
+                }
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnDesactivar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("Realmente quiere Desactivar el/los usuarios?", "Admin de usuarios", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.OK)
+                {
+                    int Codigo;
+                    string rpta = "";
+
+                    foreach (DataGridViewRow row in DgvUsuario.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToInt32(row.Cells[1].Value);
+                            rpta = NUsuario.Desactivar(Codigo);
+
+                            if (rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se desactivó el usuario: " + Convert.ToString(row.Cells[3].Value));
+                            }
+                            else
+                            {
+                                this.MensajeError(rpta);
+                            }
+                        }
+                    }
+                    this.Listar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void btnActivar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DialogResult opcion;
+                opcion = MessageBox.Show("Realmente quiere Activar el/los usuarios?", "Admin de usuarios", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (opcion == DialogResult.OK)
+                {
+                    int Codigo;
+                    string rpta = "";
+
+                    foreach (DataGridViewRow row in DgvUsuario.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
+                            Codigo = Convert.ToInt32(row.Cells[1].Value);
+                            rpta = NUsuario.Activar(Codigo);
+
+                            if (rpta.Equals("OK"))
+                            {
+                                this.MensajeOk("Se Activó el usuario: " + Convert.ToString(row.Cells[3].Value));
+                            }
+                            else
+                            {
+                                this.MensajeError(rpta);
+                            }
+                        }
+                    }
+                    this.Listar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
         }
     }
 }

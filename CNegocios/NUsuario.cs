@@ -29,6 +29,12 @@ namespace CNegocios
             return Datos.Buscar(valor);
         }
 
+        public static DataTable Login(string usuario_nombre, string contraseña)
+        {
+            DUsuario Datos = new DUsuario();
+            return Datos.Login(usuario_nombre, contraseña);
+        }
+
         public static string Insertar(int idrol,string usuario_nombre, string contraseña)
         {
             DUsuario Datos = new DUsuario();

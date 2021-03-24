@@ -24,3 +24,4 @@ C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmPrincipal.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.Proceso.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmRol.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmUsuario.resources
+C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.frmLogin.resources

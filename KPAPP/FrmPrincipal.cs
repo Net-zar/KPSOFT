@@ -13,6 +13,11 @@ namespace KPAPP
     public partial class FrmPrincipal : Form
     {
         private int childFormNumber = 0;
+        public int idUsuario;
+        public int idRol;
+        public string nombre;
+        public string rol;
+        public bool estado;
 
         public FrmPrincipal()
         {
@@ -123,6 +128,60 @@ namespace KPAPP
             FrmUsuario frm = new FrmUsuario();
             frm.MdiParent = this;
             frm.Show();
+        }
+
+        private void mnuAccesos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        // PERFILES DE USUARIO 
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+            statusBar.Text = "Usuario: " + this.nombre;
+
+            if (this.rol.Equals("ADMIN"))
+            {
+                mnuAccesos.Enabled = true;
+                mnuOrdenes.Enabled = true;
+                
+            }
+            else
+            {
+                if (this.rol.Equals("SUPERVISOR"))
+                {
+                    mnuAccesos.Enabled = false;
+                    mnuOrdenes.Enabled = true;
+                }
+                else
+                {
+                    if (this.rol.Equals("USUARIO"))
+                    {
+                        mnuAccesos.Enabled = false;
+                        mnuOrdenes.Enabled = true;
+                    }
+                    else
+                    {
+                        mnuOrdenes.Enabled = false;
+                        mnuAccesos.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("Esta seguro que desea salir del sistema?", "Administracion de Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.OK)
+            {
+                Application.Exit();
+            } else
+            {
+                e.Cancel = true;
+            }
+            
         }
     }
 }

@@ -179,7 +179,7 @@ namespace CDatos
 
 
                 Con.Open();
-                rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Agregar el usuario";
+                rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo actualizar el usuario";
 
 
             }

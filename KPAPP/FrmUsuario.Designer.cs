@@ -30,6 +30,7 @@ namespace KPAPP
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.TabGral = new System.Windows.Forms.TabControl();
@@ -40,6 +41,16 @@ namespace KPAPP
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cmbrol = new System.Windows.Forms.ComboBox();
             this.Lblrol = new System.Windows.Forms.Label();
+            this.txtusuario = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtcontraseña = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.txtid = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.BtnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.TabGral.SuspendLayout();
@@ -53,6 +64,16 @@ namespace KPAPP
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.BtnCancelar);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.txtid);
+            this.tabPage2.Controls.Add(this.btnEditar);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.txtcontraseña);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.txtusuario);
             this.tabPage2.Controls.Add(this.Lblrol);
             this.tabPage2.Controls.Add(this.cmbrol);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -117,6 +138,7 @@ namespace KPAPP
             this.DgvUsuario.ReadOnly = true;
             this.DgvUsuario.Size = new System.Drawing.Size(412, 143);
             this.DgvUsuario.TabIndex = 0;
+            this.DgvUsuario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvUsuario_CellDoubleClick);
             // 
             // Seleccionar
             // 
@@ -128,7 +150,7 @@ namespace KPAPP
             // cmbrol
             // 
             this.cmbrol.FormattingEnabled = true;
-            this.cmbrol.Location = new System.Drawing.Point(132, 27);
+            this.cmbrol.Location = new System.Drawing.Point(123, 72);
             this.cmbrol.Name = "cmbrol";
             this.cmbrol.Size = new System.Drawing.Size(229, 21);
             this.cmbrol.TabIndex = 0;
@@ -136,11 +158,107 @@ namespace KPAPP
             // Lblrol
             // 
             this.Lblrol.AutoSize = true;
-            this.Lblrol.Location = new System.Drawing.Point(22, 30);
+            this.Lblrol.Location = new System.Drawing.Point(27, 75);
             this.Lblrol.Name = "Lblrol";
             this.Lblrol.Size = new System.Drawing.Size(90, 13);
             this.Lblrol.TabIndex = 1;
             this.Lblrol.Text = "Rol de Usuario (*)";
+            // 
+            // txtusuario
+            // 
+            this.txtusuario.Location = new System.Drawing.Point(123, 30);
+            this.txtusuario.Name = "txtusuario";
+            this.txtusuario.Size = new System.Drawing.Size(229, 20);
+            this.txtusuario.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Nombre de Usuario (*)";
+            // 
+            // txtcontraseña
+            // 
+            this.txtcontraseña.Location = new System.Drawing.Point(123, 111);
+            this.txtcontraseña.Name = "txtcontraseña";
+            this.txtcontraseña.Size = new System.Drawing.Size(229, 20);
+            this.txtcontraseña.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(27, 114);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Contraseña (*)";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(120, 148);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(153, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "(*) Los campos son obligatorios";
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(48, 177);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(105, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Nuevo Usuario";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(159, 177);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(105, 23);
+            this.btnEditar.TabIndex = 8;
+            this.btnEditar.Text = "Editar Usuario";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // txtid
+            // 
+            this.txtid.Location = new System.Drawing.Point(123, 4);
+            this.txtid.Name = "txtid";
+            this.txtid.Size = new System.Drawing.Size(100, 20);
+            this.txtid.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Id Usuario (*)";
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("BtnCancelar.Image")));
+            this.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCancelar.Location = new System.Drawing.Point(270, 177);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(82, 23);
+            this.BtnCancelar.TabIndex = 11;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCancelar.UseVisualStyleBackColor = true;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // FrmUsuario
             // 
@@ -175,5 +293,15 @@ namespace KPAPP
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label Lblrol;
         private System.Windows.Forms.ComboBox cmbrol;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtcontraseña;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtusuario;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtid;
+        private System.Windows.Forms.Button BtnCancelar;
     }
 }

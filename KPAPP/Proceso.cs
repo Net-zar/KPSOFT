@@ -61,7 +61,7 @@ namespace KPAPP
 
         private void Proceso_Load(object sender, EventArgs e)
         {
-            listarproceso();
+             listarproceso();
             formato();
             Listar_Control_uno();
         }

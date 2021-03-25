@@ -29,6 +29,7 @@ namespace KPAPP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proceso));
             this.DgvProceso = new System.Windows.Forms.DataGridView();
             this.txtidseleccionado = new System.Windows.Forms.TextBox();
             this.txtnrofabricacion = new System.Windows.Forms.TextBox();
@@ -46,8 +47,11 @@ namespace KPAPP
             this.label4 = new System.Windows.Forms.Label();
             this.txttaskcomp = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CmbControl1 = new System.Windows.Forms.ComboBox();
-            this.lblcontrol1 = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.txtc1 = new System.Windows.Forms.TextBox();
+            this.txtc2 = new System.Windows.Forms.TextBox();
+            this.lblc1 = new System.Windows.Forms.Label();
+            this.lblc2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProceso)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -64,6 +68,7 @@ namespace KPAPP
             this.DgvProceso.Name = "DgvProceso";
             this.DgvProceso.Size = new System.Drawing.Size(1198, 379);
             this.DgvProceso.TabIndex = 0;
+            this.DgvProceso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProceso_CellContentClick);
             // 
             // txtidseleccionado
             // 
@@ -218,31 +223,66 @@ namespace KPAPP
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Orden";
             // 
-            // CmbControl1
+            // btnActualizar
             // 
-            this.CmbControl1.FormattingEnabled = true;
-            this.CmbControl1.Location = new System.Drawing.Point(14, 129);
-            this.CmbControl1.Name = "CmbControl1";
-            this.CmbControl1.Size = new System.Drawing.Size(229, 21);
-            this.CmbControl1.TabIndex = 19;
+            this.btnActualizar.Enabled = false;
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.Location = new System.Drawing.Point(14, 174);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(112, 25);
+            this.btnActualizar.TabIndex = 20;
+            this.btnActualizar.Text = "Actualizar Tarea";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // lblcontrol1
+            // txtc1
             // 
-            this.lblcontrol1.AutoSize = true;
-            this.lblcontrol1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcontrol1.Location = new System.Drawing.Point(14, 110);
-            this.lblcontrol1.Name = "lblcontrol1";
-            this.lblcontrol1.Size = new System.Drawing.Size(91, 13);
-            this.lblcontrol1.TabIndex = 20;
-            this.lblcontrol1.Text = "Control Nivel 1";
+            this.txtc1.Location = new System.Drawing.Point(263, 95);
+            this.txtc1.Name = "txtc1";
+            this.txtc1.Size = new System.Drawing.Size(143, 20);
+            this.txtc1.TabIndex = 21;
+            this.txtc1.Visible = false;
+            // 
+            // txtc2
+            // 
+            this.txtc2.Location = new System.Drawing.Point(613, 95);
+            this.txtc2.Name = "txtc2";
+            this.txtc2.Size = new System.Drawing.Size(143, 20);
+            this.txtc2.TabIndex = 22;
+            this.txtc2.Visible = false;
+            // 
+            // lblc1
+            // 
+            this.lblc1.AutoSize = true;
+            this.lblc1.Location = new System.Drawing.Point(167, 98);
+            this.lblc1.Name = "lblc1";
+            this.lblc1.Size = new System.Drawing.Size(79, 13);
+            this.lblc1.TabIndex = 23;
+            this.lblc1.Text = "Control Nivel 1:";
+            this.lblc1.Visible = false;
+            // 
+            // lblc2
+            // 
+            this.lblc2.AutoSize = true;
+            this.lblc2.Location = new System.Drawing.Point(520, 98);
+            this.lblc2.Name = "lblc2";
+            this.lblc2.Size = new System.Drawing.Size(79, 13);
+            this.lblc2.TabIndex = 24;
+            this.lblc2.Text = "Control Nivel 2:";
+            this.lblc2.Visible = false;
             // 
             // Proceso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1223, 596);
-            this.Controls.Add(this.lblcontrol1);
-            this.Controls.Add(this.CmbControl1);
+            this.Controls.Add(this.lblc2);
+            this.Controls.Add(this.lblc1);
+            this.Controls.Add(this.txtc2);
+            this.Controls.Add(this.txtc1);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DgvProceso);
             this.Name = "Proceso";
@@ -275,7 +315,10 @@ namespace KPAPP
         public System.Windows.Forms.TextBox txttask;
         public System.Windows.Forms.TextBox txttaskcomp;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox CmbControl1;
-        private System.Windows.Forms.Label lblcontrol1;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.TextBox txtc2;
+        private System.Windows.Forms.Label lblc1;
+        private System.Windows.Forms.Label lblc2;
+        public System.Windows.Forms.TextBox txtc1;
     }
 }

@@ -19,6 +19,11 @@ namespace KPAPP
         }
 
         string comp = "";
+        public static string rol;
+        public static int idusuario;
+        public static int idrol;
+        public static bool estado;
+        public static string usuario;
         private void formato()
         {
             DgvProceso.Columns[0].Visible = false;
@@ -29,12 +34,7 @@ namespace KPAPP
             remain();
         }
 
-        public void Listar_Control_uno()
-        {
-            CmbControl1.DataSource = NProceso_Fabricacion.Cmb_usuario_uno();
-            CmbControl1.DisplayMember = "Usuario_nombre";
-            CmbControl1.ValueMember = "idusuario";
-        }
+       
 
        private void remain()
         {
@@ -63,7 +63,7 @@ namespace KPAPP
         {
              listarproceso();
             formato();
-            Listar_Control_uno();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -84,6 +84,26 @@ namespace KPAPP
         private void txttask_TextChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void chkselec_CheckedChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void DgvProceso_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+            FrmControl frm = new FrmControl();
+            frm.txtorden.Text = DgvProceso.CurrentRow.Cells[4].Value.ToString() ;
+            frm.Show();
+            
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+             
         }
     }
 }

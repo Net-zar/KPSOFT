@@ -10,14 +10,18 @@ using System.Windows.Forms;
 
 namespace KPAPP
 {
+
+   
     public partial class FrmPrincipal : Form
     {
         private int childFormNumber = 0;
-        public int idUsuario;
-        public int idRol;
-        public string nombre;
-        public string rol;
-        public bool estado;
+       
+            public int idUsuario;
+            public int idRol;
+            public string nombre;
+            public string rol;
+            public bool estado;
+        
 
         public FrmPrincipal()
         {
@@ -31,6 +35,8 @@ namespace KPAPP
             childForm.Text = "Ventana " + childFormNumber++;
             childForm.Show();
         }
+
+       
 
         private void OpenFile(object sender, EventArgs e)
         {
@@ -139,6 +145,13 @@ namespace KPAPP
         // PERFILES DE USUARIO 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
+            Proceso.idusuario = idUsuario;
+            Proceso.idrol = idRol;
+            Proceso.rol = rol;
+            Proceso.usuario = nombre.Trim();
+            Proceso.estado = estado;
+           
+            
             statusBar.Text = "Usuario: " + this.nombre;
 
             if (this.rol.Equals("ADMIN"))
@@ -168,11 +181,15 @@ namespace KPAPP
                     }
                 }
             }
-        }
 
+         
+      
+    }
+
+        
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("Esta seguro que desea salir del sistema?", "Administracion de Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            DialogResult resultado = MessageBox.Show("Esta seguro que desea salir del sistema?", "Administracion de Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (resultado == DialogResult.OK)
             {

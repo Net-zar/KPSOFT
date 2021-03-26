@@ -62,13 +62,16 @@ namespace KPAPP
             this.DgvProceso.AllowUserToDeleteRows = false;
             this.DgvProceso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvProceso.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DgvProceso.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DgvProceso.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DgvProceso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvProceso.Location = new System.Drawing.Point(13, 205);
             this.DgvProceso.Name = "DgvProceso";
+            this.DgvProceso.ReadOnly = true;
             this.DgvProceso.Size = new System.Drawing.Size(1198, 379);
             this.DgvProceso.TabIndex = 0;
             this.DgvProceso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProceso_CellContentClick);
+            this.DgvProceso.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvProceso_CellFormatting);
+            this.DgvProceso.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DgvProceso_EditingControlShowing);
             // 
             // txtidseleccionado
             // 
@@ -109,7 +112,7 @@ namespace KPAPP
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Fecha de Orden";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+      
             // 
             // label2
             // 
@@ -146,7 +149,7 @@ namespace KPAPP
             this.lblusuario.Size = new System.Drawing.Size(43, 13);
             this.lblusuario.TabIndex = 11;
             this.lblusuario.Text = "Usuario";
-            this.lblusuario.Click += new System.EventHandler(this.label3_Click);
+          
             // 
             // label3
             // 
@@ -171,7 +174,7 @@ namespace KPAPP
             this.txttask.Name = "txttask";
             this.txttask.Size = new System.Drawing.Size(100, 20);
             this.txttask.TabIndex = 14;
-            this.txttask.TextChanged += new System.EventHandler(this.txttask_TextChanged);
+           
             // 
             // lbltask
             // 
@@ -190,7 +193,7 @@ namespace KPAPP
             this.label4.Size = new System.Drawing.Size(100, 13);
             this.label4.TabIndex = 17;
             this.label4.Text = "Tasks Completadas";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+           
             // 
             // txttaskcomp
             // 
@@ -277,6 +280,7 @@ namespace KPAPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1223, 596);
             this.Controls.Add(this.lblc2);
             this.Controls.Add(this.lblc1);

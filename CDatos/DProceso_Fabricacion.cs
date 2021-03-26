@@ -220,6 +220,74 @@ namespace CDatos
             }
         }
 
+        public string ActualizaControlUno(EProceso_Fabricacion obj)
+        {
+
+            string rpta3 = "";
+            SqlConnection Con = new SqlConnection();
+
+            try
+            {
+                Con = Conexion.getInstancia().CrearConexion();
+                SqlCommand cmd = new SqlCommand("ACTUALIZA_TAREAS_PROCESO_C1", Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@IDFABRICACION", SqlDbType.Int).Value = obj.Nro_Fabricacion;
+                cmd.Parameters.Add("@IDTAREA", SqlDbType.Int).Value = obj.Tarea_Id;
+                cmd.Parameters.Add("@CONTROLUNO", SqlDbType.Int).Value = obj.ControlUno;
+                cmd.Parameters.Add("@FECHA", SqlDbType.DateTime).Value = obj.Fecha;
+                cmd.Parameters.Add("@NOTAS", SqlDbType.VarChar).Value = obj.Notas;
+
+                Con.Open();
+                rpta3 = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo insertar el registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta3 = ex.Message;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open) Con.Close();
+            }
+            return rpta3;
+
+        }
+
+        public string ActualizaControlDos(EProceso_Fabricacion obj)
+        {
+
+            string rpta3 = "";
+            SqlConnection Con = new SqlConnection();
+
+            try
+            {
+                Con = Conexion.getInstancia().CrearConexion();
+                SqlCommand cmd = new SqlCommand("ACTUALIZA_TAREAS_PROCESO_C2", Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@IDFABRICACION", SqlDbType.Int).Value = obj.Nro_Fabricacion;
+                cmd.Parameters.Add("@IDTAREA", SqlDbType.Int).Value = obj.Tarea_Id;
+                cmd.Parameters.Add("@CONTROLDOS", SqlDbType.Int).Value = obj.ControlDos;
+                cmd.Parameters.Add("@FECHA", SqlDbType.DateTime).Value = obj.Fecha;
+                cmd.Parameters.Add("@NOTAS", SqlDbType.VarChar).Value = obj.Notas;
+
+                Con.Open();
+                rpta3 = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo insertar el registro";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta3 = ex.Message;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open) Con.Close();
+            }
+            return rpta3;
+
+        }
+
     }
 }
 

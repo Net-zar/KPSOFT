@@ -18,7 +18,14 @@ namespace KPAPP
             InitializeComponent();
         }
 
+        public static string rol;
+        public static int idusuario;
+        public static int idrol;
+        public static bool estado;
+        public static string usuario;
+
         
+
 
         private void Limpiar()
         {
@@ -104,6 +111,23 @@ namespace KPAPP
             ListarFabricacion();
             ListarUsuario();
 
+            if (idrol == 2)
+            {
+                lblasociacion.Enabled = false;
+                lblfabricacion.Enabled = false;
+                lblfecha.Enabled = false;
+                lblnroorden.Enabled = false;
+                lblobservacion.Enabled = false;
+                txtidgenerado.Enabled = false;
+                txtnroorden.Enabled = false;
+                txtobs.Enabled = false;
+                dtpfecha.Enabled = false;
+                CmbFabric.Enabled = false;
+                CmbUsuario.Enabled = false;
+                BtnCreaOrden.Enabled = false;
+            }
+
+           
             btnasociar.Visible = false;
             lblasociacion.Visible = false;
         }

@@ -59,5 +59,30 @@ namespace CNegocios
             DProceso_Fabricacion Datos = new DProceso_Fabricacion();
             return Datos.ListarProceso(id);
         }
+
+        public static string ActualizaControlUno(int idfabricacion, int idTarea,int controlUno ,DateTime fecha, string notas)
+        {
+            DProceso_Fabricacion Datos = new DProceso_Fabricacion();
+            EProceso_Fabricacion obj = new EProceso_Fabricacion();
+            obj.Nro_Fabricacion = idfabricacion;
+            obj.Tarea_Id = idTarea;
+            obj.ControlUno = controlUno;
+            obj.Fecha = fecha;
+            obj.Notas = notas;
+
+            return Datos.ActualizaControlUno(obj);
+        }
+        public static string ActualizaControlDos(int idfabricacion, int idTarea, int controlDos, DateTime fecha, string notas)
+        {
+            DProceso_Fabricacion Datos = new DProceso_Fabricacion();
+            EProceso_Fabricacion obj = new EProceso_Fabricacion();
+            obj.Nro_Fabricacion = idfabricacion;
+            obj.Tarea_Id = idTarea;
+            obj.ControlDos = controlDos;
+            obj.Fecha = fecha;
+            obj.Notas = notas;
+
+            return Datos.ActualizaControlDos(obj);
+        }
     }
 }

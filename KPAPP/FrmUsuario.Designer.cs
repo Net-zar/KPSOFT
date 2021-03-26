@@ -40,21 +40,21 @@ namespace KPAPP
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtcontraseña = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtusuario = new System.Windows.Forms.TextBox();
             this.Lblrol = new System.Windows.Forms.Label();
             this.cmbrol = new System.Windows.Forms.ComboBox();
             this.TabGral = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BtnEliminar = new System.Windows.Forms.Button();
+            this.btnDesactivar = new System.Windows.Forms.Button();
+            this.btnActivar = new System.Windows.Forms.Button();
+            this.chkselec = new System.Windows.Forms.CheckBox();
             this.DgvUsuario = new System.Windows.Forms.DataGridView();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.chkselec = new System.Windows.Forms.CheckBox();
-            this.btnActivar = new System.Windows.Forms.Button();
-            this.btnDesactivar = new System.Windows.Forms.Button();
-            this.BtnEliminar = new System.Windows.Forms.Button();
+            this.txtpass = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.TabGral.SuspendLayout();
@@ -68,6 +68,7 @@ namespace KPAPP
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.txtpass);
             this.tabPage2.Controls.Add(this.BtnCancelar);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.txtid);
@@ -75,7 +76,6 @@ namespace KPAPP
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.txtcontraseña);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.txtusuario);
             this.tabPage2.Controls.Add(this.Lblrol);
@@ -161,13 +161,6 @@ namespace KPAPP
             this.label2.TabIndex = 5;
             this.label2.Text = "Contraseña (*)";
             // 
-            // txtcontraseña
-            // 
-            this.txtcontraseña.Location = new System.Drawing.Point(123, 111);
-            this.txtcontraseña.Name = "txtcontraseña";
-            this.txtcontraseña.Size = new System.Drawing.Size(229, 20);
-            this.txtcontraseña.TabIndex = 4;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -228,6 +221,59 @@ namespace KPAPP
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // BtnEliminar
+            // 
+            this.BtnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("BtnEliminar.Image")));
+            this.BtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEliminar.Location = new System.Drawing.Point(338, 193);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(90, 23);
+            this.BtnEliminar.TabIndex = 6;
+            this.BtnEliminar.Text = "Eliminar ";
+            this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEliminar.UseVisualStyleBackColor = true;
+            this.BtnEliminar.Visible = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            // 
+            // btnDesactivar
+            // 
+            this.btnDesactivar.Image = ((System.Drawing.Image)(resources.GetObject("btnDesactivar.Image")));
+            this.btnDesactivar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDesactivar.Location = new System.Drawing.Point(222, 192);
+            this.btnDesactivar.Name = "btnDesactivar";
+            this.btnDesactivar.Size = new System.Drawing.Size(90, 23);
+            this.btnDesactivar.TabIndex = 5;
+            this.btnDesactivar.Text = "Desactivar";
+            this.btnDesactivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDesactivar.UseVisualStyleBackColor = true;
+            this.btnDesactivar.Visible = false;
+            this.btnDesactivar.Click += new System.EventHandler(this.btnDesactivar_Click);
+            // 
+            // btnActivar
+            // 
+            this.btnActivar.Image = ((System.Drawing.Image)(resources.GetObject("btnActivar.Image")));
+            this.btnActivar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActivar.Location = new System.Drawing.Point(104, 192);
+            this.btnActivar.Name = "btnActivar";
+            this.btnActivar.Size = new System.Drawing.Size(90, 23);
+            this.btnActivar.TabIndex = 4;
+            this.btnActivar.Text = "Activar ";
+            this.btnActivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActivar.UseVisualStyleBackColor = true;
+            this.btnActivar.Visible = false;
+            this.btnActivar.Click += new System.EventHandler(this.btnActivar_Click);
+            // 
+            // chkselec
+            // 
+            this.chkselec.AutoSize = true;
+            this.chkselec.Location = new System.Drawing.Point(16, 198);
+            this.chkselec.Name = "chkselec";
+            this.chkselec.Size = new System.Drawing.Size(82, 17);
+            this.chkselec.TabIndex = 3;
+            this.chkselec.Text = "Seleccionar";
+            this.chkselec.UseVisualStyleBackColor = true;
+            this.chkselec.CheckedChanged += new System.EventHandler(this.chkselec_CheckedChanged);
+            // 
             // DgvUsuario
             // 
             this.DgvUsuario.AllowUserToAddRows = false;
@@ -269,58 +315,12 @@ namespace KPAPP
             this.TxtBuscar.Size = new System.Drawing.Size(239, 20);
             this.TxtBuscar.TabIndex = 1;
             // 
-            // chkselec
+            // txtpass
             // 
-            this.chkselec.AutoSize = true;
-            this.chkselec.Location = new System.Drawing.Point(16, 198);
-            this.chkselec.Name = "chkselec";
-            this.chkselec.Size = new System.Drawing.Size(82, 17);
-            this.chkselec.TabIndex = 3;
-            this.chkselec.Text = "Seleccionar";
-            this.chkselec.UseVisualStyleBackColor = true;
-            this.chkselec.CheckedChanged += new System.EventHandler(this.chkselec_CheckedChanged);
-            // 
-            // btnActivar
-            // 
-            this.btnActivar.Image = ((System.Drawing.Image)(resources.GetObject("btnActivar.Image")));
-            this.btnActivar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActivar.Location = new System.Drawing.Point(104, 192);
-            this.btnActivar.Name = "btnActivar";
-            this.btnActivar.Size = new System.Drawing.Size(90, 23);
-            this.btnActivar.TabIndex = 4;
-            this.btnActivar.Text = "Activar ";
-            this.btnActivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnActivar.UseVisualStyleBackColor = true;
-            this.btnActivar.Visible = false;
-            this.btnActivar.Click += new System.EventHandler(this.btnActivar_Click);
-            // 
-            // btnDesactivar
-            // 
-            this.btnDesactivar.Image = ((System.Drawing.Image)(resources.GetObject("btnDesactivar.Image")));
-            this.btnDesactivar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDesactivar.Location = new System.Drawing.Point(222, 192);
-            this.btnDesactivar.Name = "btnDesactivar";
-            this.btnDesactivar.Size = new System.Drawing.Size(90, 23);
-            this.btnDesactivar.TabIndex = 5;
-            this.btnDesactivar.Text = "Desactivar";
-            this.btnDesactivar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDesactivar.UseVisualStyleBackColor = true;
-            this.btnDesactivar.Visible = false;
-            this.btnDesactivar.Click += new System.EventHandler(this.btnDesactivar_Click);
-            // 
-            // BtnEliminar
-            // 
-            this.BtnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("BtnEliminar.Image")));
-            this.BtnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEliminar.Location = new System.Drawing.Point(338, 193);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(90, 23);
-            this.BtnEliminar.TabIndex = 6;
-            this.BtnEliminar.Text = "Eliminar ";
-            this.BtnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnEliminar.UseVisualStyleBackColor = true;
-            this.BtnEliminar.Visible = false;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            this.txtpass.Location = new System.Drawing.Point(123, 111);
+            this.txtpass.Name = "txtpass";
+            this.txtpass.Size = new System.Drawing.Size(229, 20);
+            this.txtpass.TabIndex = 12;
             // 
             // FrmUsuario
             // 
@@ -358,7 +358,6 @@ namespace KPAPP
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtcontraseña;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtusuario;
         private System.Windows.Forms.Button btnEditar;
@@ -369,5 +368,6 @@ namespace KPAPP
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button btnDesactivar;
         private System.Windows.Forms.Button btnActivar;
+        private System.Windows.Forms.TextBox txtpass;
     }
 }

@@ -18,7 +18,7 @@ namespace KPAPP
             InitializeComponent();
         }
 
-        string comp = "";
+      
         public static string rol;
         public static int idusuario;
         public static int idrol;
@@ -30,28 +30,44 @@ namespace KPAPP
             DgvProceso.Columns[1].Visible = false;
             DgvProceso.Columns[2].Visible = false;
             DgvProceso.Columns[3].Visible = false;
+            DgvProceso.Columns[4].HeaderText = "ORDEN DE TAREA";
+            DgvProceso.Columns[5].HeaderText = "DESCRIPCION DE TAREA";
+            DgvProceso.Columns[6].HeaderText = "USUARIO";
+            
+            DgvProceso.Columns[7].HeaderText = "CONTROL NIVEL 1";
+            DgvProceso.Columns[8].HeaderText = "CONTROL NIVEL 2";
+            DgvProceso.Columns[10].HeaderText = "FECHA DE TAREA CERRADA";
+            DgvProceso.Columns[11].Visible = false;
             txttask.Text = DgvProceso.RowCount.ToString();
-            remain();
+            
+
+           
         }
 
+       
        
 
        private void remain()
         {
 
-
-            int remain = 0;
-
-            if (DgvProceso.Columns[8].ToString() != "NO ASIGNADO")
+            int rem = 0;
+            foreach (DataGridViewRow fila in DgvProceso.Rows)
             {
-                remain++;
-                txttaskcomp.Text = remain.ToString();
-            };
+                string a = null;
+              
+                
+                if (Convert.ToString(fila.Cells[8].Value)!="PENDIENTE")
+                {
+                    rem = rem + 1;
+                    txttaskcomp.Text = Convert.ToString(rem);
+                }
+                
+            }
 
 
         }
 
-
+        
 
         private void listarproceso()
         {
@@ -63,40 +79,27 @@ namespace KPAPP
         {
              listarproceso();
             formato();
-            
+            remain();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txttask_TextChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void chkselec_CheckedChanged(object sender, EventArgs e)
-        {
-           
-        }
 
         private void DgvProceso_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
 
             FrmControl frm = new FrmControl();
+            frm.txtidfab.Text = DgvProceso.CurrentRow.Cells[0].Value.ToString();
+            frm.txtfechaorden.Text = DgvProceso.CurrentRow.Cells[1].Value.ToString();
+            frm.txtnrofabric.Text = DgvProceso.CurrentRow.Cells[2].Value.ToString();
+            frm.txtusuario.Text = DgvProceso.CurrentRow.Cells[6].Value.ToString().Trim();
+            //CONTROL DE TAREAS
             frm.txtorden.Text = DgvProceso.CurrentRow.Cells[4].Value.ToString() ;
+            frm.txttarea.Text = DgvProceso.CurrentRow.Cells[5].Value.ToString();
+            frm.txtobser.Text = DgvProceso.CurrentRow.Cells[9].Value.ToString();
+            frm.dtpcontrol.Value = Convert.ToDateTime(DgvProceso.CurrentRow.Cells[10].Value);
+            frm.txtidtarea.Text = DgvProceso.CurrentRow.Cells[11].Value.ToString();
+
             frm.Show();
             
         }
@@ -104,6 +107,28 @@ namespace KPAPP
         private void btnActualizar_Click(object sender, EventArgs e)
         {
              
+        }
+
+        private void DgvProceso_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (DgvProceso.Columns[e.ColumnIndex].Name == "USUARIO_NOMBRE1")
+            {
+                if (Convert.ToString(e.Value).StartsWith("PENDIENTE"))
+                {
+                    e.CellStyle.BackColor = Color.Red;
+                }
+                else
+                {
+                    e.CellStyle.BackColor = Color.LightGreen;
+                }
+            }
+
+          
+        }
+
+        private void DgvProceso_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            ((DataGridViewTextBoxEditingControl)sender).CharacterCasing = CharacterCasing.Upper;
         }
     }
 }

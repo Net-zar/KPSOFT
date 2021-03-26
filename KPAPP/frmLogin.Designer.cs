@@ -94,6 +94,7 @@ namespace KPAPP
             this.txtcontraseña.PasswordChar = '*';
             this.txtcontraseña.Size = new System.Drawing.Size(140, 20);
             this.txtcontraseña.TabIndex = 5;
+            this.txtcontraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcontraseña_KeyPress);
             // 
             // btningresar
             // 

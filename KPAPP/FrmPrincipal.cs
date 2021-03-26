@@ -150,7 +150,11 @@ namespace KPAPP
             Proceso.rol = rol;
             Proceso.usuario = nombre.Trim();
             Proceso.estado = estado;
-           
+
+            FrmOrdenes.idrol = idRol;
+
+            FrmControl frm = new FrmControl();
+            
             
             statusBar.Text = "Usuario: " + this.nombre;
 
@@ -173,11 +177,16 @@ namespace KPAPP
                     {
                         mnuAccesos.Enabled = false;
                         mnuOrdenes.Enabled = true;
+                       
+                        
+                        
+                        
                     }
                     else
                     {
                         mnuOrdenes.Enabled = false;
                         mnuAccesos.Enabled = false;
+                        
                     }
                 }
             }

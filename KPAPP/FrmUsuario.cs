@@ -39,7 +39,7 @@ namespace KPAPP
         private void Limpiar()
         {
             txtusuario.Clear();
-            txtcontraseña.Clear();
+            txtpass.Clear();
             btnActivar.Visible = false;
             btnDesactivar.Visible = false;
             BtnEliminar.Visible = false;
@@ -86,20 +86,23 @@ namespace KPAPP
             try
             {
                 string rpta = "";
-                if (cmbrol.Text == string.Empty || txtusuario.Text == string.Empty || txtcontraseña.Text == string.Empty)
+                if (cmbrol.Text == string.Empty || txtusuario.Text == string.Empty || txtpass.Text == string.Empty)
                 {
                     this.MensajeError("Ingrese los datos faltantes");
                     errorIcono.SetError(cmbrol, "Seleccione un rol");
                     errorIcono.SetError(txtusuario, "Ingrese un nombre");
-                    errorIcono.SetError(txtcontraseña, "Ingrese una contraseña");
+                    errorIcono.SetError(txtpass, "Ingrese una contraseña");
                 }
                 else
                 {
-                    rpta = NUsuario.Insertar(Convert.ToInt32(cmbrol.SelectedValue), txtusuario.Text.Trim(), txtcontraseña.Text.Trim());
+                    rpta = NUsuario.Insertar(Convert.ToInt32(cmbrol.SelectedValue), txtusuario.Text.Trim(), txtpass.Text.Trim());
                     if (rpta.Equals("OK"))
                     {
                         this.MensajeOk("Se ha creado el usuario correctamente");
+                        this.Limpiar();
                         this.Listar();
+                        TabGral.SelectedIndex = 0;
+
                     }
                     else
                     {
@@ -125,6 +128,7 @@ namespace KPAPP
                 cmbrol.SelectedValue = Convert.ToString(DgvUsuario.CurrentRow.Cells["ROL_ID"].Value);
                 this.UsuarioAnterior= DgvUsuario.CurrentRow.Cells["Usuario"].Value.ToString();
                 txtusuario.Text = DgvUsuario.CurrentRow.Cells["Usuario"].Value.ToString() ;
+                
                 TabGral.SelectedIndex = 1;
 
 
@@ -139,24 +143,27 @@ namespace KPAPP
             try
             {
                 string rpta = "";
-                if (txtid.Text==string.Empty || cmbrol.Text == string.Empty || txtusuario.Text == string.Empty)
+                if (txtid.Text==string.Empty || cmbrol.Text == string.Empty || txtusuario.Text == string.Empty )
                 {
                     this.MensajeError("Ingrese los datos faltantes");
                     errorIcono.SetError(cmbrol, "Seleccione un rol");
                     errorIcono.SetError(txtusuario, "Ingrese un nombre");
-                    errorIcono.SetError(txtcontraseña, "Ingrese una contraseña");
+                    errorIcono.SetError(txtpass, "Ingrese una contraseña");
                 }
                 else
                 {
-                    rpta = NUsuario.Actualizar(Convert.ToInt32(txtid.Text), Convert.ToInt32(cmbrol.SelectedValue),this.UsuarioAnterior ,txtusuario.Text.Trim(), txtcontraseña.Text.Trim());
+                    rpta = NUsuario.Actualizar(Convert.ToInt32(txtid.Text), Convert.ToInt32(cmbrol.SelectedValue),this.UsuarioAnterior ,txtusuario.Text.Trim(), txtpass.Text);
                     if (rpta.Equals("OK"))
                     {
                         this.MensajeOk("Se actualizó correctamente");
+                        this.Limpiar();
                         this.Listar();
                     }
                     else
                     {
                         this.MensajeError(rpta);
+                        button1.Enabled = true;
+                        TabGral.SelectedIndex = 0;
                     }
                 }
 

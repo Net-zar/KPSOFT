@@ -16,6 +16,7 @@ namespace CEntidades
         public int ControlDos { get; set; }
         public DateTime Fecha { get; set; }
         public int Nro_Fabricacion { get; set; }
+        public string Notas { get; set; }
     
     }
 }

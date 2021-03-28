@@ -24,6 +24,8 @@ namespace KPAPP
         public static int idrol;
         public static bool estado;
         public static string usuario;
+        
+        // FRONT END De los datos a mostrar 
         private void formato()
         {
             DgvProceso.Columns[0].Visible = false;
@@ -33,57 +35,77 @@ namespace KPAPP
             DgvProceso.Columns[4].HeaderText = "ORDEN DE TAREA";
             DgvProceso.Columns[5].HeaderText = "DESCRIPCION DE TAREA";
             DgvProceso.Columns[6].HeaderText = "USUARIO";
-            
             DgvProceso.Columns[7].HeaderText = "CONTROL NIVEL 1";
             DgvProceso.Columns[8].HeaderText = "CONTROL NIVEL 2";
             DgvProceso.Columns[10].HeaderText = "FECHA DE TAREA CERRADA";
             DgvProceso.Columns[11].Visible = false;
             txttask.Text = DgvProceso.RowCount.ToString();
-            
+          
 
-           
         }
 
        
        
-
+        // Recorre el DGV para calcular cuantas tareas estan completadas. 
        private void remain()
         {
-
             int rem = 0;
             foreach (DataGridViewRow fila in DgvProceso.Rows)
             {
-                string a = null;
               
-                
                 if (Convert.ToString(fila.Cells[8].Value)!="PENDIENTE")
                 {
                     rem = rem + 1;
                     txttaskcomp.Text = Convert.ToString(rem);
                 }
-                
+
             }
-
-
         }
 
-        
+        // carga los datos de tareas en el gráfico
+        private void estadistica()
+        {
+            
+            chart.Series["Tareas"].Points.AddXY("Tareas Totales", txttask.Text);
+            chart.Series["Tareas"].Points.AddXY("Tareas Completadas", txttaskcomp.Text);
+        }
 
+       
+        // Lista el proceso de fabricacion 
         private void listarproceso()
         {
 
             DgvProceso.DataSource = NProceso_Fabricacion.ListarProceso(Convert.ToInt32(txtidseleccionado.Text));
-        }
 
+           
+        }
+        // En este metodo se cargan todos los metodos a ejecutarse cuando se abre el Form
         private void Proceso_Load(object sender, EventArgs e)
         {
-             listarproceso();
+            listarproceso();
             formato();
             remain();
+            estadistica();
+            CierraOrden();
+
+        }
+        // Evalua el estado de la orden. Si esta cerrada, Bloquea el DGV para su edición.
+        private void CierraOrden()
+        {
+            if (chkcerrada.Checked == false)
+            {
+                chkcerrada.Visible = false;
+                btnCerrar.Visible = true;
+            }
+            else
+            {
+                btnCerrar.Visible = false;
+                chkcerrada.Visible = true;
+                DgvProceso.Enabled = false;
+            }
         }
 
-
-
+        // Toma de la orden seleccionada en el frmOrdenes los campos para mostrar en el encabezado
         private void DgvProceso_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -94,21 +116,51 @@ namespace KPAPP
             frm.txtnrofabric.Text = DgvProceso.CurrentRow.Cells[2].Value.ToString();
             frm.txtusuario.Text = DgvProceso.CurrentRow.Cells[6].Value.ToString().Trim();
             //CONTROL DE TAREAS
-            frm.txtorden.Text = DgvProceso.CurrentRow.Cells[4].Value.ToString() ;
+            frm.txtorden.Text = DgvProceso.CurrentRow.Cells[4].Value.ToString();
             frm.txttarea.Text = DgvProceso.CurrentRow.Cells[5].Value.ToString();
             frm.txtobser.Text = DgvProceso.CurrentRow.Cells[9].Value.ToString();
             frm.dtpcontrol.Value = Convert.ToDateTime(DgvProceso.CurrentRow.Cells[10].Value);
             frm.txtidtarea.Text = DgvProceso.CurrentRow.Cells[11].Value.ToString();
 
+            if (DgvProceso.CurrentRow.Cells[7].Value.ToString() != "PENDIENTE")
+            {
+                frm.chk1.Enabled = false;
+                frm.chk1.Visible = true;
+                frm.lblchk1.Text = "CONTROL UNO REALIZADO";
+
+            }
+            else
+            {
+                frm.chk1.Enabled = true;
+            }
+            if (DgvProceso.CurrentRow.Cells[8].Value.ToString() != "PENDIENTE")
+            {
+                frm.chk2.Enabled = false;
+                frm.lblchk2.Visible = true;
+                frm.lblchk2.Text = "CONTROL DOS REALIZADO";
+
+            }
+            else
+            {
+                frm.chk2.Enabled = true;
+            }
+
             frm.Show();
-            
         }
 
+        //Actualiza el DGV despues de editar alguna fila.
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-             
-        }
+            listarproceso();
 
+            chart.Series["Tareas"].Points.Clear();
+            estadistica();
+            remain();
+            
+           
+      
+        }
+        // Evalua el estado de la tarea para asignarle un color segun su estado
         private void DgvProceso_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (DgvProceso.Columns[e.ColumnIndex].Name == "USUARIO_NOMBRE1")
@@ -120,15 +172,59 @@ namespace KPAPP
                 else
                 {
                     e.CellStyle.BackColor = Color.LightGreen;
+                    
+                }
+            }
+            if (DgvProceso.Columns[e.ColumnIndex].Name == "USUARIO_NOMBRE2")
+            {
+                if (Convert.ToString(e.Value).StartsWith("PENDIENTE"))
+                {
+                    e.CellStyle.BackColor = Color.Red;
+                }
+                else
+                {
+                    e.CellStyle.BackColor = Color.LightGreen;
                 }
             }
 
-          
         }
-
+        
         private void DgvProceso_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             ((DataGridViewTextBoxEditingControl)sender).CharacterCasing = CharacterCasing.Upper;
         }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+         
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+
+        }
+       
+        // Modifica el Color de la celda al pasar el mouse 
+        private void DgvProceso_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                DgvProceso.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
+                DgvProceso.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Black;
+            }
+        }
+
+        private void DgvProceso_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.RowIndex > -1)
+            {
+                DgvProceso.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.CadetBlue;
+                DgvProceso.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
+
+            }
+        }
+
+     
+       
     }
 }

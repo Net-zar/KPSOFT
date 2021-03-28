@@ -18,7 +18,7 @@ namespace KPAPP
             InitializeComponent();
         }
 
-       
+       // Metodos para mostrar Mensajes 
         private void MensajeError(string mensaje)
 
         {
@@ -29,16 +29,19 @@ namespace KPAPP
         {
             MessageBox.Show(mensaje, "Proceso de carga", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
+        //-------------------------------------------------------------------------------------//
 
         private void FrmControl_Load(object sender, EventArgs e)
         {
            
         }
 
+        // Metodos para Mostrar el Login para insertar el control 1 o 2 
         private void chk1_CheckedChanged(object sender, EventArgs e)
         {
-            if (chk1.Checked == true)
+            DataTable dtf = new DataTable();
+           
+                if (chk1.Checked == true)
             {
                 gbauth.Visible = true;
                 chk1.Enabled = false;
@@ -48,6 +51,7 @@ namespace KPAPP
 
         private void chk2_CheckedChanged(object sender, EventArgs e)
         {
+
             if (chk2.Checked == true)
             {
                 gbaut2.Visible = true;
@@ -56,15 +60,12 @@ namespace KPAPP
             }
         }
 
+        // Boton para insertar el Control1 post validacion de usuario y rol 
         private void btnaceptarchk_Click(object sender, EventArgs e)
         {
-            try
-
-                
+            try 
             {
-
                 string rpta = "";
-
                 DataTable dt = new DataTable();
                 dt = NUsuario.Login(txtusuariochk.Text.Trim(), txtcontraseñachk.Text.Trim());
                 // Verifica si el usuario existe
@@ -84,8 +85,6 @@ namespace KPAPP
                     {
                         if (chk1.Checked == true)
                         {
-
-
                             rpta = NProceso_Fabricacion.ActualizaControlUno(
                                 Convert.ToInt32(txtidfab.Text),
                                 Convert.ToInt32(txtidtarea.Text),
@@ -118,6 +117,7 @@ namespace KPAPP
             }
         }
 
+        // Boton para insertar el Control2 post validacion de usuario y rol 
         private void btnAceptarchk2_Click(object sender, EventArgs e)
         {
 
@@ -194,6 +194,11 @@ namespace KPAPP
         private void btnCancelarchk_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FrmControl_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
         }
     }
 }

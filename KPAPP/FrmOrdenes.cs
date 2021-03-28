@@ -246,6 +246,15 @@ namespace KPAPP
             frm.lbltipo.Text = DgvListado.CurrentRow.Cells[4].Value.ToString();
             frm.txtusrorden.Text = DgvListado.CurrentRow.Cells[5].Value.ToString();
             frm.txtnotas.Text = DgvListado.CurrentRow.Cells[6].Value.ToString();
+            if (Convert.ToBoolean(DgvListado.CurrentRow.Cells[7].Value) != true)
+            {
+                frm.chkcerrada.Checked = false;
+            }
+            else
+            {
+                frm.chkcerrada.Checked = true;
+            }
+            
            
             frm.Show();
         }

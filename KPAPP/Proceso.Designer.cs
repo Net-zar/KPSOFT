@@ -30,6 +30,9 @@ namespace KPAPP
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proceso));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.DgvProceso = new System.Windows.Forms.DataGridView();
             this.txtidseleccionado = new System.Windows.Forms.TextBox();
             this.txtnrofabricacion = new System.Windows.Forms.TextBox();
@@ -48,12 +51,12 @@ namespace KPAPP
             this.txttaskcomp = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.txtc1 = new System.Windows.Forms.TextBox();
-            this.txtc2 = new System.Windows.Forms.TextBox();
-            this.lblc1 = new System.Windows.Forms.Label();
-            this.lblc2 = new System.Windows.Forms.Label();
+            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.chkcerrada = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProceso)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
             // DgvProceso
@@ -61,16 +64,22 @@ namespace KPAPP
             this.DgvProceso.AllowUserToAddRows = false;
             this.DgvProceso.AllowUserToDeleteRows = false;
             this.DgvProceso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.DgvProceso.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DgvProceso.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.DgvProceso.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.DgvProceso.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.DgvProceso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvProceso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvProceso.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.DgvProceso.Location = new System.Drawing.Point(13, 205);
             this.DgvProceso.Name = "DgvProceso";
             this.DgvProceso.ReadOnly = true;
-            this.DgvProceso.Size = new System.Drawing.Size(1198, 379);
+            this.DgvProceso.Size = new System.Drawing.Size(1198, 416);
             this.DgvProceso.TabIndex = 0;
             this.DgvProceso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProceso_CellContentClick);
             this.DgvProceso.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvProceso_CellFormatting);
+           
+            this.DgvProceso.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProceso_CellMouseLeave);
+            this.DgvProceso.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvProceso_CellMouseMove);
             this.DgvProceso.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DgvProceso_EditingControlShowing);
             // 
             // txtidseleccionado
@@ -112,7 +121,6 @@ namespace KPAPP
             this.label1.Size = new System.Drawing.Size(84, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Fecha de Orden";
-      
             // 
             // label2
             // 
@@ -149,7 +157,6 @@ namespace KPAPP
             this.lblusuario.Size = new System.Drawing.Size(43, 13);
             this.lblusuario.TabIndex = 11;
             this.lblusuario.Text = "Usuario";
-          
             // 
             // label3
             // 
@@ -174,7 +181,6 @@ namespace KPAPP
             this.txttask.Name = "txttask";
             this.txttask.Size = new System.Drawing.Size(100, 20);
             this.txttask.TabIndex = 14;
-           
             // 
             // lbltask
             // 
@@ -193,7 +199,6 @@ namespace KPAPP
             this.label4.Size = new System.Drawing.Size(100, 13);
             this.label4.TabIndex = 17;
             this.label4.Text = "Tasks Completadas";
-           
             // 
             // txttaskcomp
             // 
@@ -228,7 +233,6 @@ namespace KPAPP
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Enabled = false;
             this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
             this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnActualizar.Location = new System.Drawing.Point(14, 174);
@@ -240,61 +244,71 @@ namespace KPAPP
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // txtc1
+            // chart
             // 
-            this.txtc1.Location = new System.Drawing.Point(263, 95);
-            this.txtc1.Name = "txtc1";
-            this.txtc1.Size = new System.Drawing.Size(143, 20);
-            this.txtc1.TabIndex = 21;
-            this.txtc1.Visible = false;
+            chartArea3.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart.Legends.Add(legend3);
+            this.chart.Location = new System.Drawing.Point(731, 98);
+            this.chart.Name = "chart";
+            this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Color = System.Drawing.Color.White;
+            series3.IsValueShownAsLabel = true;
+            series3.Legend = "Legend1";
+            series3.Name = "Tareas";
+            series3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
+            series3.ShadowOffset = 3;
+            this.chart.Series.Add(series3);
+            this.chart.Size = new System.Drawing.Size(445, 78);
+            this.chart.TabIndex = 25;
+            this.chart.Text = "chart1";
             // 
-            // txtc2
+            // btnCerrar
             // 
-            this.txtc2.Location = new System.Drawing.Point(613, 95);
-            this.txtc2.Name = "txtc2";
-            this.txtc2.Size = new System.Drawing.Size(143, 20);
-            this.txtc2.TabIndex = 22;
-            this.txtc2.Visible = false;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCerrar.Location = new System.Drawing.Point(14, 98);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(112, 58);
+            this.btnCerrar.TabIndex = 26;
+            this.btnCerrar.Text = "CERRAR ORDEN";
+            this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // lblc1
+            // chkcerrada
             // 
-            this.lblc1.AutoSize = true;
-            this.lblc1.Location = new System.Drawing.Point(167, 98);
-            this.lblc1.Name = "lblc1";
-            this.lblc1.Size = new System.Drawing.Size(79, 13);
-            this.lblc1.TabIndex = 23;
-            this.lblc1.Text = "Control Nivel 1:";
-            this.lblc1.Visible = false;
-            // 
-            // lblc2
-            // 
-            this.lblc2.AutoSize = true;
-            this.lblc2.Location = new System.Drawing.Point(520, 98);
-            this.lblc2.Name = "lblc2";
-            this.lblc2.Size = new System.Drawing.Size(79, 13);
-            this.lblc2.TabIndex = 24;
-            this.lblc2.Text = "Control Nivel 2:";
-            this.lblc2.Visible = false;
+            this.chkcerrada.AutoSize = true;
+            this.chkcerrada.Location = new System.Drawing.Point(14, 138);
+            this.chkcerrada.Name = "chkcerrada";
+            this.chkcerrada.Size = new System.Drawing.Size(95, 17);
+            this.chkcerrada.TabIndex = 28;
+            this.chkcerrada.Text = "Orden Cerrada";
+            this.chkcerrada.UseVisualStyleBackColor = true;
             // 
             // Proceso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1223, 596);
-            this.Controls.Add(this.lblc2);
-            this.Controls.Add(this.lblc1);
-            this.Controls.Add(this.txtc2);
-            this.Controls.Add(this.txtc1);
+            this.ClientSize = new System.Drawing.Size(1223, 633);
+            this.Controls.Add(this.btnCerrar);
+            this.Controls.Add(this.chart);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DgvProceso);
+            this.Controls.Add(this.chkcerrada);
             this.Name = "Proceso";
             this.Text = "Proceso";
             this.Load += new System.EventHandler(this.Proceso_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvProceso)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,9 +334,8 @@ namespace KPAPP
         public System.Windows.Forms.TextBox txttaskcomp;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.TextBox txtc2;
-        private System.Windows.Forms.Label lblc1;
-        private System.Windows.Forms.Label lblc2;
-        public System.Windows.Forms.TextBox txtc1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
+        private System.Windows.Forms.Button btnCerrar;
+        public System.Windows.Forms.CheckBox chkcerrada;
     }
 }

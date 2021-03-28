@@ -65,6 +65,8 @@ namespace KPAPP
             this.txtobser = new System.Windows.Forms.TextBox();
             this.lbldesctarea = new System.Windows.Forms.Label();
             this.lblordentarea = new System.Windows.Forms.Label();
+            this.lblchk1 = new System.Windows.Forms.Label();
+            this.lblchk2 = new System.Windows.Forms.Label();
             this.gbxorden.SuspendLayout();
             this.gbtarea.SuspendLayout();
             this.gbaut2.SuspendLayout();
@@ -174,6 +176,8 @@ namespace KPAPP
             // 
             // gbtarea
             // 
+            this.gbtarea.Controls.Add(this.lblchk2);
+            this.gbtarea.Controls.Add(this.lblchk1);
             this.gbtarea.Controls.Add(this.gbaut2);
             this.gbtarea.Controls.Add(this.chk2);
             this.gbtarea.Controls.Add(this.txtidtarea);
@@ -437,6 +441,28 @@ namespace KPAPP
             this.lblordentarea.TabIndex = 2;
             this.lblordentarea.Text = "Orden de Tarea";
             // 
+            // lblchk1
+            // 
+            this.lblchk1.AutoSize = true;
+            this.lblchk1.ForeColor = System.Drawing.Color.Red;
+            this.lblchk1.Location = new System.Drawing.Point(19, 180);
+            this.lblchk1.Name = "lblchk1";
+            this.lblchk1.Size = new System.Drawing.Size(35, 13);
+            this.lblchk1.TabIndex = 16;
+            this.lblchk1.Text = "label6";
+            this.lblchk1.Visible = false;
+            // 
+            // lblchk2
+            // 
+            this.lblchk2.AutoSize = true;
+            this.lblchk2.ForeColor = System.Drawing.Color.Red;
+            this.lblchk2.Location = new System.Drawing.Point(19, 224);
+            this.lblchk2.Name = "lblchk2";
+            this.lblchk2.Size = new System.Drawing.Size(35, 13);
+            this.lblchk2.TabIndex = 17;
+            this.lblchk2.Text = "label6";
+            this.lblchk2.Visible = false;
+            // 
             // FrmControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,6 +473,7 @@ namespace KPAPP
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmControl";
             this.Text = "Controles de Tarea";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmControl_FormClosed);
             this.Load += new System.EventHandler(this.FrmControl_Load);
             this.gbxorden.ResumeLayout(false);
             this.gbxorden.PerformLayout();
@@ -480,7 +507,6 @@ namespace KPAPP
         private System.Windows.Forms.Label lblordentarea;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.DateTimePicker dtpcontrol;
-        private System.Windows.Forms.CheckBox chk1;
         private System.Windows.Forms.TextBox txtusuariochk;
         private System.Windows.Forms.GroupBox gbauth;
         private System.Windows.Forms.Label label3;
@@ -497,5 +523,8 @@ namespace KPAPP
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtcontraseñachk2;
         private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.CheckBox chk1;
+        public System.Windows.Forms.Label lblchk2;
+        public System.Windows.Forms.Label lblchk1;
     }
 }

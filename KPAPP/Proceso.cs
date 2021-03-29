@@ -18,13 +18,13 @@ namespace KPAPP
             InitializeComponent();
         }
 
-      
+
         public static string rol;
         public static int idusuario;
         public static int idrol;
         public static bool estado;
         public static string usuario;
-        
+
         // FRONT END De los datos a mostrar 
         private void formato()
         {
@@ -40,20 +40,20 @@ namespace KPAPP
             DgvProceso.Columns[10].HeaderText = "FECHA DE TAREA CERRADA";
             DgvProceso.Columns[11].Visible = false;
             txttask.Text = DgvProceso.RowCount.ToString();
-          
+
 
         }
 
-       
-       
+
+
         // Recorre el DGV para calcular cuantas tareas estan completadas. 
-       private void remain()
+        private void remain()
         {
             int rem = 0;
             foreach (DataGridViewRow fila in DgvProceso.Rows)
             {
-              
-                if (Convert.ToString(fila.Cells[8].Value)!="PENDIENTE")
+
+                if (Convert.ToString(fila.Cells[8].Value) != "PENDIENTE")
                 {
                     rem = rem + 1;
                     txttaskcomp.Text = Convert.ToString(rem);
@@ -65,19 +65,19 @@ namespace KPAPP
         // carga los datos de tareas en el gráfico
         private void estadistica()
         {
-            
+
             chart.Series["Tareas"].Points.AddXY("Tareas Totales", txttask.Text);
             chart.Series["Tareas"].Points.AddXY("Tareas Completadas", txttaskcomp.Text);
         }
 
-       
+
         // Lista el proceso de fabricacion 
         private void listarproceso()
         {
 
             DgvProceso.DataSource = NProceso_Fabricacion.ListarProceso(Convert.ToInt32(txtidseleccionado.Text));
 
-           
+
         }
         // En este metodo se cargan todos los metodos a ejecutarse cuando se abre el Form
         private void Proceso_Load(object sender, EventArgs e)
@@ -125,7 +125,7 @@ namespace KPAPP
             if (DgvProceso.CurrentRow.Cells[7].Value.ToString() != "PENDIENTE")
             {
                 frm.chk1.Enabled = false;
-                frm.chk1.Visible = true;
+                frm.lblchk1.Visible = true;
                 frm.lblchk1.Text = "CONTROL UNO REALIZADO";
 
             }
@@ -156,9 +156,9 @@ namespace KPAPP
             chart.Series["Tareas"].Points.Clear();
             estadistica();
             remain();
-            
-           
-      
+
+
+
         }
         // Evalua el estado de la tarea para asignarle un color segun su estado
         private void DgvProceso_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -172,7 +172,7 @@ namespace KPAPP
                 else
                 {
                     e.CellStyle.BackColor = Color.LightGreen;
-                    
+
                 }
             }
             if (DgvProceso.Columns[e.ColumnIndex].Name == "USUARIO_NOMBRE2")
@@ -188,7 +188,7 @@ namespace KPAPP
             }
 
         }
-        
+
         private void DgvProceso_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             ((DataGridViewTextBoxEditingControl)sender).CharacterCasing = CharacterCasing.Upper;
@@ -198,33 +198,13 @@ namespace KPAPP
         {
 
         }
-         
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
 
         }
-       
-        // Modifica el Color de la celda al pasar el mouse 
-        private void DgvProceso_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.RowIndex > -1)
-            {
-                DgvProceso.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.White;
-                DgvProceso.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Black;
-            }
-        }
 
-        private void DgvProceso_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if(e.RowIndex > -1)
-            {
-                DgvProceso.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.CadetBlue;
-                DgvProceso.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.White;
-
-            }
-        }
-
-     
-       
     }
-}
+
+    }
+

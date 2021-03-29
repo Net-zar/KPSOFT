@@ -41,9 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NFabricacion.cs" />
     <Compile Include="NNueva_Fabricacion.cs" />
     <Compile Include="NProceso_Fabricacion.cs" />
     <Compile Include="NRol.cs" />
+    <Compile Include="NTarea.cs" />
     <Compile Include="NUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

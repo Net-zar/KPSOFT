@@ -14,6 +14,7 @@ namespace CEntidades
         public string Observacion { get; set; }
 
         public int Fabricacion_Id { get; set; }
+        public int fabricacion_nro { get; set; }
 
     }
 }

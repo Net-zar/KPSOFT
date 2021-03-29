@@ -209,5 +209,19 @@ namespace KPAPP
             }
             
         }
+
+        private void altaNuevoTipoDeFabricaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevoTipoFabricacion frm = new FrmNuevoTipoFabricacion();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void altaNuevasTareasAsociadasAProcesoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmNuevaTarea frm = new FrmNuevaTarea();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

@@ -66,10 +66,10 @@ namespace KPAPP
             // 
             this.TabGral.Controls.Add(this.tabPage1);
             this.TabGral.Controls.Add(this.tabPage2);
-            this.TabGral.Location = new System.Drawing.Point(13, 13);
+            this.TabGral.Location = new System.Drawing.Point(12, 13);
             this.TabGral.Name = "TabGral";
             this.TabGral.SelectedIndex = 0;
-            this.TabGral.Size = new System.Drawing.Size(1441, 597);
+            this.TabGral.Size = new System.Drawing.Size(933, 429);
             this.TabGral.TabIndex = 0;
             // 
             // tabPage1
@@ -80,7 +80,7 @@ namespace KPAPP
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1433, 571);
+            this.tabPage1.Size = new System.Drawing.Size(1433, 403);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -111,10 +111,10 @@ namespace KPAPP
             this.DgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar});
-            this.DgvListado.Location = new System.Drawing.Point(6, 61);
+            this.DgvListado.Location = new System.Drawing.Point(7, 57);
             this.DgvListado.Name = "DgvListado";
             this.DgvListado.ReadOnly = true;
-            this.DgvListado.Size = new System.Drawing.Size(1421, 504);
+            this.DgvListado.Size = new System.Drawing.Size(829, 307);
             this.DgvListado.TabIndex = 0;
             this.DgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellContentClick);
             this.DgvListado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellContentDoubleClick);
@@ -146,7 +146,7 @@ namespace KPAPP
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1433, 571);
+            this.tabPage2.Size = new System.Drawing.Size(925, 403);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Administracion";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -171,7 +171,7 @@ namespace KPAPP
             this.DgvListado2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvListado2.Location = new System.Drawing.Point(44, 170);
             this.DgvListado2.Name = "DgvListado2";
-            this.DgvListado2.Size = new System.Drawing.Size(1028, 232);
+            this.DgvListado2.Size = new System.Drawing.Size(851, 232);
             this.DgvListado2.TabIndex = 30;
             this.DgvListado2.Visible = false;
             this.DgvListado2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado2_CellClick);
@@ -190,7 +190,7 @@ namespace KPAPP
             this.btnasociar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnasociar.Image = ((System.Drawing.Image)(resources.GetObject("btnasociar.Image")));
             this.btnasociar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnasociar.Location = new System.Drawing.Point(922, 59);
+            this.btnasociar.Location = new System.Drawing.Point(745, 131);
             this.btnasociar.Name = "btnasociar";
             this.btnasociar.Size = new System.Drawing.Size(150, 33);
             this.btnasociar.TabIndex = 28;
@@ -203,7 +203,7 @@ namespace KPAPP
             this.BtnCreaOrden.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BtnCreaOrden.Image = ((System.Drawing.Image)(resources.GetObject("BtnCreaOrden.Image")));
             this.BtnCreaOrden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCreaOrden.Location = new System.Drawing.Point(922, 11);
+            this.BtnCreaOrden.Location = new System.Drawing.Point(576, 131);
             this.BtnCreaOrden.Name = "BtnCreaOrden";
             this.BtnCreaOrden.Size = new System.Drawing.Size(150, 33);
             this.BtnCreaOrden.TabIndex = 26;
@@ -304,7 +304,7 @@ namespace KPAPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1466, 454);
+            this.ClientSize = new System.Drawing.Size(952, 454);
             this.Controls.Add(this.TabGral);
             this.Name = "FrmOrdenes";
             this.Text = "Administracion de Ordenes de Trabajo";

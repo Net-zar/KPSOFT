@@ -77,6 +77,18 @@
     <Compile Include="FrmNuevaFabricacion.Designer.cs">
       <DependentUpon>FrmNuevaFabricacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmNuevaTarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevaTarea.Designer.cs">
+      <DependentUpon>FrmNuevaTarea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNuevoTipoFabricacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNuevoTipoFabricacion.Designer.cs">
+      <DependentUpon>FrmNuevoTipoFabricacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmOrdenes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +141,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevaFabricacion.resx">
       <DependentUpon>FrmNuevaFabricacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevaTarea.resx">
+      <DependentUpon>FrmNuevaTarea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmNuevoTipoFabricacion.resx">
+      <DependentUpon>FrmNuevoTipoFabricacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrdenes.resx">
       <DependentUpon>FrmOrdenes.cs</DependentUpon>

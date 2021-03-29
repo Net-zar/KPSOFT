@@ -51,9 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="DFabricacion.cs" />
     <Compile Include="DNueva_Fabricacion.cs" />
     <Compile Include="DProceso_Fabricacion.cs" />
     <Compile Include="DRol.cs" />
+    <Compile Include="DTarea.cs" />
     <Compile Include="DUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

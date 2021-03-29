@@ -253,9 +253,10 @@ namespace KPAPP
             else
             {
                 frm.chkcerrada.Checked = true;
+                frm.chkcerrada.Enabled = false;
             }
-            
-           
+
+
             frm.Show();
         }
     }

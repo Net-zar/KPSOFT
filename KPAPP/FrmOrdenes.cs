@@ -25,7 +25,7 @@ namespace KPAPP
         public static string usuario;
 
         
-
+        // Limpia los elementos del Formulario
 
         private void Limpiar()
         {
@@ -33,6 +33,8 @@ namespace KPAPP
             txtobs.Clear();
             errorIcono.Clear();
         }
+
+        // Metodos para mostrar los mensajes de OK y Errores
         private void MensajeError(string mensaje)
 
         {
@@ -44,6 +46,7 @@ namespace KPAPP
             MessageBox.Show(mensaje, "Proceso de carga", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        //Lista las Fabricaciones
         public void Listar()
         {
             try
@@ -72,9 +75,10 @@ namespace KPAPP
         private void ListarFabricacion()
         {
 
-            CmbFabric.DataSource = NNueva_Fabricacion.Cmb_Fabricacion();
-            CmbFabric.DisplayMember = "fabricacion_nombre";
             CmbFabric.ValueMember = "idfabricacion";
+            CmbFabric.DisplayMember = "fabricacion_nombre";
+            
+            CmbFabric.DataSource = NNueva_Fabricacion.Cmb_Fabricacion();
         }
 
      
@@ -139,7 +143,8 @@ namespace KPAPP
 
         private void CmbFabric_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ListarFabricacion();
+            
+            TXTIDFAB.Text = CmbFabric.SelectedValue.ToString();
         }
 
         private void BtnCreaOrden_Click(object sender, EventArgs e)
@@ -147,7 +152,7 @@ namespace KPAPP
             try
             {
                 string rpta = "";
-                string rpta2 = "";
+                
 
 
                 if (txtnroorden.Text == string.Empty)
@@ -158,8 +163,7 @@ namespace KPAPP
                 else
                 {
                     rpta = NNueva_Fabricacion.Insertar(dtpfecha.Value, txtobs.Text, Convert.ToInt32(CmbUsuario.SelectedValue), txtnroorden.Text, Convert.ToInt32(CmbFabric.SelectedValue));
-                    rpta2 = NProceso_Fabricacion.Insertar_Proceso();
-
+                  
                     if (rpta.Equals("OK"))
                     {
                         this.MensajeOk("La orden se cargó correctamente");
@@ -185,7 +189,7 @@ namespace KPAPP
 
         private void btnasociar_Click(object sender, EventArgs e)
         {
-            DgvListado2.Visible = true;
+             DgvListado2.Visible = true;
             Listar2();
             lblasociacion.Visible = true;
         }
@@ -210,6 +214,8 @@ namespace KPAPP
                     "Los cambios no pueden deshacerse", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.OK)
                 {
+                   NProceso_Fabricacion.Insertar_Proceso(Convert.ToInt32(CmbFabric.SelectedValue),Convert.ToInt32(txtidgenerado.Text.Trim()));
+
                     NProceso_Fabricacion.Actualizadatosproceso(Convert.ToInt32(CmbUsuario.SelectedValue), dtpfecha.Value, Convert.ToInt32(txtidgenerado.Text));
                     BtnCreaOrden.Enabled = true;
                     btnasociar.Enabled = false;

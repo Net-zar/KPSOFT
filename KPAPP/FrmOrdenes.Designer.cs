@@ -54,6 +54,7 @@ namespace KPAPP
             this.dtpfecha = new System.Windows.Forms.DateTimePicker();
             this.txtnroorden = new System.Windows.Forms.TextBox();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.TXTIDFAB = new System.Windows.Forms.TextBox();
             this.TabGral.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
@@ -80,7 +81,7 @@ namespace KPAPP
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1433, 403);
+            this.tabPage1.Size = new System.Drawing.Size(925, 403);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -128,6 +129,7 @@ namespace KPAPP
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.TXTIDFAB);
             this.tabPage2.Controls.Add(this.lblasociacion);
             this.tabPage2.Controls.Add(this.DgvListado2);
             this.tabPage2.Controls.Add(this.txtidgenerado);
@@ -300,6 +302,13 @@ namespace KPAPP
             // 
             this.errorIcono.ContainerControl = this;
             // 
+            // TXTIDFAB
+            // 
+            this.TXTIDFAB.Location = new System.Drawing.Point(461, 109);
+            this.TXTIDFAB.Name = "TXTIDFAB";
+            this.TXTIDFAB.Size = new System.Drawing.Size(100, 20);
+            this.TXTIDFAB.TabIndex = 32;
+            // 
             // FrmOrdenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,5 +355,6 @@ namespace KPAPP
         private System.Windows.Forms.TextBox txtidgenerado;
         private System.Windows.Forms.DataGridView DgvListado2;
         private System.Windows.Forms.Label lblasociacion;
+        private System.Windows.Forms.TextBox TXTIDFAB;
     }
 }

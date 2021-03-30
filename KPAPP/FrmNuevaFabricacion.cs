@@ -128,7 +128,7 @@ namespace KPAPP
                 else
                 {
                     rpta = NNueva_Fabricacion.Insertar(dtpfecha.Value,txtobs.Text,Convert.ToInt32(CmbUsuario.SelectedValue),txtnroorden.Text,Convert.ToInt32(CmbFabric.SelectedValue));
-                    rpta2 = NProceso_Fabricacion.Insertar_Proceso();
+                   
                     if (rpta.Equals("OK") )
                     {
                         this.MensajeOk("La orden se cargó correctamente");

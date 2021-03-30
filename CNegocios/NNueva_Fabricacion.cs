@@ -25,6 +25,8 @@ namespace CNegocios
 
         }
 
+        
+
         public static DataTable Buscar(string valor)
         {
             DNueva_Fabricacion Datos = new DNueva_Fabricacion();

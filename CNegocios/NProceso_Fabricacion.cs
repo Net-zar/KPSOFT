@@ -11,11 +11,13 @@ namespace CNegocios
    public class NProceso_Fabricacion
     {
 
-        public static string Insertar_Proceso()
+        public static string Insertar_Proceso(int fabricacion_id, int nro_fabricacion)
         {
             DProceso_Fabricacion Datos = new DProceso_Fabricacion();
-
-            return Datos.Insertar_Proceso();
+            EProceso_Fabricacion obj = new EProceso_Fabricacion();
+            obj.Fabricacion_Id = fabricacion_id;
+            obj.Nro_Fabricacion = nro_fabricacion;
+            return Datos.Insertar_Proceso(obj);
 
         }
 

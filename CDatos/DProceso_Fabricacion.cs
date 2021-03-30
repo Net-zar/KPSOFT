@@ -129,7 +129,7 @@ namespace CDatos
                 if (Con.State == ConnectionState.Open) Con.Close();
             }
         }
-        public string Insertar_Proceso()
+        public string Insertar_Proceso(EProceso_Fabricacion obj)
         {
             string rpta = "";
             SqlConnection Con = new SqlConnection();
@@ -138,7 +138,11 @@ namespace CDatos
             {
                 Con = Conexion.getInstancia().CrearConexion();
                 SqlCommand cmd = new SqlCommand("NUEVO_PROCESO", Con);
+
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@fabricacion_id", SqlDbType.Int).Value = obj.Fabricacion_Id;
+                cmd.Parameters.Add("@nro_fabricacion", SqlDbType.Int).Value = obj.Nro_Fabricacion;
+              
              
 
                 Con.Open();

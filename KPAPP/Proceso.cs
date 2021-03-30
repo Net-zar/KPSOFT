@@ -119,6 +119,7 @@ namespace KPAPP
             frm.txtorden.Text = DgvProceso.CurrentRow.Cells[4].Value.ToString();
             frm.txttarea.Text = DgvProceso.CurrentRow.Cells[5].Value.ToString();
             frm.txtobser.Text = DgvProceso.CurrentRow.Cells[9].Value.ToString();
+            
             frm.dtpcontrol.Value = Convert.ToDateTime(DgvProceso.CurrentRow.Cells[10].Value);
             frm.txtidtarea.Text = DgvProceso.CurrentRow.Cells[11].Value.ToString();
 

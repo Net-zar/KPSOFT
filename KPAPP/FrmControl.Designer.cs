@@ -42,6 +42,8 @@ namespace KPAPP
             this.lblusuario = new System.Windows.Forms.Label();
             this.txtusuario = new System.Windows.Forms.TextBox();
             this.gbtarea = new System.Windows.Forms.GroupBox();
+            this.lblchk2 = new System.Windows.Forms.Label();
+            this.lblchk1 = new System.Windows.Forms.Label();
             this.gbaut2 = new System.Windows.Forms.GroupBox();
             this.btnCancelarchk2 = new System.Windows.Forms.Button();
             this.btnAceptarchk2 = new System.Windows.Forms.Button();
@@ -65,8 +67,8 @@ namespace KPAPP
             this.txtobser = new System.Windows.Forms.TextBox();
             this.lbldesctarea = new System.Windows.Forms.Label();
             this.lblordentarea = new System.Windows.Forms.Label();
-            this.lblchk1 = new System.Windows.Forms.Label();
-            this.lblchk2 = new System.Windows.Forms.Label();
+            this.lblCierretarea = new System.Windows.Forms.Label();
+            this.dtpCierre = new System.Windows.Forms.DateTimePicker();
             this.gbxorden.SuspendLayout();
             this.gbtarea.SuspendLayout();
             this.gbaut2.SuspendLayout();
@@ -176,6 +178,8 @@ namespace KPAPP
             // 
             // gbtarea
             // 
+            this.gbtarea.Controls.Add(this.lblCierretarea);
+            this.gbtarea.Controls.Add(this.dtpCierre);
             this.gbtarea.Controls.Add(this.lblchk2);
             this.gbtarea.Controls.Add(this.lblchk1);
             this.gbtarea.Controls.Add(this.gbaut2);
@@ -197,6 +201,28 @@ namespace KPAPP
             this.gbtarea.TabIndex = 9;
             this.gbtarea.TabStop = false;
             this.gbtarea.Text = "Control de Tarea";
+            // 
+            // lblchk2
+            // 
+            this.lblchk2.AutoSize = true;
+            this.lblchk2.ForeColor = System.Drawing.Color.Red;
+            this.lblchk2.Location = new System.Drawing.Point(19, 224);
+            this.lblchk2.Name = "lblchk2";
+            this.lblchk2.Size = new System.Drawing.Size(35, 13);
+            this.lblchk2.TabIndex = 17;
+            this.lblchk2.Text = "label6";
+            this.lblchk2.Visible = false;
+            // 
+            // lblchk1
+            // 
+            this.lblchk1.AutoSize = true;
+            this.lblchk1.ForeColor = System.Drawing.Color.Red;
+            this.lblchk1.Location = new System.Drawing.Point(19, 180);
+            this.lblchk1.Name = "lblchk1";
+            this.lblchk1.Size = new System.Drawing.Size(35, 13);
+            this.lblchk1.TabIndex = 16;
+            this.lblchk1.Text = "label6";
+            this.lblchk1.Visible = false;
             // 
             // gbaut2
             // 
@@ -441,27 +467,22 @@ namespace KPAPP
             this.lblordentarea.TabIndex = 2;
             this.lblordentarea.Text = "Orden de Tarea";
             // 
-            // lblchk1
+            // lblCierretarea
             // 
-            this.lblchk1.AutoSize = true;
-            this.lblchk1.ForeColor = System.Drawing.Color.Red;
-            this.lblchk1.Location = new System.Drawing.Point(19, 180);
-            this.lblchk1.Name = "lblchk1";
-            this.lblchk1.Size = new System.Drawing.Size(35, 13);
-            this.lblchk1.TabIndex = 16;
-            this.lblchk1.Text = "label6";
-            this.lblchk1.Visible = false;
+            this.lblCierretarea.AutoSize = true;
+            this.lblCierretarea.Location = new System.Drawing.Point(473, 93);
+            this.lblCierretarea.Name = "lblCierretarea";
+            this.lblCierretarea.Size = new System.Drawing.Size(80, 13);
+            this.lblCierretarea.TabIndex = 19;
+            this.lblCierretarea.Text = "Cierre de Tarea";
             // 
-            // lblchk2
+            // dtpCierre
             // 
-            this.lblchk2.AutoSize = true;
-            this.lblchk2.ForeColor = System.Drawing.Color.Red;
-            this.lblchk2.Location = new System.Drawing.Point(19, 224);
-            this.lblchk2.Name = "lblchk2";
-            this.lblchk2.Size = new System.Drawing.Size(35, 13);
-            this.lblchk2.TabIndex = 17;
-            this.lblchk2.Text = "label6";
-            this.lblchk2.Visible = false;
+            this.dtpCierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpCierre.Location = new System.Drawing.Point(476, 112);
+            this.dtpCierre.Name = "dtpCierre";
+            this.dtpCierre.Size = new System.Drawing.Size(97, 20);
+            this.dtpCierre.TabIndex = 18;
             // 
             // FrmControl
             // 
@@ -527,5 +548,7 @@ namespace KPAPP
         public System.Windows.Forms.CheckBox chk1;
         public System.Windows.Forms.Label lblchk2;
         public System.Windows.Forms.Label lblchk1;
+        private System.Windows.Forms.Label lblCierretarea;
+        public System.Windows.Forms.DateTimePicker dtpCierre;
     }
 }

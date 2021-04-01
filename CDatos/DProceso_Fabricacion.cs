@@ -240,6 +240,7 @@ namespace CDatos
                 cmd.Parameters.Add("@CONTROLUNO", SqlDbType.Int).Value = obj.ControlUno;
                 cmd.Parameters.Add("@FECHA", SqlDbType.DateTime).Value = obj.Fecha;
                 cmd.Parameters.Add("@NOTAS", SqlDbType.VarChar).Value = obj.Notas;
+               
 
                 Con.Open();
                 rpta3 = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo insertar el registro";
@@ -274,6 +275,8 @@ namespace CDatos
                 cmd.Parameters.Add("@CONTROLDOS", SqlDbType.Int).Value = obj.ControlDos;
                 cmd.Parameters.Add("@FECHA", SqlDbType.DateTime).Value = obj.Fecha;
                 cmd.Parameters.Add("@NOTAS", SqlDbType.VarChar).Value = obj.Notas;
+                cmd.Parameters.Add("@FECHA_FIN", SqlDbType.DateTime).Value = obj.Fecha_Fin;
+                cmd.Parameters.Add("@T_REAL", SqlDbType.Int).Value = obj.T_Real;
 
                 Con.Open();
                 rpta3 = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo insertar el registro";

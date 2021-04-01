@@ -37,13 +37,38 @@ namespace KPAPP
             DgvProceso.Columns[6].HeaderText = "USUARIO";
             DgvProceso.Columns[7].HeaderText = "CONTROL NIVEL 1";
             DgvProceso.Columns[8].HeaderText = "CONTROL NIVEL 2";
-            DgvProceso.Columns[10].HeaderText = "FECHA DE TAREA CERRADA";
+            DgvProceso.Columns[10].HeaderText = "INICIO DE TAREA";
+            DgvProceso.Columns[10].DefaultCellStyle.Format = "dd/MM/yyyy";
             DgvProceso.Columns[11].Visible = false;
+            DgvProceso.Columns[12].HeaderText = "CIERRE DE TAREA";
+            DgvProceso.Columns[13].HeaderText = "TIEMPO DE EJECUCIÓN";
             txttask.Text = DgvProceso.RowCount.ToString();
 
 
         }
 
+
+        // Valida si el usuario puede editar una orden cerrada 
+        private void Permite_Editar()
+        {
+            if (idrol == 1)
+            {
+                if (chkcerrada.Checked == true)
+                {
+                    btnEditar.Visible = true;
+                }
+                
+            }
+        }
+
+
+        private void Muestra_Estadisticas()
+        {
+            if(idrol != 1)
+            {
+                DgvProceso.Columns[13].Visible = false;
+            }
+        }
 
 
         // Recorre el DGV para calcular cuantas tareas estan completadas. 
@@ -62,11 +87,30 @@ namespace KPAPP
             }
         }
 
+
+        //Recorre el DGV para calcular cuantas tareas restan.
+        private void complete()
+        {
+                int convcom= Convert.ToInt32(txttask.Text);
+                int com = convcom;
+                foreach (DataGridViewRow fila in DgvProceso.Rows)
+                {
+
+                    if (Convert.ToString(fila.Cells[8].Value) != "PENDIENTE")
+                    {
+                    com = com - 1 ;
+                    txtrest.Text = Convert.ToString(com);
+                    }
+
+                
+            }
+        }
         // carga los datos de tareas en el gráfico
         private void estadistica()
         {
 
-            chart.Series["Tareas"].Points.AddXY("Tareas Totales", txttask.Text);
+            chart.Series["Tareas"].Points.AddXY("Tareas Pendientes", txtrest.Text);
+           
             chart.Series["Tareas"].Points.AddXY("Tareas Completadas", txttaskcomp.Text);
         }
 
@@ -83,10 +127,13 @@ namespace KPAPP
         private void Proceso_Load(object sender, EventArgs e)
         {
             listarproceso();
+            Permite_Editar();
             formato();
             remain();
+            complete();
             estadistica();
             CierraOrden();
+            Muestra_Estadisticas();
 
         }
         // Evalua el estado de la orden. Si esta cerrada, Bloquea el DGV para su edición.
@@ -121,6 +168,16 @@ namespace KPAPP
             frm.txtobser.Text = DgvProceso.CurrentRow.Cells[9].Value.ToString();
             
             frm.dtpcontrol.Value = Convert.ToDateTime(DgvProceso.CurrentRow.Cells[10].Value);
+            if (DgvProceso.CurrentRow.Cells[12].Value != System.DBNull.Value )
+            {
+
+                frm.dtpCierre.Value = Convert.ToDateTime(DgvProceso.CurrentRow.Cells[12].Value); 
+            }
+            else
+            {
+                frm.dtpCierre.Value = DateTime.Today;
+            }
+
             frm.txtidtarea.Text = DgvProceso.CurrentRow.Cells[11].Value.ToString();
 
             if (DgvProceso.CurrentRow.Cells[7].Value.ToString() != "PENDIENTE")
@@ -157,6 +214,7 @@ namespace KPAPP
             chart.Series["Tareas"].Points.Clear();
             estadistica();
             remain();
+            complete();
 
 
 
@@ -205,6 +263,15 @@ namespace KPAPP
 
         }
 
+        private void chart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            DgvProceso.Enabled = true;
+        }
     }
 
     }

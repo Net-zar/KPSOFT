@@ -39,10 +39,10 @@ namespace KPAPP
             this.lbldescrip = new System.Windows.Forms.Label();
             this.txtdescrip = new System.Windows.Forms.TextBox();
             this.gbnuevatarea = new System.Windows.Forms.GroupBox();
-            this.btnaceptar = new System.Windows.Forms.Button();
-            this.btncancelar = new System.Windows.Forms.Button();
-            this.txtobs = new System.Windows.Forms.TextBox();
             this.lblobs = new System.Windows.Forms.Label();
+            this.txtobs = new System.Windows.Forms.TextBox();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.btnaceptar = new System.Windows.Forms.Button();
             this.cmbbuscar = new System.Windows.Forms.ComboBox();
             this.lblaviso = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtarea)).BeginInit();
@@ -51,6 +51,8 @@ namespace KPAPP
             // 
             // dgvtarea
             // 
+            this.dgvtarea.AllowUserToAddRows = false;
+            this.dgvtarea.AllowUserToDeleteRows = false;
             this.dgvtarea.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvtarea.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvtarea.BackgroundColor = System.Drawing.SystemColors.Window;
@@ -58,6 +60,7 @@ namespace KPAPP
             this.dgvtarea.GridColor = System.Drawing.SystemColors.MenuHighlight;
             this.dgvtarea.Location = new System.Drawing.Point(12, 178);
             this.dgvtarea.Name = "dgvtarea";
+            this.dgvtarea.ReadOnly = true;
             this.dgvtarea.Size = new System.Drawing.Size(776, 260);
             this.dgvtarea.TabIndex = 0;
             this.dgvtarea.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtarea_CellContentClick);
@@ -146,18 +149,23 @@ namespace KPAPP
             this.gbnuevatarea.Text = "Ingrese los datos para la nueva Tarea";
             this.gbnuevatarea.Visible = false;
             // 
-            // btnaceptar
+            // lblobs
             // 
-            this.btnaceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnaceptar.Image")));
-            this.btnaceptar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnaceptar.Location = new System.Drawing.Point(251, 101);
-            this.btnaceptar.Name = "btnaceptar";
-            this.btnaceptar.Size = new System.Drawing.Size(75, 62);
-            this.btnaceptar.TabIndex = 8;
-            this.btnaceptar.Text = "Crear Tarea";
-            this.btnaceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnaceptar.UseVisualStyleBackColor = true;
-            this.btnaceptar.Click += new System.EventHandler(this.btnaceptar_Click);
+            this.lblobs.AutoSize = true;
+            this.lblobs.Location = new System.Drawing.Point(26, 104);
+            this.lblobs.Name = "lblobs";
+            this.lblobs.Size = new System.Drawing.Size(81, 13);
+            this.lblobs.TabIndex = 11;
+            this.lblobs.Text = "Observaciones:";
+            // 
+            // txtobs
+            // 
+            this.txtobs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtobs.Location = new System.Drawing.Point(113, 101);
+            this.txtobs.Multiline = true;
+            this.txtobs.Name = "txtobs";
+            this.txtobs.Size = new System.Drawing.Size(132, 62);
+            this.txtobs.TabIndex = 10;
             // 
             // btncancelar
             // 
@@ -171,23 +179,18 @@ namespace KPAPP
             this.btncancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btncancelar.UseVisualStyleBackColor = true;
             // 
-            // txtobs
+            // btnaceptar
             // 
-            this.txtobs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtobs.Location = new System.Drawing.Point(113, 101);
-            this.txtobs.Multiline = true;
-            this.txtobs.Name = "txtobs";
-            this.txtobs.Size = new System.Drawing.Size(132, 62);
-            this.txtobs.TabIndex = 10;
-            // 
-            // lblobs
-            // 
-            this.lblobs.AutoSize = true;
-            this.lblobs.Location = new System.Drawing.Point(26, 104);
-            this.lblobs.Name = "lblobs";
-            this.lblobs.Size = new System.Drawing.Size(81, 13);
-            this.lblobs.TabIndex = 11;
-            this.lblobs.Text = "Observaciones:";
+            this.btnaceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnaceptar.Image")));
+            this.btnaceptar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnaceptar.Location = new System.Drawing.Point(251, 101);
+            this.btnaceptar.Name = "btnaceptar";
+            this.btnaceptar.Size = new System.Drawing.Size(75, 62);
+            this.btnaceptar.TabIndex = 8;
+            this.btnaceptar.Text = "Crear Tarea";
+            this.btnaceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnaceptar.UseVisualStyleBackColor = true;
+            this.btnaceptar.Click += new System.EventHandler(this.btnaceptar_Click);
             // 
             // cmbbuscar
             // 

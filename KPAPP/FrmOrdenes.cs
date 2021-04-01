@@ -60,18 +60,20 @@ namespace KPAPP
             }
         }
 
-        public void Listar2()
-        {
-            try
-            {
-                DgvListado2.DataSource = NNueva_Fabricacion.Listar();
+        //public void Listar2()
+        //{
+        //    try
+        //    {
+        //        DgvListado2.DataSource = NNueva_Fabricacion.Listar();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error en datos: " + ex.Message + ex.StackTrace);
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error en datos: " + ex.Message + ex.StackTrace);
+        //    }
+        //}
+
+        // Combobox de Fabricación
         private void ListarFabricacion()
         {
 
@@ -81,7 +83,7 @@ namespace KPAPP
             CmbFabric.DataSource = NNueva_Fabricacion.Cmb_Fabricacion();
         }
 
-     
+        //Combobox de Usuario
         private void ListarUsuario()
         {
             CmbUsuario.DataSource = NUsuario.Cmb_Usuario();
@@ -89,7 +91,7 @@ namespace KPAPP
             CmbUsuario.ValueMember = "idusuario";
         }
 
-
+        // Formatea el DGV 
         private void Formato()
         {
             DgvListado.Columns[0].Visible = false;
@@ -103,21 +105,30 @@ namespace KPAPP
         }
 
 
-
+        //----------------- Busca Ordenes por nombre-------------------------------//
         public void Buscar()
         {
             DgvListado.DataSource = NNueva_Fabricacion.Buscar(TxtBuscar.Text);
         }
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            this.Buscar();
+        }
+
+        //------------------------------------------------------------------------//
+
+
+        // Se inserta aca todo los metodos que queremos ejecutar al abrir el formulario
         private void FrmOrdenes_Load(object sender, EventArgs e)
         {
             Listar();
             Formato();
             ListarFabricacion();
             ListarUsuario();
-
+            // Muestra u oculta elementos de Tab Administracion, segun el rol logueado
             if (idrol == 2)
             {
-                lblasociacion.Enabled = false;
+               
                 lblfabricacion.Enabled = false;
                 lblfecha.Enabled = false;
                 lblnroorden.Enabled = false;
@@ -133,28 +144,24 @@ namespace KPAPP
 
            
             btnasociar.Visible = false;
-            lblasociacion.Visible = false;
+          
         }
 
-        private void BtnBuscar_Click(object sender, EventArgs e)
-        {
-            this.Buscar();
-        }
-
+     
+        // asigna el valor seleccionado en el Combo, a un textbox 
         private void CmbFabric_SelectedIndexChanged(object sender, EventArgs e)
         {
             
             TXTIDFAB.Text = CmbFabric.SelectedValue.ToString();
         }
 
+        //------------------------- Crea una nueva orden de trabajo --------------------------------//
         private void BtnCreaOrden_Click(object sender, EventArgs e)
         {
             try
             {
                 string rpta = "";
                 
-
-
                 if (txtnroorden.Text == string.Empty)
                 {
                     this.MensajeError("Ingrese los datos requeridos.");
@@ -187,60 +194,44 @@ namespace KPAPP
             }
         }
 
+
+        // Inserta los el proceso asociado a la fabricacion, y asigna valores default de inicio a las tareas 
         private void btnasociar_Click(object sender, EventArgs e)
         {
-             DgvListado2.Visible = true;
-            Listar2();
-            lblasociacion.Visible = true;
-        }
-
-        private void DgvListado2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
-    private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DgvListado2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            txtidgenerado.Text = DgvListado2.CurrentRow.Cells[0].Value.ToString();
+          
 
             if (txtidgenerado.Text != "")
             {
-                DialogResult resultado = MessageBox.Show("Se asociarán a la orden " + DgvListado2.CurrentRow.Cells[1].Value.ToString() + " las tareas correspondientes a: " + DgvListado2.CurrentRow.Cells[3].Value.ToString(),
+                DialogResult resultado = MessageBox.Show("Se asociarán a la orden " + DgvListado.CurrentRow.Cells[2].Value.ToString() + " las tareas correspondientes a: " + DgvListado.CurrentRow.Cells[4].Value.ToString(),
                     "Los cambios no pueden deshacerse", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (resultado == DialogResult.OK)
                 {
-                   NProceso_Fabricacion.Insertar_Proceso(Convert.ToInt32(CmbFabric.SelectedValue),Convert.ToInt32(txtidgenerado.Text.Trim()));
+                    NProceso_Fabricacion.Insertar_Proceso(Convert.ToInt32(CmbFabric.SelectedValue), Convert.ToInt32(txtidgenerado.Text.Trim()));
 
                     NProceso_Fabricacion.Actualizadatosproceso(Convert.ToInt32(CmbUsuario.SelectedValue), dtpfecha.Value, Convert.ToInt32(txtidgenerado.Text));
                     BtnCreaOrden.Enabled = true;
                     btnasociar.Enabled = false;
-                    DgvListado2.Visible = false;
-                    lblasociacion.Visible = false;
-
+               
                 }
                 else
                 {
                     return;
                 }
-                
+
             }
             else
             {
                 MessageBox.Show("Error");
             }
-
         }
 
-        private void DgvListado_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
+      
 
-        }
 
+
+
+        // ------------ Pasa los valores de la orden seleccionada en el DGV de Ordenes al Formulario de Proceso y lo abre ------------------ //
+        // ------------ El IF verifica si la orden esta cerrada o abierta y setea los bool en los checkbox del formulario de Proceso   -----------------------//
         private void DgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             

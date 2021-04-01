@@ -271,7 +271,7 @@ namespace KPAPP
             this.chart.Size = new System.Drawing.Size(327, 78);
             this.chart.TabIndex = 25;
             this.chart.Text = "chart1";
-            this.chart.Click += new System.EventHandler(this.chart_Click);
+
             // 
             // btnCerrar
             // 
@@ -284,7 +284,7 @@ namespace KPAPP
             this.btnCerrar.Text = "CERRAR ORDEN";
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCerrar.UseVisualStyleBackColor = true;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+       
             // 
             // chkcerrada
             // 

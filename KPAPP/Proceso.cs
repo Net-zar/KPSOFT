@@ -253,20 +253,7 @@ namespace KPAPP
             ((DataGridViewTextBoxEditingControl)sender).CharacterCasing = CharacterCasing.Upper;
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chart_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnEditar_Click(object sender, EventArgs e)
         {

@@ -30,7 +30,7 @@ namespace KPAPP
             MessageBox.Show(mensaje, "Proceso de carga", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         //-------------------------------------------------------------------------------------//
-
+        //-------------------------------------------------------------------------------------//
         private void FrmControl_Load(object sender, EventArgs e)
         {
            
@@ -49,6 +49,7 @@ namespace KPAPP
             }
         }
 
+
         private void chk2_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -59,6 +60,11 @@ namespace KPAPP
                 chk1.Enabled = false;
             }
         }
+
+
+        //-------------------------------------------------------------------------------------//
+        //-------------------------------------------------------------------------------------//
+
 
         // Boton para insertar el Control1 post validacion de usuario y rol 
         private void btnaceptarchk_Click(object sender, EventArgs e)
@@ -90,7 +96,8 @@ namespace KPAPP
                                 Convert.ToInt32(txtidtarea.Text),
                                 Convert.ToInt32(dt.Rows[0][0]),
                                 dtpcontrol.Value,
-                                txtobser.Text);
+                                txtobser.Text
+                                );
 
                             if (rpta.Equals("OK"))
                             {
@@ -117,6 +124,9 @@ namespace KPAPP
             }
         }
 
+        //-------------------------------------------------------------------------------------//
+        //-------------------------------------------------------------------------------------//
+
         // Boton para insertar el Control2 post validacion de usuario y rol 
         private void btnAceptarchk2_Click(object sender, EventArgs e)
         {
@@ -127,6 +137,10 @@ namespace KPAPP
             {
 
                 string rpta = "";
+
+                TimeSpan treal = dtpCierre.Value.Date.Subtract(dtpcontrol.Value.Date);
+
+                int dias = treal.Days +1;
 
                 DataTable dt = new DataTable();
                 dt = NUsuario.Login(txtusuariochk2.Text.Trim(), txtcontraseñachk2.Text.Trim());
@@ -158,7 +172,9 @@ namespace KPAPP
                                     Convert.ToInt32(txtidtarea.Text),
                                     Convert.ToInt32(dt.Rows[0][0]),
                                     dtpcontrol.Value,
-                                    txtobser.Text);
+                                    txtobser.Text,
+                                    dtpCierre.Value,
+                                    dias);
 
                                 if (rpta.Equals("OK"))
                                 {

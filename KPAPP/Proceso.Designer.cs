@@ -54,9 +54,17 @@ namespace KPAPP
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.chkcerrada = new System.Windows.Forms.CheckBox();
+            this.txtrest = new System.Windows.Forms.TextBox();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtdesctarea = new System.Windows.Forms.TextBox();
+            this.txtordentarea = new System.Windows.Forms.TextBox();
+            this.lblorden = new System.Windows.Forms.Label();
+            this.lbldesctarea = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProceso)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // DgvProceso
@@ -77,9 +85,6 @@ namespace KPAPP
             this.DgvProceso.TabIndex = 0;
             this.DgvProceso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProceso_CellContentClick);
             this.DgvProceso.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvProceso_CellFormatting);
-           
- 
-  
             this.DgvProceso.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DgvProceso_EditingControlShowing);
             // 
             // txtidseleccionado
@@ -209,6 +214,7 @@ namespace KPAPP
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtrest);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txttaskcomp);
             this.groupBox1.Controls.Add(this.lbltask);
@@ -250,7 +256,7 @@ namespace KPAPP
             this.chart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(731, 98);
+            this.chart.Location = new System.Drawing.Point(871, 98);
             this.chart.Name = "chart";
             this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series1.ChartArea = "ChartArea1";
@@ -262,9 +268,10 @@ namespace KPAPP
             series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ShadowOffset = 3;
             this.chart.Series.Add(series1);
-            this.chart.Size = new System.Drawing.Size(445, 78);
+            this.chart.Size = new System.Drawing.Size(327, 78);
             this.chart.TabIndex = 25;
             this.chart.Text = "chart1";
+            this.chart.Click += new System.EventHandler(this.chart_Click);
             // 
             // btnCerrar
             // 
@@ -289,6 +296,76 @@ namespace KPAPP
             this.chkcerrada.Text = "Orden Cerrada";
             this.chkcerrada.UseVisualStyleBackColor = true;
             // 
+            // txtrest
+            // 
+            this.txtrest.Location = new System.Drawing.Point(607, 65);
+            this.txtrest.Name = "txtrest";
+            this.txtrest.Size = new System.Drawing.Size(100, 20);
+            this.txtrest.TabIndex = 29;
+            this.txtrest.Visible = false;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEditar.Location = new System.Drawing.Point(168, 98);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(112, 57);
+            this.btnEditar.TabIndex = 29;
+            this.btnEditar.Text = "EDITAR ORDEN";
+            this.btnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Visible = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lbldesctarea);
+            this.groupBox2.Controls.Add(this.lblorden);
+            this.groupBox2.Controls.Add(this.txtordentarea);
+            this.groupBox2.Controls.Add(this.txtdesctarea);
+            this.groupBox2.Location = new System.Drawing.Point(303, 98);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(562, 100);
+            this.groupBox2.TabIndex = 30;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Agregar Tareas Adicionales";
+            this.groupBox2.Visible = false;
+            // 
+            // txtdesctarea
+            // 
+            this.txtdesctarea.Location = new System.Drawing.Point(118, 45);
+            this.txtdesctarea.Name = "txtdesctarea";
+            this.txtdesctarea.Size = new System.Drawing.Size(335, 20);
+            this.txtdesctarea.TabIndex = 0;
+            // 
+            // txtordentarea
+            // 
+            this.txtordentarea.Location = new System.Drawing.Point(118, 19);
+            this.txtordentarea.Name = "txtordentarea";
+            this.txtordentarea.Size = new System.Drawing.Size(70, 20);
+            this.txtordentarea.TabIndex = 1;
+            // 
+            // lblorden
+            // 
+            this.lblorden.AutoSize = true;
+            this.lblorden.Location = new System.Drawing.Point(33, 22);
+            this.lblorden.Name = "lblorden";
+            this.lblorden.Size = new System.Drawing.Size(85, 13);
+            this.lblorden.TabIndex = 2;
+            this.lblorden.Text = "Orden de Tarea:";
+            this.lblorden.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbldesctarea
+            // 
+            this.lbldesctarea.AutoSize = true;
+            this.lbldesctarea.Location = new System.Drawing.Point(6, 48);
+            this.lbldesctarea.Name = "lbldesctarea";
+            this.lbldesctarea.Size = new System.Drawing.Size(112, 13);
+            this.lbldesctarea.TabIndex = 3;
+            this.lbldesctarea.Text = "Descripción de Tarea:";
+            this.lbldesctarea.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Proceso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,6 +373,8 @@ namespace KPAPP
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(1223, 633);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.chart);
             this.Controls.Add(this.btnActualizar);
@@ -309,6 +388,8 @@ namespace KPAPP
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -337,5 +418,12 @@ namespace KPAPP
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.Button btnCerrar;
         public System.Windows.Forms.CheckBox chkcerrada;
+        private System.Windows.Forms.TextBox txtrest;
+        private System.Windows.Forms.Button btnEditar;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lbldesctarea;
+        private System.Windows.Forms.Label lblorden;
+        private System.Windows.Forms.TextBox txtordentarea;
+        private System.Windows.Forms.TextBox txtdesctarea;
     }
 }

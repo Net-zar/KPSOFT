@@ -27,9 +27,9 @@ namespace KPAPP.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress;Initial Catalog=KPDB;Integrated Security=True")]
-        public string Con {
+        public string cn {
             get {
-                return ((string)(this["Con"]));
+                return ((string)(this["cn"]));
             }
         }
     }

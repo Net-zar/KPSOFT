@@ -170,6 +170,7 @@ namespace KPAPP
                 {
                     mnuAccesos.Enabled = false;
                     mnuOrdenes.Enabled = true;
+                    mnualtaprocesos.Enabled = false;
                 }
                 else
                 {
@@ -177,6 +178,8 @@ namespace KPAPP
                     {
                         mnuAccesos.Enabled = false;
                         mnuOrdenes.Enabled = true;
+                        mnualtaprocesos.Enabled = false;
+                        mnuReportes.Enabled = false;
                        
                         
                         
@@ -198,16 +201,14 @@ namespace KPAPP
         
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("Esta seguro que desea salir del sistema?", "Administracion de Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-            if (resultado == DialogResult.OK)
+            DialogResult opcion;
+            opcion = MessageBox.Show("Desea salir del sistema?", "Cerrar Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (opcion == DialogResult.OK)
             {
                 Application.Exit();
-            } else
-            {
-                e.Cancel = true;
             }
-            
+
         }
 
         private void altaNuevoTipoDeFabricaciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -223,5 +224,24 @@ namespace KPAPP
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult opcion;
+            opcion = MessageBox.Show("Desea salir del sistema?", "Cerrar Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (opcion == DialogResult.OK)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void listadoDeTareasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reportes.frmrpttareas frm = new Reportes.frmrpttareas();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+       
     }
 }

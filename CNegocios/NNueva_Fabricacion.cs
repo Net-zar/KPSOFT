@@ -18,10 +18,19 @@ namespace CNegocios
             DNueva_Fabricacion Datos = new DNueva_Fabricacion();
             return Datos.Cmb_Fabricacion();
         }
+
+        public static DataTable Cmb_nueva_fabricacion()
+        {
+            DNueva_Fabricacion Datos = new DNueva_Fabricacion();
+            return Datos.Cmb_Nueva_Fabricacion();
+
+
+        }
         public static DataTable Listar()
         {
             DNueva_Fabricacion Datos = new DNueva_Fabricacion();
             return Datos.Listar();
+
 
         }
 

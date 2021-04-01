@@ -3,3 +3,4 @@ C:\NETZAR\KPSOFT\CEntidades\bin\Debug\CEntidades.pdb
 C:\NETZAR\KPSOFT\CEntidades\obj\Debug\CEntidades.csproj.CoreCompileInputs.cache
 C:\NETZAR\KPSOFT\CEntidades\obj\Debug\CEntidades.dll
 C:\NETZAR\KPSOFT\CEntidades\obj\Debug\CEntidades.pdb
+C:\NETZAR\KPSOFT\CEntidades\obj\Debug\CEntidades.csprojAssemblyReference.cache

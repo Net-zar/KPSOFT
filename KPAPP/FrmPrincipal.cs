@@ -242,6 +242,11 @@ namespace KPAPP
             frm.Show();
         }
 
-       
+        private void administracionDeHerramientasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmHerramientas frm = new FrmHerramientas();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

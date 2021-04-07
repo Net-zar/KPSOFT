@@ -31,9 +31,27 @@ namespace KPAPP
         }
         //-------------------------------------------------------------------------------------//
         //-------------------------------------------------------------------------------------//
+
+        private void Inicializa_Cantidades()
+        {
+            if (txtcantfib.Text == string.Empty)
+            {
+                txtcantfib.Text = "0";
+            }
+            else
+            {
+
+            }
+
+            if (txtcantres.Text == string.Empty)
+            {
+                txtcantres.Text = "0";
+                
+            }
+        }
         private void FrmControl_Load(object sender, EventArgs e)
         {
-           
+            Inicializa_Cantidades();
         }
 
         // Metodos para Mostrar el Login para insertar el control 1 o 2 
@@ -96,12 +114,14 @@ namespace KPAPP
                                 Convert.ToInt32(txtidtarea.Text),
                                 Convert.ToInt32(dt.Rows[0][0]),
                                 dtpcontrol.Value,
-                                txtobser.Text
+                                txtobser.Text,
+                                Convert.ToInt32(txtcantres.Text),
+                                Convert.ToInt32(txtcantfib.Text)
                                 );
 
                             if (rpta.Equals("OK"))
                             {
-                                this.MensajeOk("Control Cargado");
+                                this.MensajeOk("Control NIVEL 1 Cargado");
                                 gbauth.Visible = false;
                                 chk1.Checked = false;
                                 this.Close();
@@ -178,7 +198,7 @@ namespace KPAPP
 
                                 if (rpta.Equals("OK"))
                                 {
-                                    this.MensajeOk("Control Cargado");
+                                    this.MensajeOk("Control NIVEL 2 Cargado");
                                     gbaut2.Visible = false;
                                     chk2.Checked = false;
                                     this.Close();
@@ -207,14 +227,6 @@ namespace KPAPP
             this.Close();
         }
 
-        private void btnCancelarchk_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void FrmControl_FormClosed(object sender, FormClosedEventArgs e)
-        {
-           
-        }
+      
     }
 }

@@ -98,9 +98,12 @@ namespace KPAPP
             DgvListado.Columns[1].Visible = false;
             DgvListado.Columns[2].HeaderText = "NÚMERO DE ORDEN";
             DgvListado.Columns[3].HeaderText = "FECHA DE ORDEN";
+            DgvListado.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy";
             DgvListado.Columns[4].HeaderText = "TIPO DE FABRICACIÓN";
             DgvListado.Columns[5].HeaderText = "USUARIO";
             DgvListado.Columns[6].HeaderText = "NOTAS";
+            DgvListado.Columns[8].DisplayIndex = 7;
+            DgvListado.Columns[8].DefaultCellStyle.Format = "dd/MM/yyyy";
 
         }
 
@@ -255,6 +258,11 @@ namespace KPAPP
 
 
             frm.Show();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Listar();
         }
     }
 }

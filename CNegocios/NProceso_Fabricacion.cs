@@ -62,7 +62,7 @@ namespace CNegocios
             return Datos.ListarProceso(id);
         }
 
-        public static string ActualizaControlUno(int idfabricacion, int idTarea,int controlUno ,DateTime fecha, string notas)
+        public static string ActualizaControlUno(int idfabricacion, int idTarea,int controlUno ,DateTime fecha, string notas, int consumo_Resina, int consumo_Fibra)
         {
             DProceso_Fabricacion Datos = new DProceso_Fabricacion();
             EProceso_Fabricacion obj = new EProceso_Fabricacion();
@@ -71,6 +71,8 @@ namespace CNegocios
             obj.ControlUno = controlUno;
             obj.Fecha = fecha;
             obj.Notas = notas;
+            obj.Consumo_Resina = consumo_Resina;
+            obj.Consumo_Fibra = consumo_Fibra;
             
 
             return Datos.ActualizaControlUno(obj);

@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NDashboard.cs" />
     <Compile Include="NFabricacion.cs" />
+    <Compile Include="NHerramientas.cs" />
     <Compile Include="NNueva_Fabricacion.cs" />
     <Compile Include="NProceso_Fabricacion.cs" />
     <Compile Include="NRol.cs" />

@@ -22,6 +22,8 @@ namespace CEntidades
 
         public int Fabricacion_Id { get; set; }
 
+        public DateTime FechaCierre { get; set; }
+
         public DataTable  Detalles { get; set; }
 
     }

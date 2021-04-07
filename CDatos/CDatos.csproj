@@ -51,7 +51,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="DDashboard.cs" />
     <Compile Include="DFabricacion.cs" />
+    <Compile Include="DHerramientas.cs" />
     <Compile Include="DNueva_Fabricacion.cs" />
     <Compile Include="DProceso_Fabricacion.cs" />
     <Compile Include="DRol.cs" />

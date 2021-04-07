@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CDatos;
 using CEntidades;
 using System.Data;
+using CEntidades;
 
 
 namespace CNegocios
@@ -74,6 +75,19 @@ namespace CNegocios
             return Datos.Eliminar(idnuevafabricacion);
         }
 
+
+        public static string CerrarOrden(int id,bool chk,DateTime fecha_cierre)
+        {
+            DNueva_Fabricacion Datos = new DNueva_Fabricacion();
+            ENueva_Fabricacion obj = new ENueva_Fabricacion();
+            obj.idNuevaFabricacion = id;
+            obj.Completada = chk;
+            obj.FechaCierre = fecha_cierre;
+            return Datos.CerrarOrden(obj);
+        }
+        
+
+        }
       
     }
-}
+

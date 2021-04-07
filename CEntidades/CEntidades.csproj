@@ -42,10 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EFabricacion.cs" />
+    <Compile Include="EHerramientas.cs" />
     <Compile Include="ENueva_Fabricacion.cs" />
     <Compile Include="EProceso_Fabricacion.cs" />
     <Compile Include="ETarea.cs" />
     <Compile Include="EUsuario.cs" />
+    <Compile Include="Orden_Herramienta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ERol.cs" />
   </ItemGroup>

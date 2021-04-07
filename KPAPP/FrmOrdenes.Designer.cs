@@ -54,6 +54,7 @@ namespace KPAPP
             this.dtpfecha = new System.Windows.Forms.DateTimePicker();
             this.txtnroorden = new System.Windows.Forms.TextBox();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.TabGral.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
@@ -74,6 +75,7 @@ namespace KPAPP
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnActualizar);
             this.tabPage1.Controls.Add(this.BtnBuscar);
             this.tabPage1.Controls.Add(this.TxtBuscar);
             this.tabPage1.Controls.Add(this.DgvListado);
@@ -168,7 +170,6 @@ namespace KPAPP
             this.DgvListado2.Size = new System.Drawing.Size(851, 232);
             this.DgvListado2.TabIndex = 30;
             this.DgvListado2.Visible = false;
-          
             // 
             // txtidgenerado
             // 
@@ -292,10 +293,24 @@ namespace KPAPP
             // 
             this.errorIcono.ContainerControl = this;
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.Location = new System.Drawing.Point(7, 370);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(86, 25);
+            this.btnActualizar.TabIndex = 21;
+            this.btnActualizar.Text = "Actualizar ";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // FrmOrdenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(952, 454);
             this.Controls.Add(this.TabGral);
             this.Name = "FrmOrdenes";
@@ -338,5 +353,6 @@ namespace KPAPP
         private System.Windows.Forms.TextBox txtidgenerado;
         private System.Windows.Forms.DataGridView DgvListado2;
         private System.Windows.Forms.TextBox TXTIDFAB;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

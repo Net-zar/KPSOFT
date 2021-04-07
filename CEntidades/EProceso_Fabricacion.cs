@@ -20,6 +20,9 @@ namespace CEntidades
         public int T_Real { get; set; }
         public int Nro_Fabricacion { get; set; }
         public string Notas { get; set; }
+
+        public int Consumo_Resina { get; set; }
+        public int Consumo_Fibra { get; set; }
     
     }
 }

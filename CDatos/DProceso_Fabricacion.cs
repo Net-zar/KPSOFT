@@ -240,6 +240,8 @@ namespace CDatos
                 cmd.Parameters.Add("@CONTROLUNO", SqlDbType.Int).Value = obj.ControlUno;
                 cmd.Parameters.Add("@FECHA", SqlDbType.DateTime).Value = obj.Fecha;
                 cmd.Parameters.Add("@NOTAS", SqlDbType.VarChar).Value = obj.Notas;
+                cmd.Parameters.Add("@CONSUMORESINA", SqlDbType.Int).Value = obj.Consumo_Resina;
+                cmd.Parameters.Add("@CONSUMOFIBRA", SqlDbType.Int).Value = obj.Consumo_Fibra;
                
 
                 Con.Open();
@@ -292,6 +294,11 @@ namespace CDatos
                 if (Con.State == ConnectionState.Open) Con.Close();
             }
             return rpta3;
+
+
+            //--------------------------- CIERRE DE ORDEN -------------------------------//
+            //--------------------------------------------------------------------------//
+
 
         }
 

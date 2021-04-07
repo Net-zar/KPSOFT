@@ -222,9 +222,37 @@ namespace CDatos
             return rpta;
         }
 
-      
 
-        
+        public string CerrarOrden(ENueva_Fabricacion obj)
+        {
+            string rpta = "";
+            SqlConnection Con = new SqlConnection();
+
+            try
+            {
+                Con = Conexion.getInstancia().CrearConexion();
+                SqlCommand cmd = new SqlCommand("cierra_orden", Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = obj.idNuevaFabricacion;
+                cmd.Parameters.Add("@chk", SqlDbType.Bit).Value = obj.Completada;
+                cmd.Parameters.Add("@fecha_cierre", SqlDbType.DateTime).Value = obj.FechaCierre;
+             
+                Con.Open();
+                rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo cerrar la Orden";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open) Con.Close();
+            }
+            return rpta;
+        }
+
 
     }
 }

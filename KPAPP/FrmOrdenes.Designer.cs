@@ -38,7 +38,7 @@ namespace KPAPP
             this.DgvListado = new System.Windows.Forms.DataGridView();
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.lblasociacion = new System.Windows.Forms.Label();
+            this.TXTIDFAB = new System.Windows.Forms.TextBox();
             this.DgvListado2 = new System.Windows.Forms.DataGridView();
             this.txtidgenerado = new System.Windows.Forms.TextBox();
             this.btnasociar = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@ namespace KPAPP
             this.dtpfecha = new System.Windows.Forms.DateTimePicker();
             this.txtnroorden = new System.Windows.Forms.TextBox();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.TXTIDFAB = new System.Windows.Forms.TextBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.TabGral.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
@@ -75,6 +75,7 @@ namespace KPAPP
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btnActualizar);
             this.tabPage1.Controls.Add(this.BtnBuscar);
             this.tabPage1.Controls.Add(this.TxtBuscar);
             this.tabPage1.Controls.Add(this.DgvListado);
@@ -118,7 +119,6 @@ namespace KPAPP
             this.DgvListado.Size = new System.Drawing.Size(829, 307);
             this.DgvListado.TabIndex = 0;
             this.DgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellContentClick);
-            this.DgvListado.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellContentDoubleClick);
             // 
             // Seleccionar
             // 
@@ -130,7 +130,6 @@ namespace KPAPP
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.TXTIDFAB);
-            this.tabPage2.Controls.Add(this.lblasociacion);
             this.tabPage2.Controls.Add(this.DgvListado2);
             this.tabPage2.Controls.Add(this.txtidgenerado);
             this.tabPage2.Controls.Add(this.btnasociar);
@@ -153,17 +152,12 @@ namespace KPAPP
             this.tabPage2.Text = "Administracion";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // lblasociacion
+            // TXTIDFAB
             // 
-            this.lblasociacion.AutoSize = true;
-            this.lblasociacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblasociacion.Location = new System.Drawing.Point(41, 150);
-            this.lblasociacion.Name = "lblasociacion";
-            this.lblasociacion.Size = new System.Drawing.Size(427, 17);
-            this.lblasociacion.TabIndex = 31;
-            this.lblasociacion.Text = "Haga doble click sobre la orden a la que quiere asociar las tareas.";
-            this.lblasociacion.Visible = false;
-            this.lblasociacion.Click += new System.EventHandler(this.label1_Click);
+            this.TXTIDFAB.Location = new System.Drawing.Point(461, 109);
+            this.TXTIDFAB.Name = "TXTIDFAB";
+            this.TXTIDFAB.Size = new System.Drawing.Size(100, 20);
+            this.TXTIDFAB.TabIndex = 32;
             // 
             // DgvListado2
             // 
@@ -176,8 +170,6 @@ namespace KPAPP
             this.DgvListado2.Size = new System.Drawing.Size(851, 232);
             this.DgvListado2.TabIndex = 30;
             this.DgvListado2.Visible = false;
-            this.DgvListado2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado2_CellClick);
-            this.DgvListado2.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado2_CellContentDoubleClick);
             // 
             // txtidgenerado
             // 
@@ -185,7 +177,6 @@ namespace KPAPP
             this.txtidgenerado.Name = "txtidgenerado";
             this.txtidgenerado.Size = new System.Drawing.Size(100, 20);
             this.txtidgenerado.TabIndex = 29;
-            this.txtidgenerado.Visible = false;
             // 
             // btnasociar
             // 
@@ -302,17 +293,24 @@ namespace KPAPP
             // 
             this.errorIcono.ContainerControl = this;
             // 
-            // TXTIDFAB
+            // btnActualizar
             // 
-            this.TXTIDFAB.Location = new System.Drawing.Point(461, 109);
-            this.TXTIDFAB.Name = "TXTIDFAB";
-            this.TXTIDFAB.Size = new System.Drawing.Size(100, 20);
-            this.TXTIDFAB.TabIndex = 32;
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.Location = new System.Drawing.Point(7, 370);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(86, 25);
+            this.btnActualizar.TabIndex = 21;
+            this.btnActualizar.Text = "Actualizar ";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // FrmOrdenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(952, 454);
             this.Controls.Add(this.TabGral);
             this.Name = "FrmOrdenes";
@@ -354,7 +352,7 @@ namespace KPAPP
         private System.Windows.Forms.ErrorProvider errorIcono;
         private System.Windows.Forms.TextBox txtidgenerado;
         private System.Windows.Forms.DataGridView DgvListado2;
-        private System.Windows.Forms.Label lblasociacion;
         private System.Windows.Forms.TextBox TXTIDFAB;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

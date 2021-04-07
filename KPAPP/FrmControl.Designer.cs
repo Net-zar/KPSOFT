@@ -42,6 +42,8 @@ namespace KPAPP
             this.lblusuario = new System.Windows.Forms.Label();
             this.txtusuario = new System.Windows.Forms.TextBox();
             this.gbtarea = new System.Windows.Forms.GroupBox();
+            this.lblCierretarea = new System.Windows.Forms.Label();
+            this.dtpCierre = new System.Windows.Forms.DateTimePicker();
             this.lblchk2 = new System.Windows.Forms.Label();
             this.lblchk1 = new System.Windows.Forms.Label();
             this.gbaut2 = new System.Windows.Forms.GroupBox();
@@ -67,8 +69,10 @@ namespace KPAPP
             this.txtobser = new System.Windows.Forms.TextBox();
             this.lbldesctarea = new System.Windows.Forms.Label();
             this.lblordentarea = new System.Windows.Forms.Label();
-            this.lblCierretarea = new System.Windows.Forms.Label();
-            this.dtpCierre = new System.Windows.Forms.DateTimePicker();
+            this.txtcantres = new System.Windows.Forms.TextBox();
+            this.txtcantfib = new System.Windows.Forms.TextBox();
+            this.lblres = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.gbxorden.SuspendLayout();
             this.gbtarea.SuspendLayout();
             this.gbaut2.SuspendLayout();
@@ -77,7 +81,7 @@ namespace KPAPP
             // 
             // txtorden
             // 
-            this.txtorden.Location = new System.Drawing.Point(19, 58);
+            this.txtorden.Location = new System.Drawing.Point(128, 20);
             this.txtorden.Name = "txtorden";
             this.txtorden.ReadOnly = true;
             this.txtorden.Size = new System.Drawing.Size(100, 20);
@@ -85,7 +89,7 @@ namespace KPAPP
             // 
             // txttarea
             // 
-            this.txttarea.Location = new System.Drawing.Point(159, 58);
+            this.txttarea.Location = new System.Drawing.Point(128, 55);
             this.txttarea.Name = "txttarea";
             this.txttarea.ReadOnly = true;
             this.txttarea.Size = new System.Drawing.Size(290, 20);
@@ -178,6 +182,10 @@ namespace KPAPP
             // 
             // gbtarea
             // 
+            this.gbtarea.Controls.Add(this.label6);
+            this.gbtarea.Controls.Add(this.lblres);
+            this.gbtarea.Controls.Add(this.txtcantfib);
+            this.gbtarea.Controls.Add(this.txtcantres);
             this.gbtarea.Controls.Add(this.lblCierretarea);
             this.gbtarea.Controls.Add(this.dtpCierre);
             this.gbtarea.Controls.Add(this.lblchk2);
@@ -195,18 +203,35 @@ namespace KPAPP
             this.gbtarea.Controls.Add(this.lblordentarea);
             this.gbtarea.Controls.Add(this.txttarea);
             this.gbtarea.Controls.Add(this.txtorden);
-            this.gbtarea.Location = new System.Drawing.Point(15, 150);
+            this.gbtarea.Location = new System.Drawing.Point(8, 108);
             this.gbtarea.Name = "gbtarea";
-            this.gbtarea.Size = new System.Drawing.Size(619, 288);
+            this.gbtarea.Size = new System.Drawing.Size(626, 330);
             this.gbtarea.TabIndex = 9;
             this.gbtarea.TabStop = false;
             this.gbtarea.Text = "Control de Tarea";
+            // 
+            // lblCierretarea
+            // 
+            this.lblCierretarea.AutoSize = true;
+            this.lblCierretarea.Location = new System.Drawing.Point(387, 188);
+            this.lblCierretarea.Name = "lblCierretarea";
+            this.lblCierretarea.Size = new System.Drawing.Size(80, 13);
+            this.lblCierretarea.TabIndex = 19;
+            this.lblCierretarea.Text = "Cierre de Tarea";
+            // 
+            // dtpCierre
+            // 
+            this.dtpCierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpCierre.Location = new System.Drawing.Point(476, 182);
+            this.dtpCierre.Name = "dtpCierre";
+            this.dtpCierre.Size = new System.Drawing.Size(97, 20);
+            this.dtpCierre.TabIndex = 18;
             // 
             // lblchk2
             // 
             this.lblchk2.AutoSize = true;
             this.lblchk2.ForeColor = System.Drawing.Color.Red;
-            this.lblchk2.Location = new System.Drawing.Point(19, 224);
+            this.lblchk2.Location = new System.Drawing.Point(19, 266);
             this.lblchk2.Name = "lblchk2";
             this.lblchk2.Size = new System.Drawing.Size(35, 13);
             this.lblchk2.TabIndex = 17;
@@ -217,7 +242,7 @@ namespace KPAPP
             // 
             this.lblchk1.AutoSize = true;
             this.lblchk1.ForeColor = System.Drawing.Color.Red;
-            this.lblchk1.Location = new System.Drawing.Point(19, 180);
+            this.lblchk1.Location = new System.Drawing.Point(19, 222);
             this.lblchk1.Name = "lblchk1";
             this.lblchk1.Size = new System.Drawing.Size(35, 13);
             this.lblchk1.TabIndex = 16;
@@ -233,7 +258,7 @@ namespace KPAPP
             this.gbaut2.Controls.Add(this.txtcontraseñachk2);
             this.gbaut2.Controls.Add(this.label5);
             this.gbaut2.ForeColor = System.Drawing.Color.Red;
-            this.gbaut2.Location = new System.Drawing.Point(159, 182);
+            this.gbaut2.Location = new System.Drawing.Point(159, 209);
             this.gbaut2.Name = "gbaut2";
             this.gbaut2.Size = new System.Drawing.Size(414, 100);
             this.gbaut2.TabIndex = 15;
@@ -308,7 +333,7 @@ namespace KPAPP
             // 
             this.chk2.AutoSize = true;
             this.chk2.ForeColor = System.Drawing.Color.Red;
-            this.chk2.Location = new System.Drawing.Point(19, 239);
+            this.chk2.Location = new System.Drawing.Point(19, 281);
             this.chk2.Name = "chk2";
             this.chk2.Size = new System.Drawing.Size(110, 17);
             this.chk2.TabIndex = 15;
@@ -318,7 +343,7 @@ namespace KPAPP
             // 
             // txtidtarea
             // 
-            this.txtidtarea.Location = new System.Drawing.Point(159, 16);
+            this.txtidtarea.Location = new System.Drawing.Point(22, 142);
             this.txtidtarea.Name = "txtidtarea";
             this.txtidtarea.Size = new System.Drawing.Size(100, 20);
             this.txtidtarea.TabIndex = 14;
@@ -333,7 +358,7 @@ namespace KPAPP
             this.gbauth.Controls.Add(this.txtcontraseñachk);
             this.gbauth.Controls.Add(this.lblusuariochk);
             this.gbauth.ForeColor = System.Drawing.Color.Red;
-            this.gbauth.Location = new System.Drawing.Point(159, 182);
+            this.gbauth.Location = new System.Drawing.Point(159, 209);
             this.gbauth.Name = "gbauth";
             this.gbauth.Size = new System.Drawing.Size(414, 100);
             this.gbauth.TabIndex = 13;
@@ -352,7 +377,7 @@ namespace KPAPP
             this.btnCancelarchk.Text = "Cancelar";
             this.btnCancelarchk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelarchk.UseVisualStyleBackColor = true;
-            this.btnCancelarchk.Click += new System.EventHandler(this.btnCancelarchk_Click);
+         
             // 
             // btnaceptarchk
             // 
@@ -407,7 +432,7 @@ namespace KPAPP
             // chk1
             // 
             this.chk1.AutoSize = true;
-            this.chk1.Location = new System.Drawing.Point(19, 199);
+            this.chk1.Location = new System.Drawing.Point(19, 241);
             this.chk1.Name = "chk1";
             this.chk1.Size = new System.Drawing.Size(110, 17);
             this.chk1.TabIndex = 8;
@@ -418,7 +443,7 @@ namespace KPAPP
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(473, 39);
+            this.label2.Location = new System.Drawing.Point(183, 190);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 13);
             this.label2.TabIndex = 7;
@@ -427,7 +452,7 @@ namespace KPAPP
             // dtpcontrol
             // 
             this.dtpcontrol.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpcontrol.Location = new System.Drawing.Point(476, 58);
+            this.dtpcontrol.Location = new System.Drawing.Point(283, 183);
             this.dtpcontrol.Name = "dtpcontrol";
             this.dtpcontrol.Size = new System.Drawing.Size(97, 20);
             this.dtpcontrol.TabIndex = 6;
@@ -435,15 +460,15 @@ namespace KPAPP
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 93);
+            this.label1.Location = new System.Drawing.Point(2, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 13);
+            this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Notas / Observaciones";
+            this.label1.Text = "Notas / Observaciones:";
             // 
             // txtobser
             // 
-            this.txtobser.Location = new System.Drawing.Point(159, 90);
+            this.txtobser.Location = new System.Drawing.Point(128, 90);
             this.txtobser.Multiline = true;
             this.txtobser.Name = "txtobser";
             this.txtobser.Size = new System.Drawing.Size(290, 72);
@@ -452,37 +477,54 @@ namespace KPAPP
             // lbldesctarea
             // 
             this.lbldesctarea.AutoSize = true;
-            this.lbldesctarea.Location = new System.Drawing.Point(156, 39);
+            this.lbldesctarea.Location = new System.Drawing.Point(10, 58);
             this.lbldesctarea.Name = "lbldesctarea";
-            this.lbldesctarea.Size = new System.Drawing.Size(109, 13);
+            this.lbldesctarea.Size = new System.Drawing.Size(112, 13);
             this.lbldesctarea.TabIndex = 3;
-            this.lbldesctarea.Text = "Descripción de Tarea";
+            this.lbldesctarea.Text = "Descripción de Tarea:";
             // 
             // lblordentarea
             // 
             this.lblordentarea.AutoSize = true;
-            this.lblordentarea.Location = new System.Drawing.Point(19, 39);
+            this.lblordentarea.Location = new System.Drawing.Point(37, 23);
             this.lblordentarea.Name = "lblordentarea";
-            this.lblordentarea.Size = new System.Drawing.Size(82, 13);
+            this.lblordentarea.Size = new System.Drawing.Size(85, 13);
             this.lblordentarea.TabIndex = 2;
-            this.lblordentarea.Text = "Orden de Tarea";
+            this.lblordentarea.Text = "Orden de Tarea:";
             // 
-            // lblCierretarea
+            // txtcantres
             // 
-            this.lblCierretarea.AutoSize = true;
-            this.lblCierretarea.Location = new System.Drawing.Point(473, 93);
-            this.lblCierretarea.Name = "lblCierretarea";
-            this.lblCierretarea.Size = new System.Drawing.Size(80, 13);
-            this.lblCierretarea.TabIndex = 19;
-            this.lblCierretarea.Text = "Cierre de Tarea";
+            this.txtcantres.Location = new System.Drawing.Point(501, 90);
+            this.txtcantres.Name = "txtcantres";
+            this.txtcantres.Size = new System.Drawing.Size(72, 20);
+            this.txtcantres.TabIndex = 20;
+          
             // 
-            // dtpCierre
+            // txtcantfib
             // 
-            this.dtpCierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpCierre.Location = new System.Drawing.Point(476, 112);
-            this.dtpCierre.Name = "dtpCierre";
-            this.dtpCierre.Size = new System.Drawing.Size(97, 20);
-            this.dtpCierre.TabIndex = 18;
+            this.txtcantfib.Location = new System.Drawing.Point(504, 142);
+            this.txtcantfib.Name = "txtcantfib";
+            this.txtcantfib.Size = new System.Drawing.Size(69, 20);
+            this.txtcantfib.TabIndex = 21;
+ 
+            // 
+            // lblres
+            // 
+            this.lblres.AutoSize = true;
+            this.lblres.Location = new System.Drawing.Point(454, 74);
+            this.lblres.Name = "lblres";
+            this.lblres.Size = new System.Drawing.Size(119, 13);
+            this.lblres.TabIndex = 22;
+            this.lblres.Text = "Kg de Resina Utilizados";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(464, 126);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Kg de Fibra Utilizados";
             // 
             // FrmControl
             // 
@@ -495,7 +537,7 @@ namespace KPAPP
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmControl";
             this.Text = "Controles de Tarea";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmControl_FormClosed);
+       
             this.Load += new System.EventHandler(this.FrmControl_Load);
             this.gbxorden.ResumeLayout(false);
             this.gbxorden.PerformLayout();
@@ -550,5 +592,9 @@ namespace KPAPP
         public System.Windows.Forms.Label lblchk1;
         private System.Windows.Forms.Label lblCierretarea;
         public System.Windows.Forms.DateTimePicker dtpCierre;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblres;
+        public System.Windows.Forms.TextBox txtcantfib;
+        public System.Windows.Forms.TextBox txtcantres;
     }
 }

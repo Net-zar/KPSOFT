@@ -89,3 +89,7 @@ C:\NETZAR\KPSOFT\KPAPP\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resource
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.Reportes.frmrpttareas.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\RdlCompile.cache
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\RdlCompile.compiled
+C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmHerramientas.resources
+C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmAgregaHerramientas.resources
+C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.Reportes.FrmRptListarHerramientas.resources
+C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.frmDashboard.resources

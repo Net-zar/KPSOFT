@@ -46,6 +46,7 @@ namespace KPAPP
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.administracionDeHerramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +92,8 @@ namespace KPAPP
             this.mnualtaprocesos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaNuevoTipoDeFabricaciónToolStripMenuItem,
             this.altaNuevosProcesosAsociadosAFabricaciónToolStripMenuItem,
-            this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem});
+            this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem,
+            this.administracionDeHerramientasToolStripMenuItem});
             this.mnualtaprocesos.Name = "mnualtaprocesos";
             this.mnualtaprocesos.Size = new System.Drawing.Size(163, 20);
             this.mnualtaprocesos.Text = "Administracion de Ordenes";
@@ -164,6 +166,13 @@ namespace KPAPP
             this.statusBar.Size = new System.Drawing.Size(42, 17);
             this.statusBar.Text = "Estado";
             // 
+            // administracionDeHerramientasToolStripMenuItem
+            // 
+            this.administracionDeHerramientasToolStripMenuItem.Name = "administracionDeHerramientasToolStripMenuItem";
+            this.administracionDeHerramientasToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
+            this.administracionDeHerramientasToolStripMenuItem.Text = "Administracion de Herramientas";
+            this.administracionDeHerramientasToolStripMenuItem.Click += new System.EventHandler(this.administracionDeHerramientasToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -206,6 +215,7 @@ namespace KPAPP
         private System.Windows.Forms.ToolStripMenuItem altaNuevasTareasAsociadasAProcesoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoDeTareasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem administracionDeHerramientasToolStripMenuItem;
     }
 }
 

@@ -18,6 +18,20 @@ namespace KPAPP
             InitializeComponent();
         }
 
+        // Metodos para mostrar Mensajes 
+        private void MensajeError(string mensaje)
+
+        {
+            MessageBox.Show(mensaje, "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void MensajeOk(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Proceso de carga", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        //-------------------------------------------------------------------------------------//
+        //-------------------------------------------------------------------------------------//
+
 
         public static string rol;
         public static int idusuario;
@@ -28,6 +42,14 @@ namespace KPAPP
         // FRONT END De los datos a mostrar 
         private void formato()
         {
+            //Formato de Encabezado de la orden
+            dtpfechaorden.Enabled = false;
+            txtusrorden.Enabled = false;
+            txtnrofabricacion.Enabled = false;
+            txttask.Enabled = false;
+            txttaskcomp.Enabled = false;
+
+            //Formato DGV
             DgvProceso.Columns[0].Visible = false;
             DgvProceso.Columns[1].Visible = false;
             DgvProceso.Columns[2].Visible = false;
@@ -41,7 +63,13 @@ namespace KPAPP
             DgvProceso.Columns[10].DefaultCellStyle.Format = "dd/MM/yyyy";
             DgvProceso.Columns[11].Visible = false;
             DgvProceso.Columns[12].HeaderText = "CIERRE DE TAREA";
+            DgvProceso.Columns[12].DefaultCellStyle.Format = "dd/MM/yyyy";
             DgvProceso.Columns[13].HeaderText = "TIEMPO DE EJECUCIÓN";
+            DgvProceso.Columns[14].HeaderText = "CONSUMO DE RESINA (Kg)";
+            DgvProceso.Columns[14].DisplayIndex = 11;
+            DgvProceso.Columns[15].HeaderText = "CONSUMO DE FIBRA (Kg)";
+            DgvProceso.Columns[15].DisplayIndex = 12;
+            
             txttask.Text = DgvProceso.RowCount.ToString();
 
 
@@ -49,13 +77,38 @@ namespace KPAPP
 
 
         // Valida si el usuario puede editar una orden cerrada 
+        
+        private void Muestra_Herramientas()
+        {
+            if (idrol == 1 || idrol ==3)
+            {
+                btnherramientas.Enabled = true;
+                btnCerrar.Enabled = true;
+
+            }
+            else
+            {
+                btnherramientas.Enabled = false;
+                btnCerrar.Enabled = false;
+                
+            }
+        }
         private void Permite_Editar()
         {
+
+            
             if (idrol == 1)
             {
+
                 if (chkcerrada.Checked == true)
                 {
+                    
+                    btnherramientas.Visible = true;
                     btnEditar.Visible = true;
+                }
+                else
+                {
+                    
                 }
                 
             }
@@ -128,6 +181,7 @@ namespace KPAPP
         {
             listarproceso();
             Permite_Editar();
+            Muestra_Herramientas();
             formato();
             remain();
             complete();
@@ -166,6 +220,8 @@ namespace KPAPP
             frm.txtorden.Text = DgvProceso.CurrentRow.Cells[4].Value.ToString();
             frm.txttarea.Text = DgvProceso.CurrentRow.Cells[5].Value.ToString();
             frm.txtobser.Text = DgvProceso.CurrentRow.Cells[9].Value.ToString();
+            frm.txtcantfib.Text = DgvProceso.CurrentRow.Cells[14].Value.ToString();
+            frm.txtcantres.Text = DgvProceso.CurrentRow.Cells[15].Value.ToString();
             
             frm.dtpcontrol.Value = Convert.ToDateTime(DgvProceso.CurrentRow.Cells[10].Value);
             if (DgvProceso.CurrentRow.Cells[12].Value != System.DBNull.Value )
@@ -180,23 +236,26 @@ namespace KPAPP
 
             frm.txtidtarea.Text = DgvProceso.CurrentRow.Cells[11].Value.ToString();
 
-            if (DgvProceso.CurrentRow.Cells[7].Value.ToString() != "PENDIENTE")
+            if (DgvProceso.CurrentRow.Cells[7].Value.ToString() == "PENDIENTE")
             {
+                frm.chk1.Enabled = true;
+                frm.lblchk1.Visible = false;
+                frm.chk2.Enabled = false;
+            }
+            else
+            {
+
                 frm.chk1.Enabled = false;
                 frm.lblchk1.Visible = true;
                 frm.lblchk1.Text = "CONTROL UNO REALIZADO";
 
-            }
-            else
-            {
-                frm.chk1.Enabled = true;
             }
             if (DgvProceso.CurrentRow.Cells[8].Value.ToString() != "PENDIENTE")
             {
                 frm.chk2.Enabled = false;
                 frm.lblchk2.Visible = true;
                 frm.lblchk2.Text = "CONTROL DOS REALIZADO";
-
+                
             }
             else
             {
@@ -253,14 +312,117 @@ namespace KPAPP
             ((DataGridViewTextBoxEditingControl)sender).CharacterCasing = CharacterCasing.Upper;
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
+        
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            DgvProceso.Enabled = true;
+        }
+
+        private void btnherramientas_Click(object sender, EventArgs e)
+        {
+            FrmAgregaHerramientas frm = new FrmAgregaHerramientas();
+            frm.txtid.Text = txtidseleccionado.Text;
+            frm.txtnroorden.Text = txtnrofabricacion.Text;
+
+            frm.Show();
+        }
+
+        private void btnverherramientas_Click(object sender, EventArgs e)
+        {
+            Reportes.FrmRptListarHerramientas frm = new Reportes.FrmRptListarHerramientas();
+            frm.txtidbusqueda.Text = txtidseleccionado.Text;
+            frm.Show();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            GbCerrar.Visible = true;
+            btnverherramientas.Visible = false;
+            btnherramientas.Visible = false;
+            btnCerrar.Visible = false;
+            btnEditar.Visible = false;
+            btnActualizar.Visible = false;
+        }
 
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (checkBox1.Checked == true)
+            {
+                gbautcerrar.Visible = true;
+                GbCerrar.Visible = false;
+            }
+            
+        }
+
+        private void btnAceptarchk2_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+
+        //----------------------- CONTROL PARA CERRAR LA ORDEN --------------------------//
+        private void btncierraorden_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+                // Valida si existe el usuario y si tiene los permisos
+                string rpta = "";
+                DataTable dt = new DataTable();
+                dt = NUsuario.Login(txtusuariochkcerrar.Text.Trim(), txtcontraseñachkcerrar.Text.Trim());
+                // Verifica si el usuario existe
+                if (dt.Rows.Count <= 0)
+                {
+                    MessageBox.Show("El usuario o la clave no existe.", "Validación de usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                else
+                {
+                    //Verifica si el usuario esta activo 
+                    if (Convert.ToBoolean(dt.Rows[0][4]) == false)
+                    {
+                        MessageBox.Show("Este usuario no está activo", "Acceso al sistema", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (checkBox1.Checked == true)
+                        {
+                            rpta = NNueva_Fabricacion.CerrarOrden(
+                                Convert.ToInt32(txtidseleccionado.Text),
+                                Convert.ToBoolean(checkBox1.Checked),
+                                dtpcierre.Value
+
+                                );
+
+                            if (rpta.Equals("OK"))
+                            {
+                               DialogResult resultado = MessageBox.Show("La Orden " + txtnrofabricacion.Text + " ha sidor cerrada por el usuario: " + txtusuariochkcerrar.Text, "ORDEN CERRADA",
+                                   MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                if (resultado == DialogResult.OK)
+                                {
+                               
+                                    this.Close();
+                                    
+                                }  
+
+                            }
+                            else
+                            {
+                                this.MensajeError(rpta);
+                                this.Close();
+                            }
+                        }
+
+                    }
+              
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void chart_Click(object sender, EventArgs e)
@@ -268,9 +430,32 @@ namespace KPAPP
 
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void chartconsumo_Click(object sender, EventArgs e)
         {
-            DgvProceso.Enabled = true;
+
+        }
+
+        private void btnDash_Click(object sender, EventArgs e)
+        {
+            frmDashboard frm = new frmDashboard();
+            frm.txtnrofabricacion.Text = txtidseleccionado.Text;
+            frm.dtpfechaorden.Value = dtpfechaorden.Value;
+            frm.dtpCierre.Value = dtpcierre.Value;
+            //if (DgvProceso.CurrentRow.Cells[12].Value != System.DBNull.Value)
+            //{
+
+            //    frm.dtpCierre.Value = Convert.ToDateTime(DgvProceso.CurrentRow.Cells[12].Value);
+            //}
+            //else
+            //{
+            //    frm.dtpCierre.Value = DateTime.Today;
+            //}
+            frm.txtidseleccionado.Text = txtidseleccionado.Text;
+            frm.txtnroorden.Text = txtnrofabricacion.Text;
+            frm.txtusrorden.Text = txtusrorden.Text;
+            frm.txtnotas.Text = txtnotas.Text;
+            frm.Show();
+
         }
     }
 

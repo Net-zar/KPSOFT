@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAgregaHerramientas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregaHerramientas.Designer.cs">
+      <DependentUpon>FrmAgregaHerramientas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAsociaTask.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,18 @@
     </Compile>
     <Compile Include="FrmControl.Designer.cs">
       <DependentUpon>FrmControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDashboard.Designer.cs">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmHerramientas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHerramientas.Designer.cs">
+      <DependentUpon>FrmHerramientas.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -150,6 +168,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\DsHerramientas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsHerramientas.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DSTareas.cs">
       <DependentUpon>DSTareas.xsd</DependentUpon>
     </Compile>
@@ -158,6 +181,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DSTareas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FrmRptListarHerramientas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmRptListarHerramientas.Designer.cs">
+      <DependentUpon>FrmRptListarHerramientas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\frmrpttareas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,11 +194,20 @@
       <DependentUpon>frmrpttareas.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="FrmAgregaHerramientas.resx">
+      <DependentUpon>FrmAgregaHerramientas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAsociaTask.resx">
       <DependentUpon>FrmAsociaTask.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmControl.resx">
       <DependentUpon>FrmControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDashboard.resx">
+      <DependentUpon>frmDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHerramientas.resx">
+      <DependentUpon>FrmHerramientas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -213,10 +251,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reportes\FrmRptListarHerramientas.resx">
+      <DependentUpon>FrmRptListarHerramientas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmrpttareas.resx">
       <DependentUpon>frmrpttareas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\rptTareas.rdlc" />
+    <EmbeddedResource Include="Reportes\rpt_listar_tareas.rdlc" />
     <None Include="KPDBDataSet.xsc">
       <DependentUpon>KPDBDataSet.xsd</DependentUpon>
     </None>
@@ -238,6 +280,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Reportes\DsHerramientas.xsc">
+      <DependentUpon>DsHerramientas.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DsHerramientas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsHerramientas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DsHerramientas.xss">
+      <DependentUpon>DsHerramientas.xsd</DependentUpon>
+    </None>
     <None Include="Reportes\DSTareas.xsc">
       <DependentUpon>DSTareas.xsd</DependentUpon>
     </None>

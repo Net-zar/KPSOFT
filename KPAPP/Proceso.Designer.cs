@@ -30,9 +30,6 @@ namespace KPAPP
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Proceso));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.DgvProceso = new System.Windows.Forms.DataGridView();
             this.txtidseleccionado = new System.Windows.Forms.TextBox();
             this.txtnrofabricacion = new System.Windows.Forms.TextBox();
@@ -50,21 +47,30 @@ namespace KPAPP
             this.label4 = new System.Windows.Forms.Label();
             this.txttaskcomp = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtrest = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.chkcerrada = new System.Windows.Forms.CheckBox();
-            this.txtrest = new System.Windows.Forms.TextBox();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtdesctarea = new System.Windows.Forms.TextBox();
-            this.txtordentarea = new System.Windows.Forms.TextBox();
-            this.lblorden = new System.Windows.Forms.Label();
-            this.lbldesctarea = new System.Windows.Forms.Label();
+            this.btnherramientas = new System.Windows.Forms.Button();
+            this.btnverherramientas = new System.Windows.Forms.Button();
+            this.GbCerrar = new System.Windows.Forms.GroupBox();
+            this.dtpcierre = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gbautcerrar = new System.Windows.Forms.GroupBox();
+            this.btnCancelarchk2 = new System.Windows.Forms.Button();
+            this.txtusuariochkcerrar = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtcontraseñachkcerrar = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btncierraorden = new System.Windows.Forms.Button();
+            this.btnDash = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProceso)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.GbCerrar.SuspendLayout();
+            this.gbautcerrar.SuspendLayout();
             this.SuspendLayout();
             // 
             // DgvProceso
@@ -78,10 +84,10 @@ namespace KPAPP
             this.DgvProceso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvProceso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvProceso.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.DgvProceso.Location = new System.Drawing.Point(13, 205);
+            this.DgvProceso.Location = new System.Drawing.Point(13, 259);
             this.DgvProceso.Name = "DgvProceso";
             this.DgvProceso.ReadOnly = true;
-            this.DgvProceso.Size = new System.Drawing.Size(1198, 416);
+            this.DgvProceso.Size = new System.Drawing.Size(1185, 416);
             this.DgvProceso.TabIndex = 0;
             this.DgvProceso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProceso_CellContentClick);
             this.DgvProceso.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvProceso_CellFormatting);
@@ -237,11 +243,19 @@ namespace KPAPP
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Orden";
             // 
+            // txtrest
+            // 
+            this.txtrest.Location = new System.Drawing.Point(607, 65);
+            this.txtrest.Name = "txtrest";
+            this.txtrest.Size = new System.Drawing.Size(100, 20);
+            this.txtrest.TabIndex = 29;
+            this.txtrest.Visible = false;
+            // 
             // btnActualizar
             // 
             this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
             this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizar.Location = new System.Drawing.Point(14, 174);
+            this.btnActualizar.Location = new System.Drawing.Point(12, 228);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(112, 25);
             this.btnActualizar.TabIndex = 20;
@@ -250,36 +264,13 @@ namespace KPAPP
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
-            // chart
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(871, 98);
-            this.chart.Name = "chart";
-            this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Color = System.Drawing.Color.White;
-            series1.IsValueShownAsLabel = true;
-            series1.Legend = "Legend1";
-            series1.Name = "Tareas";
-            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
-            series1.ShadowOffset = 3;
-            this.chart.Series.Add(series1);
-            this.chart.Size = new System.Drawing.Size(327, 78);
-            this.chart.TabIndex = 25;
-            this.chart.Text = "chart1";
-            this.chart.Click += new System.EventHandler(this.chart_Click);
-            // 
             // btnCerrar
             // 
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCerrar.Location = new System.Drawing.Point(14, 98);
+            this.btnCerrar.Location = new System.Drawing.Point(246, 94);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(112, 58);
+            this.btnCerrar.Size = new System.Drawing.Size(110, 66);
             this.btnCerrar.TabIndex = 26;
             this.btnCerrar.Text = "CERRAR ORDEN";
             this.btnCerrar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -289,28 +280,20 @@ namespace KPAPP
             // chkcerrada
             // 
             this.chkcerrada.AutoSize = true;
-            this.chkcerrada.Location = new System.Drawing.Point(14, 138);
+            this.chkcerrada.Location = new System.Drawing.Point(14, 181);
             this.chkcerrada.Name = "chkcerrada";
             this.chkcerrada.Size = new System.Drawing.Size(95, 17);
             this.chkcerrada.TabIndex = 28;
             this.chkcerrada.Text = "Orden Cerrada";
             this.chkcerrada.UseVisualStyleBackColor = true;
             // 
-            // txtrest
-            // 
-            this.txtrest.Location = new System.Drawing.Point(607, 65);
-            this.txtrest.Name = "txtrest";
-            this.txtrest.Size = new System.Drawing.Size(100, 20);
-            this.txtrest.TabIndex = 29;
-            this.txtrest.Visible = false;
-            // 
             // btnEditar
             // 
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEditar.Location = new System.Drawing.Point(168, 98);
+            this.btnEditar.Location = new System.Drawing.Point(364, 94);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(112, 57);
+            this.btnEditar.Size = new System.Drawing.Size(110, 65);
             this.btnEditar.TabIndex = 29;
             this.btnEditar.Text = "EDITAR ORDEN";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -318,53 +301,177 @@ namespace KPAPP
             this.btnEditar.Visible = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
-            // groupBox2
+            // btnherramientas
             // 
-            this.groupBox2.Controls.Add(this.lbldesctarea);
-            this.groupBox2.Controls.Add(this.lblorden);
-            this.groupBox2.Controls.Add(this.txtordentarea);
-            this.groupBox2.Controls.Add(this.txtdesctarea);
-            this.groupBox2.Location = new System.Drawing.Point(303, 98);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(562, 100);
-            this.groupBox2.TabIndex = 30;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Agregar Tareas Adicionales";
-            this.groupBox2.Visible = false;
+            this.btnherramientas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnherramientas.Image = ((System.Drawing.Image)(resources.GetObject("btnherramientas.Image")));
+            this.btnherramientas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnherramientas.Location = new System.Drawing.Point(130, 94);
+            this.btnherramientas.Name = "btnherramientas";
+            this.btnherramientas.Size = new System.Drawing.Size(110, 66);
+            this.btnherramientas.TabIndex = 31;
+            this.btnherramientas.Text = "AGREGAR HERRAMIENTAS";
+            this.btnherramientas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnherramientas.UseVisualStyleBackColor = true;
+            this.btnherramientas.Click += new System.EventHandler(this.btnherramientas_Click);
             // 
-            // txtdesctarea
+            // btnverherramientas
             // 
-            this.txtdesctarea.Location = new System.Drawing.Point(118, 45);
-            this.txtdesctarea.Name = "txtdesctarea";
-            this.txtdesctarea.Size = new System.Drawing.Size(335, 20);
-            this.txtdesctarea.TabIndex = 0;
+            this.btnverherramientas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnverherramientas.Image = ((System.Drawing.Image)(resources.GetObject("btnverherramientas.Image")));
+            this.btnverherramientas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnverherramientas.Location = new System.Drawing.Point(14, 94);
+            this.btnverherramientas.Name = "btnverherramientas";
+            this.btnverherramientas.Size = new System.Drawing.Size(110, 66);
+            this.btnverherramientas.TabIndex = 32;
+            this.btnverherramientas.Text = "VER HERRAMIENTAS";
+            this.btnverherramientas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnverherramientas.UseVisualStyleBackColor = true;
+            this.btnverherramientas.Click += new System.EventHandler(this.btnverherramientas_Click);
             // 
-            // txtordentarea
+            // GbCerrar
             // 
-            this.txtordentarea.Location = new System.Drawing.Point(118, 19);
-            this.txtordentarea.Name = "txtordentarea";
-            this.txtordentarea.Size = new System.Drawing.Size(70, 20);
-            this.txtordentarea.TabIndex = 1;
+            this.GbCerrar.Controls.Add(this.label6);
+            this.GbCerrar.Controls.Add(this.checkBox1);
+            this.GbCerrar.Controls.Add(this.label5);
+            this.GbCerrar.Controls.Add(this.dtpcierre);
+            this.GbCerrar.Location = new System.Drawing.Point(502, 98);
+            this.GbCerrar.Name = "GbCerrar";
+            this.GbCerrar.Size = new System.Drawing.Size(177, 155);
+            this.GbCerrar.TabIndex = 33;
+            this.GbCerrar.TabStop = false;
+            this.GbCerrar.Text = "Cerrar Orden";
+            this.GbCerrar.Visible = false;
             // 
-            // lblorden
+            // dtpcierre
             // 
-            this.lblorden.AutoSize = true;
-            this.lblorden.Location = new System.Drawing.Point(33, 22);
-            this.lblorden.Name = "lblorden";
-            this.lblorden.Size = new System.Drawing.Size(85, 13);
-            this.lblorden.TabIndex = 2;
-            this.lblorden.Text = "Orden de Tarea:";
-            this.lblorden.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.dtpcierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpcierre.Location = new System.Drawing.Point(39, 42);
+            this.dtpcierre.Name = "dtpcierre";
+            this.dtpcierre.Size = new System.Drawing.Size(94, 20);
+            this.dtpcierre.TabIndex = 0;
             // 
-            // lbldesctarea
+            // label5
             // 
-            this.lbldesctarea.AutoSize = true;
-            this.lbldesctarea.Location = new System.Drawing.Point(6, 48);
-            this.lbldesctarea.Name = "lbldesctarea";
-            this.lbldesctarea.Size = new System.Drawing.Size(112, 13);
-            this.lbldesctarea.TabIndex = 3;
-            this.lbldesctarea.Text = "Descripción de Tarea:";
-            this.lbldesctarea.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(45, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Fecha de Cierre";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.ForeColor = System.Drawing.Color.Red;
+            this.checkBox1.Location = new System.Drawing.Point(30, 102);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(113, 17);
+            this.checkBox1.TabIndex = 2;
+            this.checkBox1.Text = "CERRAR ORDEN";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 122);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(139, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "(Deberá ingresar su usuario)";
+            // 
+            // gbautcerrar
+            // 
+            this.gbautcerrar.Controls.Add(this.btncierraorden);
+            this.gbautcerrar.Controls.Add(this.btnCancelarchk2);
+            this.gbautcerrar.Controls.Add(this.txtusuariochkcerrar);
+            this.gbautcerrar.Controls.Add(this.label7);
+            this.gbautcerrar.Controls.Add(this.txtcontraseñachkcerrar);
+            this.gbautcerrar.Controls.Add(this.label8);
+            this.gbautcerrar.ForeColor = System.Drawing.Color.Red;
+            this.gbautcerrar.Location = new System.Drawing.Point(502, 98);
+            this.gbautcerrar.Name = "gbautcerrar";
+            this.gbautcerrar.Size = new System.Drawing.Size(177, 155);
+            this.gbautcerrar.TabIndex = 34;
+            this.gbautcerrar.TabStop = false;
+            this.gbautcerrar.Text = "Ingrese sus credenciales";
+            this.gbautcerrar.Visible = false;
+            // 
+            // btnCancelarchk2
+            // 
+            this.btnCancelarchk2.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarchk2.Image")));
+            this.btnCancelarchk2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarchk2.Location = new System.Drawing.Point(47, 124);
+            this.btnCancelarchk2.Name = "btnCancelarchk2";
+            this.btnCancelarchk2.Size = new System.Drawing.Size(75, 25);
+            this.btnCancelarchk2.TabIndex = 14;
+            this.btnCancelarchk2.Text = "Cancelar";
+            this.btnCancelarchk2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelarchk2.UseVisualStyleBackColor = true;
+            // 
+            // txtusuariochkcerrar
+            // 
+            this.txtusuariochkcerrar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtusuariochkcerrar.Location = new System.Drawing.Point(37, 32);
+            this.txtusuariochkcerrar.Name = "txtusuariochkcerrar";
+            this.txtusuariochkcerrar.Size = new System.Drawing.Size(101, 20);
+            this.txtusuariochkcerrar.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(53, 56);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Contraseña:";
+            // 
+            // txtcontraseñachkcerrar
+            // 
+            this.txtcontraseñachkcerrar.Location = new System.Drawing.Point(15, 72);
+            this.txtcontraseñachkcerrar.Name = "txtcontraseñachkcerrar";
+            this.txtcontraseñachkcerrar.PasswordChar = '*';
+            this.txtcontraseñachkcerrar.Size = new System.Drawing.Size(145, 20);
+            this.txtcontraseñachkcerrar.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(62, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(46, 13);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "Usuario:";
+            // 
+            // btncierraorden
+            // 
+            this.btncierraorden.ForeColor = System.Drawing.Color.Black;
+            this.btncierraorden.Image = ((System.Drawing.Image)(resources.GetObject("btncierraorden.Image")));
+            this.btncierraorden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncierraorden.Location = new System.Drawing.Point(47, 97);
+            this.btncierraorden.Name = "btncierraorden";
+            this.btncierraorden.Size = new System.Drawing.Size(75, 25);
+            this.btncierraorden.TabIndex = 15;
+            this.btncierraorden.Text = "Aceptar";
+            this.btncierraorden.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btncierraorden.UseVisualStyleBackColor = true;
+            this.btncierraorden.Click += new System.EventHandler(this.btncierraorden_Click);
+            // 
+            // btnDash
+            // 
+            this.btnDash.Image = ((System.Drawing.Image)(resources.GetObject("btnDash.Image")));
+            this.btnDash.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnDash.Location = new System.Drawing.Point(1088, 95);
+            this.btnDash.Name = "btnDash";
+            this.btnDash.Size = new System.Drawing.Size(110, 65);
+            this.btnDash.TabIndex = 35;
+            this.btnDash.Text = "DASHBOARD";
+            this.btnDash.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnDash.UseVisualStyleBackColor = true;
+            this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
             // 
             // Proceso
             // 
@@ -372,11 +479,14 @@ namespace KPAPP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1223, 633);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(1223, 740);
+            this.Controls.Add(this.btnDash);
+            this.Controls.Add(this.gbautcerrar);
+            this.Controls.Add(this.GbCerrar);
+            this.Controls.Add(this.btnverherramientas);
+            this.Controls.Add(this.btnherramientas);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnCerrar);
-            this.Controls.Add(this.chart);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DgvProceso);
@@ -387,9 +497,10 @@ namespace KPAPP
             ((System.ComponentModel.ISupportInitialize)(this.DgvProceso)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.GbCerrar.ResumeLayout(false);
+            this.GbCerrar.PerformLayout();
+            this.gbautcerrar.ResumeLayout(false);
+            this.gbautcerrar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -415,15 +526,24 @@ namespace KPAPP
         public System.Windows.Forms.TextBox txttaskcomp;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.Button btnCerrar;
         public System.Windows.Forms.CheckBox chkcerrada;
         private System.Windows.Forms.TextBox txtrest;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lbldesctarea;
-        private System.Windows.Forms.Label lblorden;
-        private System.Windows.Forms.TextBox txtordentarea;
-        private System.Windows.Forms.TextBox txtdesctarea;
+        private System.Windows.Forms.Button btnherramientas;
+        private System.Windows.Forms.Button btnverherramientas;
+        private System.Windows.Forms.GroupBox GbCerrar;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DateTimePicker dtpcierre;
+        private System.Windows.Forms.GroupBox gbautcerrar;
+        private System.Windows.Forms.Button btnCancelarchk2;
+        private System.Windows.Forms.TextBox txtusuariochkcerrar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtcontraseñachkcerrar;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btncierraorden;
+        private System.Windows.Forms.Button btnDash;
     }
 }

@@ -42,6 +42,10 @@ namespace KPAPP
             this.lblusuario = new System.Windows.Forms.Label();
             this.txtusuario = new System.Windows.Forms.TextBox();
             this.gbtarea = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblres = new System.Windows.Forms.Label();
+            this.txtcantfib = new System.Windows.Forms.TextBox();
+            this.txtcantres = new System.Windows.Forms.TextBox();
             this.lblCierretarea = new System.Windows.Forms.Label();
             this.dtpCierre = new System.Windows.Forms.DateTimePicker();
             this.lblchk2 = new System.Windows.Forms.Label();
@@ -69,10 +73,6 @@ namespace KPAPP
             this.txtobser = new System.Windows.Forms.TextBox();
             this.lbldesctarea = new System.Windows.Forms.Label();
             this.lblordentarea = new System.Windows.Forms.Label();
-            this.txtcantres = new System.Windows.Forms.TextBox();
-            this.txtcantfib = new System.Windows.Forms.TextBox();
-            this.lblres = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.gbxorden.SuspendLayout();
             this.gbtarea.SuspendLayout();
             this.gbaut2.SuspendLayout();
@@ -209,6 +209,40 @@ namespace KPAPP
             this.gbtarea.TabIndex = 9;
             this.gbtarea.TabStop = false;
             this.gbtarea.Text = "Control de Tarea";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(464, 126);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(109, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Kg de Fibra Utilizados";
+            // 
+            // lblres
+            // 
+            this.lblres.AutoSize = true;
+            this.lblres.Location = new System.Drawing.Point(454, 74);
+            this.lblres.Name = "lblres";
+            this.lblres.Size = new System.Drawing.Size(119, 13);
+            this.lblres.TabIndex = 22;
+            this.lblres.Text = "Kg de Resina Utilizados";
+            // 
+            // txtcantfib
+            // 
+            this.txtcantfib.Location = new System.Drawing.Point(504, 142);
+            this.txtcantfib.Name = "txtcantfib";
+            this.txtcantfib.Size = new System.Drawing.Size(69, 20);
+            this.txtcantfib.TabIndex = 21;
+            this.txtcantfib.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantfib_KeyPress);
+            // 
+            // txtcantres
+            // 
+            this.txtcantres.Location = new System.Drawing.Point(501, 90);
+            this.txtcantres.Name = "txtcantres";
+            this.txtcantres.Size = new System.Drawing.Size(72, 20);
+            this.txtcantres.TabIndex = 20;
+            this.txtcantres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtcantres_KeyPress);
             // 
             // lblCierretarea
             // 
@@ -377,7 +411,6 @@ namespace KPAPP
             this.btnCancelarchk.Text = "Cancelar";
             this.btnCancelarchk.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelarchk.UseVisualStyleBackColor = true;
-         
             // 
             // btnaceptarchk
             // 
@@ -492,40 +525,6 @@ namespace KPAPP
             this.lblordentarea.TabIndex = 2;
             this.lblordentarea.Text = "Orden de Tarea:";
             // 
-            // txtcantres
-            // 
-            this.txtcantres.Location = new System.Drawing.Point(501, 90);
-            this.txtcantres.Name = "txtcantres";
-            this.txtcantres.Size = new System.Drawing.Size(72, 20);
-            this.txtcantres.TabIndex = 20;
-          
-            // 
-            // txtcantfib
-            // 
-            this.txtcantfib.Location = new System.Drawing.Point(504, 142);
-            this.txtcantfib.Name = "txtcantfib";
-            this.txtcantfib.Size = new System.Drawing.Size(69, 20);
-            this.txtcantfib.TabIndex = 21;
- 
-            // 
-            // lblres
-            // 
-            this.lblres.AutoSize = true;
-            this.lblres.Location = new System.Drawing.Point(454, 74);
-            this.lblres.Name = "lblres";
-            this.lblres.Size = new System.Drawing.Size(119, 13);
-            this.lblres.TabIndex = 22;
-            this.lblres.Text = "Kg de Resina Utilizados";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(464, 126);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 13);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Kg de Fibra Utilizados";
-            // 
             // FrmControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -537,7 +536,6 @@ namespace KPAPP
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmControl";
             this.Text = "Controles de Tarea";
-       
             this.Load += new System.EventHandler(this.FrmControl_Load);
             this.gbxorden.ResumeLayout(false);
             this.gbxorden.PerformLayout();

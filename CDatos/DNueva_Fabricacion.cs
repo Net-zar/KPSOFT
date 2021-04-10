@@ -72,6 +72,34 @@ namespace CDatos
             }
         }
 
+        public DataTable Cmb_estado()
+        {
+            // se inicializa la clase Datareader para leer los datos de la base
+            SqlDataReader Dr;
+            // se declara el datatable para guardar la tabla en memoria
+            DataTable Dt = new DataTable();
+            SqlConnection Con = new SqlConnection();
+
+            try
+            {
+                Con = Conexion.getInstancia().CrearConexion();
+                SqlCommand cmd = new SqlCommand("estado_orden", Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                Con.Open();
+                Dr = cmd.ExecuteReader();
+                Dt.Load(Dr);
+                return Dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open) Con.Close();
+            }
+        }
         public DataTable Listar()
         {
             // se inicializa la clase Datareader para leer los datos de la base
@@ -236,6 +264,7 @@ namespace CDatos
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = obj.idNuevaFabricacion;
                 cmd.Parameters.Add("@chk", SqlDbType.Bit).Value = obj.Completada;
                 cmd.Parameters.Add("@fecha_cierre", SqlDbType.DateTime).Value = obj.FechaCierre;
+                cmd.Parameters.Add("@ESTADO", SqlDbType.VarChar).Value = obj.Estado;
              
                 Con.Open();
                 rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo cerrar la Orden";

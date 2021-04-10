@@ -23,5 +23,7 @@ namespace CNegocios
             obj.Fabricacion_Nombre = valor;
             return Datos.Insertar(obj);
         }
+
+       
     }
 }

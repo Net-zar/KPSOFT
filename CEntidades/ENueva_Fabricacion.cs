@@ -24,6 +24,7 @@ namespace CEntidades
 
         public DateTime FechaCierre { get; set; }
 
+        public string Estado { get; set; }
         public DataTable  Detalles { get; set; }
 
     }

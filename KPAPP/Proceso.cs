@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CNegocios;
 
+
 namespace KPAPP
 {
     public partial class Proceso : Form
@@ -93,17 +94,42 @@ namespace KPAPP
                 
             }
         }
+        // Muestra el Panel de control segun rol
+        private void Muestra_Dashboard()
+        {
+            if (idrol == 1 || idrol == 3)
+            {
+                btnDash.Enabled = true;
+                btncargaplano.Enabled = true;
+
+            }
+            else
+            {
+                btnDash.Enabled = false;
+                btncargaplano.Enabled = false;
+
+            }
+        }
+
+        private void cmb_estado()
+        {
+            cmbestado.ValueMember = "estado";
+            cmbestado.DisplayMember = "estado";
+            cmbestado.DataSource = NNueva_Fabricacion.cmb_estado();
+            cmbestado.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        // Verifica el rol del usuario para editar Herramientas
         private void Permite_Editar()
         {
 
-            
             if (idrol == 1)
             {
 
                 if (chkcerrada.Checked == true)
                 {
                     
-                    btnherramientas.Visible = true;
+                    btnherramientas.Enabled = true;
                     btnEditar.Visible = true;
                 }
                 else
@@ -114,7 +140,7 @@ namespace KPAPP
             }
         }
 
-
+        // verifica el rol del usuario para verificar desvios de tiempos
         private void Muestra_Estadisticas()
         {
             if(idrol != 1)
@@ -123,6 +149,7 @@ namespace KPAPP
             }
         }
 
+     
 
         // Recorre el DGV para calcular cuantas tareas estan completadas. 
         private void remain()
@@ -158,14 +185,6 @@ namespace KPAPP
                 
             }
         }
-        // carga los datos de tareas en el gráfico
-        private void estadistica()
-        {
-
-            chart.Series["Tareas"].Points.AddXY("Tareas Pendientes", txtrest.Text);
-           
-            chart.Series["Tareas"].Points.AddXY("Tareas Completadas", txttaskcomp.Text);
-        }
 
 
         // Lista el proceso de fabricacion 
@@ -185,9 +204,10 @@ namespace KPAPP
             formato();
             remain();
             complete();
-            estadistica();
+            Muestra_Dashboard();
             CierraOrden();
             Muestra_Estadisticas();
+            cmb_estado();
 
         }
         // Evalua el estado de la orden. Si esta cerrada, Bloquea el DGV para su edición.
@@ -200,9 +220,12 @@ namespace KPAPP
             }
             else
             {
-                btnCerrar.Visible = false;
+                btnCerrar.Enabled = false;
                 chkcerrada.Visible = true;
                 DgvProceso.Enabled = false;
+                btnherramientas.Enabled = false;
+                btnverplano.Enabled = false;
+                btncargaplano.Enabled = false;
             }
         }
 
@@ -269,14 +292,8 @@ namespace KPAPP
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             listarproceso();
-
-            chart.Series["Tareas"].Points.Clear();
-            estadistica();
             remain();
             complete();
-
-
-
         }
         // Evalua el estado de la tarea para asignarle un color segun su estado
         private void DgvProceso_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -316,9 +333,11 @@ namespace KPAPP
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            chkcerrada.Enabled = true;
             DgvProceso.Enabled = true;
         }
 
+        // Abre el Form de Herramientas para la orden seleccionada
         private void btnherramientas_Click(object sender, EventArgs e)
         {
             FrmAgregaHerramientas frm = new FrmAgregaHerramientas();
@@ -327,7 +346,7 @@ namespace KPAPP
 
             frm.Show();
         }
-
+        // abre el listado de herramientas 
         private void btnverherramientas_Click(object sender, EventArgs e)
         {
             Reportes.FrmRptListarHerramientas frm = new Reportes.FrmRptListarHerramientas();
@@ -335,6 +354,8 @@ namespace KPAPP
             frm.Show();
         }
 
+
+        // abre los groupbox para cerrar la orden 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             GbCerrar.Visible = true;
@@ -361,13 +382,16 @@ namespace KPAPP
            
         }
 
+        private void BuscarPlano()
+        {
 
+        }
         //----------------------- CONTROL PARA CERRAR LA ORDEN --------------------------//
         private void btncierraorden_Click(object sender, EventArgs e)
         {
             try
             {
-               
+
                 // Valida si existe el usuario y si tiene los permisos
                 string rpta = "";
                 DataTable dt = new DataTable();
@@ -387,36 +411,45 @@ namespace KPAPP
                     }
                     else
                     {
-                        if (checkBox1.Checked == true)
+                        if (Convert.ToInt32(dt.Rows[0][1])==2)
                         {
-                            rpta = NNueva_Fabricacion.CerrarOrden(
-                                Convert.ToInt32(txtidseleccionado.Text),
-                                Convert.ToBoolean(checkBox1.Checked),
-                                dtpcierre.Value
-
-                                );
-
-                            if (rpta.Equals("OK"))
+                            MessageBox.Show("El usuario no posee permisos para realizar el cierre", "Cierre de Orden");
+                        }
+                        else
+                        {
+                            if (checkBox1.Checked == true)
                             {
-                               DialogResult resultado = MessageBox.Show("La Orden " + txtnrofabricacion.Text + " ha sidor cerrada por el usuario: " + txtusuariochkcerrar.Text, "ORDEN CERRADA",
-                                   MessageBoxButtons.OK,MessageBoxIcon.Information);
-                                if (resultado == DialogResult.OK)
+                                rpta = NNueva_Fabricacion.CerrarOrden(
+                                    Convert.ToInt32(txtidseleccionado.Text),
+                                    Convert.ToBoolean(checkBox1.Checked),
+                                    dtpcierre.Value,
+                                    Convert.ToString(cmbestado.SelectedValue)
+
+                                    );
+
+                                if (rpta.Equals("OK"))
                                 {
-                               
-                                    this.Close();
-                                    
-                                }  
+                                    DialogResult resultado = MessageBox.Show("La Orden " + txtnrofabricacion.Text + " ha sidor cerrada por el usuario: "
+                                        + txtusuariochkcerrar.Text + "con estado: " + Convert.ToString(cmbestado.SelectedValue), "ORDEN CERRADA",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    if (resultado == DialogResult.OK)
+                                    {
 
+                                        this.Close();
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    this.MensajeError(rpta);
+                                    this.Close();
+                                }
                             }
-                            else
-                            {
-                                this.MensajeError(rpta);
-                                this.Close();
-                            }
+
                         }
 
                     }
-              
                 }
             }
             catch (Exception ex)
@@ -456,6 +489,69 @@ namespace KPAPP
             frm.txtnotas.Text = txtnotas.Text;
             frm.Show();
 
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               
+                DataTable dt = new DataTable();
+                dt = NDocum.Buscar(Convert.ToInt32(txtidseleccionado.Text));
+           
+
+                if (dt.Rows.Count <= 0)
+                {
+                    MessageBox.Show("No se ha encontrado ningun documento asociado", "Error de Lectura");
+                }
+                else
+                {
+                    string ruta = Convert.ToString(dt.Rows[0][0]);
+                   
+                    System.Diagnostics.Process.Start(ruta);
+                }
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+
+            }
+
+            //System.Diagnostics.Process.Start();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog1.ShowDialog()== DialogResult.OK)
+            {
+                lblruta.Text = openFileDialog1.FileName;
+                
+                string rpta = "";
+                if (lblruta.Text != string.Empty)
+                {
+                  rpta=  NDocum.Insertar(txtusrorden.Text, lblruta.Text, Convert.ToInt32(txtidseleccionado.Text));
+
+                    if (rpta.Equals("OK"))
+                    {
+                        this.MensajeOk("Documento Cargado");
+                       
+
+                    }
+                    else
+                    {
+                        this.MensajeError(rpta);
+                        this.Close();
+
+                    }
+
+                }
+            }
+        }
+
+        private void btnCancelarchk2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

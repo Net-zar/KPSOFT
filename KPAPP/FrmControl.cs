@@ -194,7 +194,10 @@ namespace KPAPP
                                     dtpcontrol.Value,
                                     txtobser.Text,
                                     dtpCierre.Value,
-                                    dias);
+                                    dias,
+                                      Convert.ToInt32(txtcantres.Text),
+                                Convert.ToInt32(txtcantfib.Text)
+                                    );
 
                                 if (rpta.Equals("OK"))
                                 {
@@ -227,6 +230,24 @@ namespace KPAPP
             this.Close();
         }
 
-      
+        private void txtcantres_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtcantfib_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }

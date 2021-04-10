@@ -201,14 +201,7 @@ namespace KPAPP
         
         private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
-
-            DialogResult opcion;
-            opcion = MessageBox.Show("Desea salir del sistema?", "Cerrar Sistema", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (opcion == DialogResult.OK)
-            {
-                Application.Exit();
-            }
-
+            Application.Exit();         
         }
 
         private void altaNuevoTipoDeFabricaciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -246,6 +239,12 @@ namespace KPAPP
         {
             FrmHerramientas frm = new FrmHerramientas();
             frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reporteDeOrdenesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reportes.frmrptOrdenes frm = new Reportes.frmrptOrdenes();
             frm.Show();
         }
     }

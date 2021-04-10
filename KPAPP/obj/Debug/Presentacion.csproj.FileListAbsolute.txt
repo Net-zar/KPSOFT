@@ -93,3 +93,8 @@ C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmHerramientas.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmAgregaHerramientas.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.Reportes.FrmRptListarHerramientas.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.frmDashboard.resources
+C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.Reportes.frmrptOrdenes.resources
+C:\NETZAR\KPSOFT\KPAPP\bin\Debug\KPAPP.exe.manifest
+C:\NETZAR\KPSOFT\KPAPP\bin\Debug\KPAPP.application
+C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.exe.manifest
+C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.application

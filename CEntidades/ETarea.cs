@@ -16,5 +16,6 @@ namespace CEntidades
         public int Fabricacion_Id { get; set; }
         public int fabricacion_nro { get; set; }
 
+        public int Tarea_Existe { get; set; }
     }
 }

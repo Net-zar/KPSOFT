@@ -9,10 +9,10 @@
               <Width>5.33104cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.18792cm</Width>
+              <Width>2.39479cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>10.62271cm</Width>
+              <Width>6.83917cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>9.90833cm</Width>
@@ -20,7 +20,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.99688cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -37,7 +37,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -70,7 +72,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
@@ -103,7 +107,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
@@ -136,7 +142,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox7</rd:DefaultName>
@@ -304,8 +312,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.32516cm</Top>
         <Left>0.52599cm</Left>
-        <Height>1.2cm</Height>
-        <Width>29.05cm</Width>
+        <Height>1.59688cm</Height>
+        <Width>24.47333cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -409,7 +417,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>6.04167in</Height>
     <Style />
   </Body>
   <Width>12.57292in</Width>

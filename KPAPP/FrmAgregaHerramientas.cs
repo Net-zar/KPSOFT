@@ -47,6 +47,8 @@ namespace KPAPP
             Listar_Herramienta_orden();
         }
 
+       
+
         private void DgvAgHerramientas_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             gbagrega.Visible = true;

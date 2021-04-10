@@ -77,7 +77,7 @@ namespace CNegocios
 
             return Datos.ActualizaControlUno(obj);
         }
-        public static string ActualizaControlDos(int idfabricacion, int idTarea, int controlDos, DateTime fecha, string notas, DateTime fecha_fin, int t_real)
+        public static string ActualizaControlDos(int idfabricacion, int idTarea, int controlDos, DateTime fecha, string notas, DateTime fecha_fin, int t_real, int consumo_resina,int consumo_fibra)
         {
             DProceso_Fabricacion Datos = new DProceso_Fabricacion();
             EProceso_Fabricacion obj = new EProceso_Fabricacion();
@@ -88,6 +88,8 @@ namespace CNegocios
             obj.Notas = notas;
             obj.Fecha_Fin=fecha_fin;
             obj.T_Real = t_real;
+            obj.Consumo_Resina = consumo_resina;
+            obj.Consumo_Fibra = consumo_fibra;
             return Datos.ActualizaControlDos(obj);
         }
     }

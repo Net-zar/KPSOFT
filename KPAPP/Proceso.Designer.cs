@@ -55,18 +55,24 @@ namespace KPAPP
             this.btnherramientas = new System.Windows.Forms.Button();
             this.btnverherramientas = new System.Windows.Forms.Button();
             this.GbCerrar = new System.Windows.Forms.GroupBox();
-            this.dtpcierre = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtpcierre = new System.Windows.Forms.DateTimePicker();
             this.gbautcerrar = new System.Windows.Forms.GroupBox();
+            this.btncierraorden = new System.Windows.Forms.Button();
             this.btnCancelarchk2 = new System.Windows.Forms.Button();
             this.txtusuariochkcerrar = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtcontraseñachkcerrar = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.btncierraorden = new System.Windows.Forms.Button();
             this.btnDash = new System.Windows.Forms.Button();
+            this.btnverplano = new System.Windows.Forms.Button();
+            this.btncargaplano = new System.Windows.Forms.Button();
+            this.lblruta = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbestado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProceso)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.GbCerrar.SuspendLayout();
@@ -84,10 +90,10 @@ namespace KPAPP
             this.DgvProceso.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.DgvProceso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvProceso.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.DgvProceso.Location = new System.Drawing.Point(13, 259);
+            this.DgvProceso.Location = new System.Drawing.Point(13, 257);
             this.DgvProceso.Name = "DgvProceso";
             this.DgvProceso.ReadOnly = true;
-            this.DgvProceso.Size = new System.Drawing.Size(1185, 416);
+            this.DgvProceso.Size = new System.Drawing.Size(1185, 406);
             this.DgvProceso.TabIndex = 0;
             this.DgvProceso.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProceso_CellContentClick);
             this.DgvProceso.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvProceso_CellFormatting);
@@ -255,7 +261,7 @@ namespace KPAPP
             // 
             this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
             this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizar.Location = new System.Drawing.Point(12, 228);
+            this.btnActualizar.Location = new System.Drawing.Point(14, 681);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(112, 25);
             this.btnActualizar.TabIndex = 20;
@@ -280,7 +286,7 @@ namespace KPAPP
             // chkcerrada
             // 
             this.chkcerrada.AutoSize = true;
-            this.chkcerrada.Location = new System.Drawing.Point(14, 181);
+            this.chkcerrada.Location = new System.Drawing.Point(256, 173);
             this.chkcerrada.Name = "chkcerrada";
             this.chkcerrada.Size = new System.Drawing.Size(95, 17);
             this.chkcerrada.TabIndex = 28;
@@ -331,6 +337,8 @@ namespace KPAPP
             // 
             // GbCerrar
             // 
+            this.GbCerrar.Controls.Add(this.cmbestado);
+            this.GbCerrar.Controls.Add(this.label9);
             this.GbCerrar.Controls.Add(this.label6);
             this.GbCerrar.Controls.Add(this.checkBox1);
             this.GbCerrar.Controls.Add(this.label5);
@@ -343,22 +351,14 @@ namespace KPAPP
             this.GbCerrar.Text = "Cerrar Orden";
             this.GbCerrar.Visible = false;
             // 
-            // dtpcierre
+            // label6
             // 
-            this.dtpcierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpcierre.Location = new System.Drawing.Point(39, 42);
-            this.dtpcierre.Name = "dtpcierre";
-            this.dtpcierre.Size = new System.Drawing.Size(94, 20);
-            this.dtpcierre.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(45, 26);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(82, 13);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Fecha de Cierre";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 122);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(139, 13);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "(Deberá ingresar su usuario)";
             // 
             // checkBox1
             // 
@@ -372,14 +372,22 @@ namespace KPAPP
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // label6
+            // label5
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 122);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "(Deberá ingresar su usuario)";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(47, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Fecha de Cierre";
+            // 
+            // dtpcierre
+            // 
+            this.dtpcierre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpcierre.Location = new System.Drawing.Point(40, 32);
+            this.dtpcierre.Name = "dtpcierre";
+            this.dtpcierre.Size = new System.Drawing.Size(94, 20);
+            this.dtpcierre.TabIndex = 0;
             // 
             // gbautcerrar
             // 
@@ -398,6 +406,20 @@ namespace KPAPP
             this.gbautcerrar.Text = "Ingrese sus credenciales";
             this.gbautcerrar.Visible = false;
             // 
+            // btncierraorden
+            // 
+            this.btncierraorden.ForeColor = System.Drawing.Color.Black;
+            this.btncierraorden.Image = ((System.Drawing.Image)(resources.GetObject("btncierraorden.Image")));
+            this.btncierraorden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncierraorden.Location = new System.Drawing.Point(47, 97);
+            this.btncierraorden.Name = "btncierraorden";
+            this.btncierraorden.Size = new System.Drawing.Size(75, 25);
+            this.btncierraorden.TabIndex = 15;
+            this.btncierraorden.Text = "Aceptar";
+            this.btncierraorden.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btncierraorden.UseVisualStyleBackColor = true;
+            this.btncierraorden.Click += new System.EventHandler(this.btncierraorden_Click);
+            // 
             // btnCancelarchk2
             // 
             this.btnCancelarchk2.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarchk2.Image")));
@@ -409,6 +431,7 @@ namespace KPAPP
             this.btnCancelarchk2.Text = "Cancelar";
             this.btnCancelarchk2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelarchk2.UseVisualStyleBackColor = true;
+            this.btnCancelarchk2.Click += new System.EventHandler(this.btnCancelarchk2_Click);
             // 
             // txtusuariochkcerrar
             // 
@@ -446,20 +469,6 @@ namespace KPAPP
             this.label8.TabIndex = 11;
             this.label8.Text = "Usuario:";
             // 
-            // btncierraorden
-            // 
-            this.btncierraorden.ForeColor = System.Drawing.Color.Black;
-            this.btncierraorden.Image = ((System.Drawing.Image)(resources.GetObject("btncierraorden.Image")));
-            this.btncierraorden.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btncierraorden.Location = new System.Drawing.Point(47, 97);
-            this.btncierraorden.Name = "btncierraorden";
-            this.btncierraorden.Size = new System.Drawing.Size(75, 25);
-            this.btncierraorden.TabIndex = 15;
-            this.btncierraorden.Text = "Aceptar";
-            this.btncierraorden.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btncierraorden.UseVisualStyleBackColor = true;
-            this.btncierraorden.Click += new System.EventHandler(this.btncierraorden_Click);
-            // 
             // btnDash
             // 
             this.btnDash.Image = ((System.Drawing.Image)(resources.GetObject("btnDash.Image")));
@@ -473,13 +482,76 @@ namespace KPAPP
             this.btnDash.UseVisualStyleBackColor = true;
             this.btnDash.Click += new System.EventHandler(this.btnDash_Click);
             // 
+            // btnverplano
+            // 
+            this.btnverplano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnverplano.Image = ((System.Drawing.Image)(resources.GetObject("btnverplano.Image")));
+            this.btnverplano.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnverplano.Location = new System.Drawing.Point(130, 179);
+            this.btnverplano.Name = "btnverplano";
+            this.btnverplano.Size = new System.Drawing.Size(110, 66);
+            this.btnverplano.TabIndex = 36;
+            this.btnverplano.Text = "VER PLANO";
+            this.btnverplano.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnverplano.UseVisualStyleBackColor = true;
+            this.btnverplano.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btncargaplano
+            // 
+            this.btncargaplano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncargaplano.Image = ((System.Drawing.Image)(resources.GetObject("btncargaplano.Image")));
+            this.btncargaplano.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btncargaplano.Location = new System.Drawing.Point(14, 179);
+            this.btncargaplano.Name = "btncargaplano";
+            this.btncargaplano.Size = new System.Drawing.Size(110, 66);
+            this.btncargaplano.TabIndex = 37;
+            this.btncargaplano.Text = "CARGAR PLANO";
+            this.btncargaplano.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btncargaplano.UseVisualStyleBackColor = true;
+            this.btncargaplano.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // lblruta
+            // 
+            this.lblruta.AutoSize = true;
+            this.lblruta.Location = new System.Drawing.Point(749, 240);
+            this.lblruta.Name = "lblruta";
+            this.lblruta.Size = new System.Drawing.Size(35, 13);
+            this.lblruta.TabIndex = 38;
+            this.lblruta.Text = "label9";
+            this.lblruta.Visible = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(37, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Estado de la orden";
+            // 
+            // cmbestado
+            // 
+            this.cmbestado.BackColor = System.Drawing.Color.Tomato;
+            this.cmbestado.FormattingEnabled = true;
+            this.cmbestado.Location = new System.Drawing.Point(30, 75);
+            this.cmbestado.Name = "cmbestado";
+            this.cmbestado.Size = new System.Drawing.Size(121, 21);
+            this.cmbestado.TabIndex = 5;
+            // 
             // Proceso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(1223, 740);
+            this.ClientSize = new System.Drawing.Size(1223, 717);
+            this.Controls.Add(this.lblruta);
+            this.Controls.Add(this.btncargaplano);
+            this.Controls.Add(this.btnverplano);
             this.Controls.Add(this.btnDash);
             this.Controls.Add(this.gbautcerrar);
             this.Controls.Add(this.GbCerrar);
@@ -545,5 +617,11 @@ namespace KPAPP
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btncierraorden;
         private System.Windows.Forms.Button btnDash;
+        private System.Windows.Forms.Button btnverplano;
+        private System.Windows.Forms.Button btncargaplano;
+        private System.Windows.Forms.Label lblruta;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox cmbestado;
+        private System.Windows.Forms.Label label9;
     }
 }

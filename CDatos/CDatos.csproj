@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Conexion.cs" />
     <Compile Include="DDashboard.cs" />
+    <Compile Include="DDocum.cs" />
     <Compile Include="DFabricacion.cs" />
     <Compile Include="DHerramientas.cs" />
     <Compile Include="DNueva_Fabricacion.cs" />

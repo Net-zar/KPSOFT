@@ -60,20 +60,7 @@ namespace KPAPP
             }
         }
 
-        //public void Listar2()
-        //{
-        //    try
-        //    {
-        //        DgvListado2.DataSource = NNueva_Fabricacion.Listar();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error en datos: " + ex.Message + ex.StackTrace);
-        //    }
-        //}
-
-        // Combobox de Fabricación
+       
         private void ListarFabricacion()
         {
 
@@ -214,6 +201,7 @@ namespace KPAPP
                     NProceso_Fabricacion.Actualizadatosproceso(Convert.ToInt32(CmbUsuario.SelectedValue), dtpfecha.Value, Convert.ToInt32(txtidgenerado.Text));
                     BtnCreaOrden.Enabled = true;
                     btnasociar.Enabled = false;
+                    TabGral.SelectedIndex = 0;
                
                 }
                 else

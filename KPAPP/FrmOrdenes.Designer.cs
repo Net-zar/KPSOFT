@@ -33,6 +33,7 @@ namespace KPAPP
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrdenes));
             this.TabGral = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.DgvListado = new System.Windows.Forms.DataGridView();
@@ -54,7 +55,6 @@ namespace KPAPP
             this.dtpfecha = new System.Windows.Forms.DateTimePicker();
             this.txtnroorden = new System.Windows.Forms.TextBox();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.TabGral.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListado)).BeginInit();
@@ -70,7 +70,7 @@ namespace KPAPP
             this.TabGral.Location = new System.Drawing.Point(12, 13);
             this.TabGral.Name = "TabGral";
             this.TabGral.SelectedIndex = 0;
-            this.TabGral.Size = new System.Drawing.Size(933, 429);
+            this.TabGral.Size = new System.Drawing.Size(1078, 429);
             this.TabGral.TabIndex = 0;
             // 
             // tabPage1
@@ -82,10 +82,23 @@ namespace KPAPP
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(925, 403);
+            this.tabPage1.Size = new System.Drawing.Size(1070, 403);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.Location = new System.Drawing.Point(7, 370);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(86, 25);
+            this.btnActualizar.TabIndex = 21;
+            this.btnActualizar.Text = "Actualizar ";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // BtnBuscar
             // 
@@ -116,7 +129,7 @@ namespace KPAPP
             this.DgvListado.Location = new System.Drawing.Point(7, 57);
             this.DgvListado.Name = "DgvListado";
             this.DgvListado.ReadOnly = true;
-            this.DgvListado.Size = new System.Drawing.Size(829, 307);
+            this.DgvListado.Size = new System.Drawing.Size(1051, 307);
             this.DgvListado.TabIndex = 0;
             this.DgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListado_CellContentClick);
             // 
@@ -158,6 +171,7 @@ namespace KPAPP
             this.TXTIDFAB.Name = "TXTIDFAB";
             this.TXTIDFAB.Size = new System.Drawing.Size(100, 20);
             this.TXTIDFAB.TabIndex = 32;
+            this.TXTIDFAB.Visible = false;
             // 
             // DgvListado2
             // 
@@ -177,6 +191,7 @@ namespace KPAPP
             this.txtidgenerado.Name = "txtidgenerado";
             this.txtidgenerado.Size = new System.Drawing.Size(100, 20);
             this.txtidgenerado.TabIndex = 29;
+            this.txtidgenerado.Visible = false;
             // 
             // btnasociar
             // 
@@ -259,6 +274,7 @@ namespace KPAPP
             // 
             // CmbUsuario
             // 
+            this.CmbUsuario.BackColor = System.Drawing.Color.LightGoldenrodYellow;
             this.CmbUsuario.FormattingEnabled = true;
             this.CmbUsuario.Location = new System.Drawing.Point(118, 51);
             this.CmbUsuario.Name = "CmbUsuario";
@@ -267,6 +283,7 @@ namespace KPAPP
             // 
             // CmbFabric
             // 
+            this.CmbFabric.BackColor = System.Drawing.Color.LightBlue;
             this.CmbFabric.FormattingEnabled = true;
             this.CmbFabric.Location = new System.Drawing.Point(576, 11);
             this.CmbFabric.Name = "CmbFabric";
@@ -293,25 +310,12 @@ namespace KPAPP
             // 
             this.errorIcono.ContainerControl = this;
             // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
-            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizar.Location = new System.Drawing.Point(7, 370);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(86, 25);
-            this.btnActualizar.TabIndex = 21;
-            this.btnActualizar.Text = "Actualizar ";
-            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // FrmOrdenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(952, 454);
+            this.ClientSize = new System.Drawing.Size(1099, 454);
             this.Controls.Add(this.TabGral);
             this.Name = "FrmOrdenes";
             this.Text = "Administracion de Ordenes de Trabajo";

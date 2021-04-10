@@ -27,6 +27,12 @@ namespace CNegocios
 
 
         }
+
+        public static DataTable cmb_estado()
+        {
+            DNueva_Fabricacion Datos = new DNueva_Fabricacion();
+            return Datos.Cmb_estado();
+        }
         public static DataTable Listar()
         {
             DNueva_Fabricacion Datos = new DNueva_Fabricacion();
@@ -76,13 +82,14 @@ namespace CNegocios
         }
 
 
-        public static string CerrarOrden(int id,bool chk,DateTime fecha_cierre)
+        public static string CerrarOrden(int id,bool chk,DateTime fecha_cierre, string estado)
         {
             DNueva_Fabricacion Datos = new DNueva_Fabricacion();
             ENueva_Fabricacion obj = new ENueva_Fabricacion();
             obj.idNuevaFabricacion = id;
             obj.Completada = chk;
             obj.FechaCierre = fecha_cierre;
+            obj.Estado = estado;
             return Datos.CerrarOrden(obj);
         }
         

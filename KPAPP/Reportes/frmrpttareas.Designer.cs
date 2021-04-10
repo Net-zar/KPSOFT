@@ -31,19 +31,32 @@ namespace KPAPP.Reportes
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DSTareas = new KPAPP.Reportes.DSTareas();
             this.RPT_TAREASBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DSTareas = new KPAPP.Reportes.DSTareas();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.RPT_TAREASTableAdapter = new KPAPP.Reportes.DSTareasTableAdapters.RPT_TAREASTableAdapter();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.CmbFabric = new System.Windows.Forms.ComboBox();
             this.BtnFiltrar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DSTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RPT_TAREASBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSTareas)).BeginInit();
             this.SuspendLayout();
+            // 
+            // RPT_TAREASBindingSource
+            // 
+            this.RPT_TAREASBindingSource.DataMember = "RPT_TAREAS";
+            this.RPT_TAREASBindingSource.DataSource = this.DSTareas;
+            // 
+            // DSTareas
+            // 
+            this.DSTareas.DataSetName = "DSTareas";
+            this.DSTareas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
+            this.reportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.RPT_TAREASBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
@@ -51,18 +64,8 @@ namespace KPAPP.Reportes
             this.reportViewer1.Location = new System.Drawing.Point(12, 39);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(1350, 454);
+            this.reportViewer1.Size = new System.Drawing.Size(985, 523);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // DSTareas
-            // 
-            this.DSTareas.DataSetName = "DSTareas";
-            this.DSTareas.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // RPT_TAREASBindingSource
-            // 
-            this.RPT_TAREASBindingSource.DataMember = "RPT_TAREAS";
-            this.RPT_TAREASBindingSource.DataSource = this.DSTareas;
             // 
             // RPT_TAREASTableAdapter
             // 
@@ -72,7 +75,7 @@ namespace KPAPP.Reportes
             // 
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1374, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -98,7 +101,7 @@ namespace KPAPP.Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1374, 505);
+            this.ClientSize = new System.Drawing.Size(1008, 574);
             this.Controls.Add(this.BtnFiltrar);
             this.Controls.Add(this.CmbFabric);
             this.Controls.Add(this.reportViewer1);
@@ -107,8 +110,8 @@ namespace KPAPP.Reportes
             this.Name = "frmrpttareas";
             this.Text = "Reporte de Tareas";
             this.Load += new System.EventHandler(this.frmrpttareas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DSTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RPT_TAREASBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DSTareas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

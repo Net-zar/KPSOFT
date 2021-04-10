@@ -279,6 +279,8 @@ namespace CDatos
                 cmd.Parameters.Add("@NOTAS", SqlDbType.VarChar).Value = obj.Notas;
                 cmd.Parameters.Add("@FECHA_FIN", SqlDbType.DateTime).Value = obj.Fecha_Fin;
                 cmd.Parameters.Add("@T_REAL", SqlDbType.Int).Value = obj.T_Real;
+                cmd.Parameters.Add("@CONSUMORESINA", SqlDbType.Int).Value = obj.Consumo_Resina;
+                cmd.Parameters.Add("@CONSUMOFIBRA", SqlDbType.Int).Value = obj.Consumo_Fibra;
 
                 Con.Open();
                 rpta3 = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo insertar el registro";

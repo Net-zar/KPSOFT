@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NDashboard.cs" />
+    <Compile Include="NDocum.cs" />
     <Compile Include="NFabricacion.cs" />
     <Compile Include="NHerramientas.cs" />
     <Compile Include="NNueva_Fabricacion.cs" />

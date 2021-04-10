@@ -12,6 +12,22 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\NETZAR\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.1.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +47,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>D5D512885A0D4C2B00D3152488105E844E8C1D79</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Presentacion_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -173,6 +201,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DsHerramientas.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\DsOrdenes.cs">
+      <DependentUpon>DsOrdenes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\DsOrdenes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsOrdenes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\DSTareas.cs">
       <DependentUpon>DSTareas.xsd</DependentUpon>
     </Compile>
@@ -186,6 +222,12 @@
     </Compile>
     <Compile Include="Reportes\FrmRptListarHerramientas.Designer.cs">
       <DependentUpon>FrmRptListarHerramientas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmrptOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmrptOrdenes.Designer.cs">
+      <DependentUpon>frmrptOrdenes.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\frmrpttareas.cs">
       <SubType>Form</SubType>
@@ -254,9 +296,13 @@
     <EmbeddedResource Include="Reportes\FrmRptListarHerramientas.resx">
       <DependentUpon>FrmRptListarHerramientas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmrptOrdenes.resx">
+      <DependentUpon>frmrptOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\frmrpttareas.resx">
       <DependentUpon>frmrpttareas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\rptOrdenes.rdlc" />
     <EmbeddedResource Include="Reportes\rptTareas.rdlc" />
     <EmbeddedResource Include="Reportes\rpt_listar_tareas.rdlc" />
     <None Include="KPDBDataSet.xsc">
@@ -271,6 +317,7 @@
       <DependentUpon>KPDBDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Presentacion_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -290,6 +337,17 @@
     </None>
     <None Include="Reportes\DsHerramientas.xss">
       <DependentUpon>DsHerramientas.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DsOrdenes.xsc">
+      <DependentUpon>DsOrdenes.xsd</DependentUpon>
+    </None>
+    <None Include="Reportes\DsOrdenes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsOrdenes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reportes\DsOrdenes.xss">
+      <DependentUpon>DsOrdenes.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DSTareas.xsc">
       <DependentUpon>DSTareas.xsd</DependentUpon>
@@ -331,6 +389,17 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

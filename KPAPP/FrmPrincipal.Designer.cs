@@ -35,10 +35,11 @@ namespace KPAPP
             this.mnuOrdenes = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDeTareasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteDeOrdenesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnualtaprocesos = new System.Windows.Forms.ToolStripMenuItem();
             this.altaNuevoTipoDeFabricaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.altaNuevosProcesosAsociadosAFabricaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.administracionDeHerramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAccesos = new System.Windows.Forms.ToolStripMenuItem();
             this.rolesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,6 @@ namespace KPAPP
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusBar = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.administracionDeHerramientasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +75,8 @@ namespace KPAPP
             // mnuReportes
             // 
             this.mnuReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listadoDeTareasToolStripMenuItem});
+            this.listadoDeTareasToolStripMenuItem,
+            this.reporteDeOrdenesToolStripMenuItem});
             this.mnuReportes.Name = "mnuReportes";
             this.mnuReportes.Size = new System.Drawing.Size(65, 20);
             this.mnuReportes.Text = "Reportes";
@@ -83,15 +84,21 @@ namespace KPAPP
             // listadoDeTareasToolStripMenuItem
             // 
             this.listadoDeTareasToolStripMenuItem.Name = "listadoDeTareasToolStripMenuItem";
-            this.listadoDeTareasToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.listadoDeTareasToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.listadoDeTareasToolStripMenuItem.Text = "Listado de Tareas";
             this.listadoDeTareasToolStripMenuItem.Click += new System.EventHandler(this.listadoDeTareasToolStripMenuItem_Click);
+            // 
+            // reporteDeOrdenesToolStripMenuItem
+            // 
+            this.reporteDeOrdenesToolStripMenuItem.Name = "reporteDeOrdenesToolStripMenuItem";
+            this.reporteDeOrdenesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.reporteDeOrdenesToolStripMenuItem.Text = "Reporte de Ordenes";
+            this.reporteDeOrdenesToolStripMenuItem.Click += new System.EventHandler(this.reporteDeOrdenesToolStripMenuItem_Click);
             // 
             // mnualtaprocesos
             // 
             this.mnualtaprocesos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaNuevoTipoDeFabricaciónToolStripMenuItem,
-            this.altaNuevosProcesosAsociadosAFabricaciónToolStripMenuItem,
             this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem,
             this.administracionDeHerramientasToolStripMenuItem});
             this.mnualtaprocesos.Name = "mnualtaprocesos";
@@ -102,22 +109,23 @@ namespace KPAPP
             // 
             this.altaNuevoTipoDeFabricaciónToolStripMenuItem.BackColor = System.Drawing.SystemColors.Window;
             this.altaNuevoTipoDeFabricaciónToolStripMenuItem.Name = "altaNuevoTipoDeFabricaciónToolStripMenuItem";
-            this.altaNuevoTipoDeFabricaciónToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
+            this.altaNuevoTipoDeFabricaciónToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.altaNuevoTipoDeFabricaciónToolStripMenuItem.Text = "Alta nuevo Tipo de Fabricación";
             this.altaNuevoTipoDeFabricaciónToolStripMenuItem.Click += new System.EventHandler(this.altaNuevoTipoDeFabricaciónToolStripMenuItem_Click);
-            // 
-            // altaNuevosProcesosAsociadosAFabricaciónToolStripMenuItem
-            // 
-            this.altaNuevosProcesosAsociadosAFabricaciónToolStripMenuItem.Name = "altaNuevosProcesosAsociadosAFabricaciónToolStripMenuItem";
-            this.altaNuevosProcesosAsociadosAFabricaciónToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
-            this.altaNuevosProcesosAsociadosAFabricaciónToolStripMenuItem.Text = "Alta nuevos Procesos asociados a Fabricación";
             // 
             // altaNuevasTareasAsociadasAProcesoToolStripMenuItem
             // 
             this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem.Name = "altaNuevasTareasAsociadasAProcesoToolStripMenuItem";
-            this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
+            this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
             this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem.Text = "Alta nuevas Tareas asociadas a Proceso";
             this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem.Click += new System.EventHandler(this.altaNuevasTareasAsociadasAProcesoToolStripMenuItem_Click);
+            // 
+            // administracionDeHerramientasToolStripMenuItem
+            // 
+            this.administracionDeHerramientasToolStripMenuItem.Name = "administracionDeHerramientasToolStripMenuItem";
+            this.administracionDeHerramientasToolStripMenuItem.Size = new System.Drawing.Size(278, 22);
+            this.administracionDeHerramientasToolStripMenuItem.Text = "Administracion de Herramientas";
+            this.administracionDeHerramientasToolStripMenuItem.Click += new System.EventHandler(this.administracionDeHerramientasToolStripMenuItem_Click);
             // 
             // mnuAccesos
             // 
@@ -166,13 +174,6 @@ namespace KPAPP
             this.statusBar.Size = new System.Drawing.Size(42, 17);
             this.statusBar.Text = "Estado";
             // 
-            // administracionDeHerramientasToolStripMenuItem
-            // 
-            this.administracionDeHerramientasToolStripMenuItem.Name = "administracionDeHerramientasToolStripMenuItem";
-            this.administracionDeHerramientasToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
-            this.administracionDeHerramientasToolStripMenuItem.Text = "Administracion de Herramientas";
-            this.administracionDeHerramientasToolStripMenuItem.Click += new System.EventHandler(this.administracionDeHerramientasToolStripMenuItem_Click);
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,11 +212,11 @@ namespace KPAPP
         private System.Windows.Forms.ToolStripMenuItem mnuReportes;
         private System.Windows.Forms.ToolStripMenuItem mnualtaprocesos;
         private System.Windows.Forms.ToolStripMenuItem altaNuevoTipoDeFabricaciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem altaNuevosProcesosAsociadosAFabricaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem altaNuevasTareasAsociadasAProcesoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoDeTareasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administracionDeHerramientasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteDeOrdenesToolStripMenuItem;
     }
 }
 

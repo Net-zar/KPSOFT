@@ -7,7 +7,6 @@ C:\NETZAR\KPSOFT\KPAPP\obj\Debug\Presentacion.csproj.GenerateResource.cache
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.exe
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.pdb
-C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmMain.resources
 C:\NETZAR\KPSOFT\KPAPP\bin\Debug\CEntidades.dll
 C:\NETZAR\KPSOFT\KPAPP\bin\Debug\CNegocios.dll
 C:\NETZAR\KPSOFT\KPAPP\bin\Debug\CDatos.dll
@@ -17,8 +16,6 @@ C:\NETZAR\KPSOFT\KPAPP\bin\Debug\CDatos.pdb
 C:\NETZAR\KPSOFT\KPAPP\bin\Debug\CDatos.dll.config
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\Presentacion.csproj.CopyComplete
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmNuevaFabricacion.resources
-C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.NuevoOT.resources
-C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmAsociaTask.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmOrdenes.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmPrincipal.resources
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.Proceso.resources

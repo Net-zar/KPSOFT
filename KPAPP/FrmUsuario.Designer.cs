@@ -33,6 +33,7 @@ namespace KPAPP
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txtpass = new System.Windows.Forms.TextBox();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
@@ -54,7 +55,6 @@ namespace KPAPP
             this.Seleccionar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
-            this.txtpass = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.TabGral.SuspendLayout();
@@ -87,6 +87,13 @@ namespace KPAPP
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Administracion";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txtpass
+            // 
+            this.txtpass.Location = new System.Drawing.Point(123, 111);
+            this.txtpass.Name = "txtpass";
+            this.txtpass.Size = new System.Drawing.Size(229, 20);
+            this.txtpass.TabIndex = 12;
             // 
             // BtnCancelar
             // 
@@ -201,7 +208,7 @@ namespace KPAPP
             this.TabGral.Location = new System.Drawing.Point(7, 12);
             this.TabGral.Name = "TabGral";
             this.TabGral.SelectedIndex = 0;
-            this.TabGral.Size = new System.Drawing.Size(725, 247);
+            this.TabGral.Size = new System.Drawing.Size(452, 247);
             this.TabGral.TabIndex = 1;
             // 
             // tabPage1
@@ -216,7 +223,7 @@ namespace KPAPP
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(717, 221);
+            this.tabPage1.Size = new System.Drawing.Size(444, 221);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Listado";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -280,6 +287,7 @@ namespace KPAPP
             this.DgvUsuario.AllowUserToDeleteRows = false;
             this.DgvUsuario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DgvUsuario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DgvUsuario.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.DgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvUsuario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar});
@@ -315,20 +323,14 @@ namespace KPAPP
             this.TxtBuscar.Size = new System.Drawing.Size(239, 20);
             this.TxtBuscar.TabIndex = 1;
             // 
-            // txtpass
-            // 
-            this.txtpass.Location = new System.Drawing.Point(123, 111);
-            this.txtpass.Name = "txtpass";
-            this.txtpass.Size = new System.Drawing.Size(229, 20);
-            this.txtpass.TabIndex = 12;
-            // 
             // FrmUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(752, 273);
+            this.ClientSize = new System.Drawing.Size(470, 273);
             this.Controls.Add(this.TabGral);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUsuario";
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.FrmUsuario_Load);

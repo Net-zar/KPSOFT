@@ -55,6 +55,8 @@ namespace KPAPP
             this.btnherramientas = new System.Windows.Forms.Button();
             this.btnverherramientas = new System.Windows.Forms.Button();
             this.GbCerrar = new System.Windows.Forms.GroupBox();
+            this.cmbestado = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -71,8 +73,6 @@ namespace KPAPP
             this.btncargaplano = new System.Windows.Forms.Button();
             this.lblruta = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cmbestado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvProceso)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.GbCerrar.SuspendLayout();
@@ -351,6 +351,24 @@ namespace KPAPP
             this.GbCerrar.Text = "Cerrar Orden";
             this.GbCerrar.Visible = false;
             // 
+            // cmbestado
+            // 
+            this.cmbestado.BackColor = System.Drawing.Color.Tomato;
+            this.cmbestado.FormattingEnabled = true;
+            this.cmbestado.Location = new System.Drawing.Point(30, 75);
+            this.cmbestado.Name = "cmbestado";
+            this.cmbestado.Size = new System.Drawing.Size(121, 21);
+            this.cmbestado.TabIndex = 5;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(37, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(96, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Estado de la orden";
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -524,24 +542,6 @@ namespace KPAPP
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(37, 58);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(96, 13);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Estado de la orden";
-            // 
-            // cmbestado
-            // 
-            this.cmbestado.BackColor = System.Drawing.Color.Tomato;
-            this.cmbestado.FormattingEnabled = true;
-            this.cmbestado.Location = new System.Drawing.Point(30, 75);
-            this.cmbestado.Name = "cmbestado";
-            this.cmbestado.Size = new System.Drawing.Size(121, 21);
-            this.cmbestado.TabIndex = 5;
-            // 
             // Proceso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -563,6 +563,7 @@ namespace KPAPP
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DgvProceso);
             this.Controls.Add(this.chkcerrada);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Proceso";
             this.Text = "Proceso";
             this.Load += new System.EventHandler(this.Proceso_Load);

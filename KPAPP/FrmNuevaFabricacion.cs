@@ -167,9 +167,9 @@ namespace KPAPP
         {
             DgvListado2.Visible = true;
 
-            FrmAsociaTask frm = new FrmAsociaTask();
-            frm.Show();
-            //try
+            //FrmAsociaTask frm = new FrmAsociaTask();
+            //frm.Show();
+            ////try
             //{
             //    string rpta = "";
                

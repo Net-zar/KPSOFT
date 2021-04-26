@@ -38,6 +38,7 @@ namespace KPAPP
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboard));
             this.chartConsumo = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.chartTareas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.txtnrofabricacion = new System.Windows.Forms.TextBox();
@@ -296,6 +297,7 @@ namespace KPAPP
             this.Controls.Add(this.txtnrofabricacion);
             this.Controls.Add(this.chartTareas);
             this.Controls.Add(this.chartConsumo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmDashboard";
             this.Text = " Dashboard";
             this.Load += new System.EventHandler(this.frmDashboard_Load);

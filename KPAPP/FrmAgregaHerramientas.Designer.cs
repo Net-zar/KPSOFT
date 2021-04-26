@@ -48,6 +48,7 @@ namespace KPAPP
             // 
             // DgvAgHerramientas
             // 
+            this.DgvAgHerramientas.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.DgvAgHerramientas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvAgHerramientas.Location = new System.Drawing.Point(12, 92);
             this.DgvAgHerramientas.Name = "DgvAgHerramientas";
@@ -91,6 +92,7 @@ namespace KPAPP
             // 
             // Dgvherragregada
             // 
+            this.Dgvherragregada.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.Dgvherragregada.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgvherragregada.Location = new System.Drawing.Point(501, 92);
             this.Dgvherragregada.Name = "Dgvherragregada";
@@ -153,6 +155,7 @@ namespace KPAPP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(986, 629);
             this.Controls.Add(this.gbagrega);
             this.Controls.Add(this.Dgvherragregada);
@@ -161,6 +164,7 @@ namespace KPAPP
             this.Controls.Add(this.txtnroorden);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.DgvAgHerramientas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAgregaHerramientas";
             this.Text = "FrmAgregaHerramientas";
             this.Load += new System.EventHandler(this.FrmAgregaHerramientas_Load);

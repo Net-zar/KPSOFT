@@ -123,6 +123,7 @@ namespace KPAPP
             this.DgvListado.AllowUserToDeleteRows = false;
             this.DgvListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DgvListado.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DgvListado.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.DgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleccionar});
@@ -160,7 +161,7 @@ namespace KPAPP
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(925, 403);
+            this.tabPage2.Size = new System.Drawing.Size(1070, 403);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Administracion";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -317,6 +318,7 @@ namespace KPAPP
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1099, 454);
             this.Controls.Add(this.TabGral);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmOrdenes";
             this.Text = "Administracion de Ordenes de Trabajo";
             this.Load += new System.EventHandler(this.FrmOrdenes_Load);

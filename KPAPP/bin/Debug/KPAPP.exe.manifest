@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KPAPP.exe" size="864192">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="KPAPP.exe" size="1324480">
       <assemblyIdentity name="KPAPP" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ZWSNjzwXDJLuXth44H7eXt8G19vkD3y4K4rlxaB1EQc=</dsig:DigestValue>
+        <dsig:DigestValue>Y60p3mAo8hGFbtCAeZOJY+ojnBdkY+zQd3eU2bT639E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

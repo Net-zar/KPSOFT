@@ -99,12 +99,6 @@
     <Compile Include="FrmAgregaHerramientas.Designer.cs">
       <DependentUpon>FrmAgregaHerramientas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAsociaTask.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmAsociaTask.Designer.cs">
-      <DependentUpon>FrmAsociaTask.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmControl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,12 +122,6 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmNuevaFabricacion.cs">
       <SubType>Form</SubType>
@@ -181,12 +169,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>KPDBDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="NuevoOT.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevoOT.Designer.cs">
-      <DependentUpon>NuevoOT.cs</DependentUpon>
     </Compile>
     <Compile Include="Proceso.cs">
       <SubType>Form</SubType>
@@ -239,9 +221,6 @@
     <EmbeddedResource Include="FrmAgregaHerramientas.resx">
       <DependentUpon>FrmAgregaHerramientas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAsociaTask.resx">
-      <DependentUpon>FrmAsociaTask.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmControl.resx">
       <DependentUpon>FrmControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,9 +232,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmNuevaFabricacion.resx">
       <DependentUpon>FrmNuevaFabricacion.cs</DependentUpon>
@@ -277,9 +253,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuario.resx">
       <DependentUpon>FrmUsuario.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NuevoOT.resx">
-      <DependentUpon>NuevoOT.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proceso.resx">
       <DependentUpon>Proceso.cs</DependentUpon>

@@ -45,13 +45,13 @@ namespace KPAPP
             this.cmbbuscar = new System.Windows.Forms.ComboBox();
             this.lblaviso = new System.Windows.Forms.Label();
             this.gbfilt = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.cmbnuevafab = new System.Windows.Forms.ComboBox();
             this.rbmanual = new System.Windows.Forms.RadioButton();
             this.gbradio = new System.Windows.Forms.GroupBox();
             this.rbCopiar = new System.Windows.Forms.RadioButton();
             this.dgvnueva = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtarea)).BeginInit();
             this.gbnuevatarea.SuspendLayout();
             this.gbfilt.SuspendLayout();
@@ -224,6 +224,24 @@ namespace KPAPP
             this.gbfilt.TabStop = false;
             this.gbfilt.Text = "Filtre por fabricación existente para replicar sus tareas";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(968, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Copiar tareas a:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(182, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(196, 13);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Seleccione las tareas que desea copiar:";
+            // 
             // cmbnuevafab
             // 
             this.cmbnuevafab.BackColor = System.Drawing.Color.LightGreen;
@@ -288,24 +306,6 @@ namespace KPAPP
             this.dgvnueva.Size = new System.Drawing.Size(665, 319);
             this.dgvnueva.TabIndex = 18;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(196, 13);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Seleccione las tareas que desea copiar:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(968, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Copiar tareas a:";
-            // 
             // FrmNuevaTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,8 +318,9 @@ namespace KPAPP
             this.Controls.Add(this.lblaviso);
             this.Controls.Add(this.gbnuevatarea);
             this.Controls.Add(this.dgvtarea);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmNuevaTarea";
-            this.Text = "FrmNuevaTarea";
+            this.Text = "Nuevas Tareas";
             this.Load += new System.EventHandler(this.FrmNuevaTarea_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvtarea)).EndInit();
             this.gbnuevatarea.ResumeLayout(false);

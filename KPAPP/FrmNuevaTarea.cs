@@ -34,6 +34,20 @@ namespace KPAPP
             dgvnueva.DataSource = NTarea.Listar();
         }
 
+        private void ListarNueva()
+        {
+            if (rbmanual.Checked == true)
+            {
+                dgvnueva.DataSource = NTarea.Buscar(Convert.ToInt32(cmbfabric.SelectedValue));
+            } else
+            {
+                if (rbCopiar.Checked == true)
+                {
+                    dgvnueva.DataSource = NTarea.Buscar(Convert.ToInt32(cmbnuevafab.SelectedValue));
+                }
+            }
+        }
+
         private void cmb_fabricacion()
         {
           
@@ -98,7 +112,7 @@ namespace KPAPP
             cmb_busca();
             cmb_nuevafab();
             tipoAlta();
-          
+            ListarNueva();
         }
 
     
@@ -119,8 +133,9 @@ namespace KPAPP
                 if (rpta.Equals("OK"))
                 {
                     this.MensajeOk("Nueva tarea cargada");
-                    gbnuevatarea.Visible = false;
+                    cmbnuevafab.ValueMember = cmbnuevafab.ValueMember;
                     Listar();
+                    ListarNueva();
                 }
                 else
                 {
@@ -182,6 +197,7 @@ namespace KPAPP
             {
                 gbnuevatarea.Enabled = true;
                 gbfilt.Enabled = false;
+                ListarNueva();
             }
 
            
@@ -199,6 +215,11 @@ namespace KPAPP
         private void cmbnuevafab_SelectedIndexChanged(object sender, EventArgs e)
         {
             BuscarNueva();
+        }
+
+        private void cmbfabric_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListarNueva();
         }
     }
 }

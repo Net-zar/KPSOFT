@@ -65,10 +65,7 @@ namespace KPAPP
                 if (rpta.Equals("OK"))
                 {
                     this.MensajeOk("Tipo de fabricación cargada");
-                    lblfabric.Visible = false;
-                    txtfabric.Visible = false;
-                    btnAceptar.Visible = false;
-                    btnagregar.Visible = false;
+                 
                     Listar();
                 }
                 else

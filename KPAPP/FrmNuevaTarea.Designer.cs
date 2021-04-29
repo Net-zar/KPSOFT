@@ -86,6 +86,7 @@ namespace KPAPP
             this.cmbfabric.Name = "cmbfabric";
             this.cmbfabric.Size = new System.Drawing.Size(266, 21);
             this.cmbfabric.TabIndex = 2;
+            this.cmbfabric.SelectedIndexChanged += new System.EventHandler(this.cmbfabric_SelectedIndexChanged);
             // 
             // lblfabric
             // 

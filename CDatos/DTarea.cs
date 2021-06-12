@@ -160,6 +160,36 @@ namespace CDatos
             return rpta;
         }
 
+        public string Editar(ETarea obj)
+        {
+            string rpta = "";
+            SqlConnection Con = new SqlConnection();
+
+            try
+            {
+                Con = Conexion.getInstancia().CrearConexion();
+                SqlCommand cmd = new SqlCommand("TAREA_EDITAR", Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = obj.IdTarea;
+                cmd.Parameters.Add("@ORDEN", SqlDbType.Int).Value = obj.Orden_Tarea;
+                cmd.Parameters.Add("@NOMBRE", SqlDbType.VarChar).Value = obj.Nombre_Tarea;
+                cmd.Parameters.Add("@OBSERVACION", SqlDbType.VarChar).Value = obj.Observacion;
+              
+                Con.Open();
+                rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo crear la tarea";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open) Con.Close();
+            }
+            return rpta;
+        }
         public string InsertarCopia(ETarea obj)
         {
             string rpta = "";
@@ -176,6 +206,34 @@ namespace CDatos
                 cmd.Parameters.Add("@FABRICACION_ID", SqlDbType.Int).Value = obj.Fabricacion_Id;
                 Con.Open();
                 rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo crear la tarea";
+
+
+            }
+            catch (Exception ex)
+            {
+                rpta = ex.Message;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open) Con.Close();
+            }
+            return rpta;
+        }
+
+        public string BorrarTarea(ETarea obj)
+        {
+            string rpta = "";
+            SqlConnection Con = new SqlConnection();
+
+            try
+            {
+                Con = Conexion.getInstancia().CrearConexion();
+                SqlCommand cmd = new SqlCommand("TAREA_BORRAR", Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@ID", SqlDbType.Int).Value = obj.IdTarea;
+             
+                Con.Open();
+                rpta = cmd.ExecuteNonQuery() == 1 ? "OK" : "No se pudo Eliminar la tarea";
 
 
             }

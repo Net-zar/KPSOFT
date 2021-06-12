@@ -127,7 +127,64 @@ namespace CDatos
                 if (Con.State == ConnectionState.Open) Con.Close();
             }
         }
+        // Filtra las ordenes que estan declaradas como ERROR DE CARGA 
+        public DataTable Filtrar()
+        {
+            // se inicializa la clase Datareader para leer los datos de la base
+            SqlDataReader Dr;
+            // se declara el datatable para guardar la tabla en memoria
+            DataTable Dt = new DataTable();
+            SqlConnection Con = new SqlConnection();
 
+            try
+            {
+                Con = Conexion.getInstancia().CrearConexion();
+                SqlCommand cmd = new SqlCommand("FILTRA_ERRONEAS", Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                Con.Open();
+                Dr = cmd.ExecuteReader();
+                Dt.Load(Dr);
+                return Dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open) Con.Close();
+            }
+        }
+
+        public DataTable MostrarCerradas()
+        {
+            // se inicializa la clase Datareader para leer los datos de la base
+            SqlDataReader Dr;
+            // se declara el datatable para guardar la tabla en memoria
+            DataTable Dt = new DataTable();
+            SqlConnection Con = new SqlConnection();
+
+            try
+            {
+                Con = Conexion.getInstancia().CrearConexion();
+                SqlCommand cmd = new SqlCommand("LISTAR_ORDENES_CERRADAS", Con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                Con.Open();
+                Dr = cmd.ExecuteReader();
+                Dt.Load(Dr);
+                return Dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (Con.State == ConnectionState.Open) Con.Close();
+            }
+        }
         public DataTable Buscar(string valor)
         {
             // se inicializa la clase Datareader para leer los datos de la base

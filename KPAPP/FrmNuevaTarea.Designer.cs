@@ -52,6 +52,9 @@ namespace KPAPP
             this.gbradio = new System.Windows.Forms.GroupBox();
             this.rbCopiar = new System.Windows.Forms.RadioButton();
             this.dgvnueva = new System.Windows.Forms.DataGridView();
+            this.lbltareas = new System.Windows.Forms.Label();
+            this.lblnuevas = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtarea)).BeginInit();
             this.gbnuevatarea.SuspendLayout();
             this.gbfilt.SuspendLayout();
@@ -71,10 +74,10 @@ namespace KPAPP
             this.dgvtarea.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvtarea.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvtarea.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dgvtarea.Location = new System.Drawing.Point(12, 184);
+            this.dgvtarea.Location = new System.Drawing.Point(6, 93);
             this.dgvtarea.Name = "dgvtarea";
             this.dgvtarea.ReadOnly = true;
-            this.dgvtarea.Size = new System.Drawing.Size(650, 319);
+            this.dgvtarea.Size = new System.Drawing.Size(644, 341);
             this.dgvtarea.TabIndex = 0;
             this.dgvtarea.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvtarea_CellContentDoubleClick);
             // 
@@ -117,7 +120,7 @@ namespace KPAPP
             // lbldescrip
             // 
             this.lbldescrip.AutoSize = true;
-            this.lbldescrip.Location = new System.Drawing.Point(569, 28);
+            this.lbldescrip.Location = new System.Drawing.Point(565, 28);
             this.lbldescrip.Name = "lbldescrip";
             this.lbldescrip.Size = new System.Drawing.Size(66, 13);
             this.lbldescrip.TabIndex = 7;
@@ -153,7 +156,7 @@ namespace KPAPP
             // lblobs
             // 
             this.lblobs.AutoSize = true;
-            this.lblobs.Location = new System.Drawing.Point(554, 57);
+            this.lblobs.Location = new System.Drawing.Point(551, 57);
             this.lblobs.Name = "lblobs";
             this.lblobs.Size = new System.Drawing.Size(81, 13);
             this.lblobs.TabIndex = 11;
@@ -197,7 +200,7 @@ namespace KPAPP
             // 
             this.cmbbuscar.BackColor = System.Drawing.Color.LightBlue;
             this.cmbbuscar.FormattingEnabled = true;
-            this.cmbbuscar.Location = new System.Drawing.Point(384, 22);
+            this.cmbbuscar.Location = new System.Drawing.Point(202, 27);
             this.cmbbuscar.Name = "cmbbuscar";
             this.cmbbuscar.Size = new System.Drawing.Size(266, 21);
             this.cmbbuscar.TabIndex = 8;
@@ -214,13 +217,14 @@ namespace KPAPP
             // 
             // gbfilt
             // 
+            this.gbfilt.Controls.Add(this.dgvtarea);
             this.gbfilt.Controls.Add(this.label2);
             this.gbfilt.Controls.Add(this.label1);
             this.gbfilt.Controls.Add(this.cmbnuevafab);
             this.gbfilt.Controls.Add(this.cmbbuscar);
-            this.gbfilt.Location = new System.Drawing.Point(12, 129);
+            this.gbfilt.Location = new System.Drawing.Point(10, 129);
             this.gbfilt.Name = "gbfilt";
-            this.gbfilt.Size = new System.Drawing.Size(1321, 49);
+            this.gbfilt.Size = new System.Drawing.Size(655, 446);
             this.gbfilt.TabIndex = 15;
             this.gbfilt.TabStop = false;
             this.gbfilt.Text = "Filtre por fabricación existente para replicar sus tareas";
@@ -228,7 +232,7 @@ namespace KPAPP
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(968, 25);
+            this.label2.Location = new System.Drawing.Point(115, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 11;
@@ -237,7 +241,7 @@ namespace KPAPP
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 25);
+            this.label1.Location = new System.Drawing.Point(2, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(196, 13);
             this.label1.TabIndex = 10;
@@ -247,7 +251,7 @@ namespace KPAPP
             // 
             this.cmbnuevafab.BackColor = System.Drawing.Color.LightGreen;
             this.cmbnuevafab.FormattingEnabled = true;
-            this.cmbnuevafab.Location = new System.Drawing.Point(1055, 22);
+            this.cmbnuevafab.Location = new System.Drawing.Point(202, 54);
             this.cmbnuevafab.Name = "cmbnuevafab";
             this.cmbnuevafab.Size = new System.Drawing.Size(266, 21);
             this.cmbnuevafab.TabIndex = 9;
@@ -301,24 +305,55 @@ namespace KPAPP
             this.dgvnueva.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvnueva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvnueva.GridColor = System.Drawing.SystemColors.MenuHighlight;
-            this.dgvnueva.Location = new System.Drawing.Point(668, 184);
+            this.dgvnueva.Location = new System.Drawing.Point(671, 222);
             this.dgvnueva.Name = "dgvnueva";
             this.dgvnueva.ReadOnly = true;
-            this.dgvnueva.Size = new System.Drawing.Size(665, 319);
+            this.dgvnueva.Size = new System.Drawing.Size(662, 341);
             this.dgvnueva.TabIndex = 18;
+            this.dgvnueva.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvnueva_CellContentClick);
+            this.dgvnueva.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvnueva_CellContentDoubleClick);
+            // 
+            // lbltareas
+            // 
+            this.lbltareas.AutoSize = true;
+            this.lbltareas.Location = new System.Drawing.Point(841, 159);
+            this.lbltareas.Name = "lbltareas";
+            this.lbltareas.Size = new System.Drawing.Size(35, 13);
+            this.lbltareas.TabIndex = 12;
+            this.lbltareas.Text = "label3";
+            // 
+            // lblnuevas
+            // 
+            this.lblnuevas.AutoSize = true;
+            this.lblnuevas.Location = new System.Drawing.Point(681, 159);
+            this.lblnuevas.Name = "lblnuevas";
+            this.lblnuevas.Size = new System.Drawing.Size(154, 13);
+            this.lblnuevas.TabIndex = 13;
+            this.lblnuevas.Text = "Nuevas Tareas cargadas para:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(671, 206);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(298, 13);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Haga doble click sobre una tarea si desea editarla o eliminarla";
             // 
             // FrmNuevaTarea
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1351, 517);
+            this.ClientSize = new System.Drawing.Size(1351, 577);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblnuevas);
             this.Controls.Add(this.dgvnueva);
+            this.Controls.Add(this.lbltareas);
             this.Controls.Add(this.gbradio);
             this.Controls.Add(this.gbfilt);
             this.Controls.Add(this.lblaviso);
             this.Controls.Add(this.gbnuevatarea);
-            this.Controls.Add(this.dgvtarea);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmNuevaTarea";
             this.Text = "Nuevas Tareas";
@@ -360,5 +395,8 @@ namespace KPAPP
         private System.Windows.Forms.DataGridView dgvnueva;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbltareas;
+        private System.Windows.Forms.Label lblnuevas;
+        private System.Windows.Forms.Label label3;
     }
 }

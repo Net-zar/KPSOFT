@@ -166,7 +166,7 @@ namespace KPAPP
             this.Controls.Add(this.DgvAgHerramientas);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAgregaHerramientas";
-            this.Text = "FrmAgregaHerramientas";
+            this.Text = "Agregar Herramientas";
             this.Load += new System.EventHandler(this.FrmAgregaHerramientas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvAgHerramientas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dgvherragregada)).EndInit();

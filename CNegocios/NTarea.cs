@@ -49,6 +49,19 @@ namespace CNegocios
             return Datos.Insertar(obj);
             
         }
+        public static string Editar(int id,int orden_tarea, string nombre_tarea, string observacion)
+        {
+            DTarea Datos = new DTarea();
+            ETarea obj = new ETarea();
+            obj.IdTarea = id;
+            obj.Orden_Tarea = orden_tarea;
+            obj.Nombre_Tarea = nombre_tarea;
+            obj.Observacion = observacion;
+           
+            return Datos.Editar(obj);
+
+        }
+
 
         public static string InsertarCopia(int orden_tarea, string nombre_tarea, string observacion, int fabricacion_id)
         {
@@ -62,6 +75,15 @@ namespace CNegocios
 
         }
 
+        public static string BorrarTarea(int id)
+        {
+            DTarea Datos = new DTarea();
+            ETarea obj = new ETarea();
+            obj.IdTarea = id;
+
+            return Datos.BorrarTarea(obj);
+
+        }
 
     }
 }

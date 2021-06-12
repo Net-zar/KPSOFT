@@ -200,7 +200,7 @@ namespace KPAPP
 
                     NProceso_Fabricacion.Actualizadatosproceso(Convert.ToInt32(CmbUsuario.SelectedValue), dtpfecha.Value, Convert.ToInt32(txtidgenerado.Text));
                     BtnCreaOrden.Enabled = true;
-                    btnasociar.Enabled = false;
+                    btnasociar.Visible = false;
                     TabGral.SelectedIndex = 0;
                
                 }
@@ -252,5 +252,50 @@ namespace KPAPP
         {
             Listar();
         }
+
+        // Filtra las Ordenes con Error de carga 
+        private void chkfilt_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (chkfilt.Checked == true)
+
+                {
+                    DgvListado.DataSource = NNueva_Fabricacion.Filtrar();
+
+                } if (chkfilt.Checked == false)
+                {
+                    DgvListado.DataSource = NNueva_Fabricacion.Listar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en datos: " + ex.Message + ex.StackTrace);
+            }
+            }
+        // Muestra las ordenes completadas independientemente de su tipo de finalizacion.
+        private void chkcomp_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (chkcomp.Checked == true)
+
+                {
+                    DgvListado.DataSource = NNueva_Fabricacion.MostrarCerradas();
+
+                }
+                if (chkcomp.Checked == false)
+                {
+                    DgvListado.DataSource = NNueva_Fabricacion.Listar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en datos: " + ex.Message + ex.StackTrace);
+            }
+        }
     }
-}
+    }
+    

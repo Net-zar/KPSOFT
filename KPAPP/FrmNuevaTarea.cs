@@ -39,11 +39,16 @@ namespace KPAPP
             if (rbmanual.Checked == true)
             {
                 dgvnueva.DataSource = NTarea.Buscar(Convert.ToInt32(cmbfabric.SelectedValue));
+             
+
+
             } else
             {
                 if (rbCopiar.Checked == true)
                 {
                     dgvnueva.DataSource = NTarea.Buscar(Convert.ToInt32(cmbnuevafab.SelectedValue));
+                    lbltareas.Text = cmbnuevafab.Text;
+
                 }
             }
         }
@@ -115,7 +120,7 @@ namespace KPAPP
             ListarNueva();
         }
 
-    
+     
 
         private void btnaceptar_Click(object sender, EventArgs e)
         {
@@ -133,9 +138,11 @@ namespace KPAPP
                 if (rpta.Equals("OK"))
                 {
                     this.MensajeOk("Nueva tarea cargada");
-                    cmbnuevafab.ValueMember = cmbnuevafab.ValueMember;
+                    
+                    //cmbnuevafab.ValueMember = cmbfabric.ValueMember;
                     Listar();
                     ListarNueva();
+                  
                 }
                 else
                 {
@@ -159,26 +166,34 @@ namespace KPAPP
             try
             {
                 string rpta = "";
-                DialogResult resultado = MessageBox.Show("Agregar la tarea " + dgvtarea.CurrentRow.Cells[2].Value.ToString() + "para el proceso de fabricación: " + (cmbnuevafab.SelectedText) + " ?"
-                    , "Nueva Tarea", MessageBoxButtons.YesNo, MessageBoxIcon.Question); ; ;
-                if (resultado == DialogResult.Yes)
+                if (cmbbuscar.Text == cmbnuevafab.Text)
                 {
-                    rpta = NTarea.InsertarCopia(Convert.ToInt32(dgvtarea.CurrentRow.Cells[1].Value), Convert.ToString(dgvtarea.CurrentRow.Cells[2].Value), Convert.ToString(dgvtarea.CurrentRow.Cells[3].Value),
-                     Convert.ToInt32(cmbnuevafab.SelectedValue));
-                }
-                if (rpta.Equals("OK"))
-                {
-                    this.MensajeOk("Nueva tarea cargada");
-                    
-                    Listar();
-                    BuscarNueva();
+                    MessageBox.Show("No se puede copiar una tarea dentro del mismo proceso de fabricación", "Error al copiar tarea");
                 }
                 else
                 {
-                    this.MensajeError(rpta);
+
+                    DialogResult resultado = MessageBox.Show("Agregar la tarea " + dgvtarea.CurrentRow.Cells[2].Value.ToString() + "para el proceso de fabricación: " + (cmbnuevafab.SelectedText) + " ?"
+                    , "Nueva Tarea", MessageBoxButtons.YesNo, MessageBoxIcon.Question); ; ;
+                    if (resultado == DialogResult.Yes)
+                    {
+                        rpta = NTarea.InsertarCopia(Convert.ToInt32(dgvtarea.CurrentRow.Cells[1].Value), Convert.ToString(dgvtarea.CurrentRow.Cells[2].Value), Convert.ToString(dgvtarea.CurrentRow.Cells[3].Value),
+                         Convert.ToInt32(cmbnuevafab.SelectedValue));
+                    }
+                    if (rpta.Equals("OK"))
+                    {
+                        this.MensajeOk("Nueva tarea cargada");
+
+                        Listar();
+                        BuscarNueva();
+                    }
+                    else
+                    {
+                        this.MensajeError(rpta);
+                    }
+
+
                 }
-
-
             }
             catch
             {
@@ -197,6 +212,7 @@ namespace KPAPP
             {
                 gbnuevatarea.Enabled = true;
                 gbfilt.Enabled = false;
+               // lbltareas.Text = cmbfabric.SelectedValue.ToString();
                 ListarNueva();
             }
 
@@ -209,15 +225,41 @@ namespace KPAPP
             {
                 gbnuevatarea.Enabled = false;
                 gbfilt.Enabled = true;
+                ListarNueva();
             }
         }
 
         private void cmbnuevafab_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lbltareas.Text = cmbnuevafab.Text;
             BuscarNueva();
         }
 
         private void cmbfabric_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lbltareas.Text = cmbfabric.Text;
+            ListarNueva();
+        }
+
+        private void dgvnueva_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FrmEditarTarea frm = new FrmEditarTarea();
+            frm.FormClosed += new System.Windows.Forms.FormClosedEventHandler(FrmEditarTarea_FormClosed);
+            frm.txtidtarea.Text = dgvnueva.CurrentRow.Cells[0].Value.ToString();
+            frm.txtorden.Text = dgvnueva.CurrentRow.Cells[1].Value.ToString();
+            frm.txtnombre.Text = dgvnueva.CurrentRow.Cells[2].Value.ToString();
+            frm.txtobservacion.Text = dgvnueva.CurrentRow.Cells[3].Value.ToString();
+            frm.txtfabric.Text = dgvnueva.CurrentRow.Cells[4].Value.ToString();
+
+            frm.Show();
+        }
+
+        private void dgvnueva_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
+        }
+
+        private void FrmEditarTarea_FormClosed(object sender, FormClosedEventArgs e)
         {
             ListarNueva();
         }

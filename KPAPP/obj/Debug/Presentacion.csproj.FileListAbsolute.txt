@@ -95,3 +95,4 @@ C:\NETZAR\KPSOFT\KPAPP\bin\Debug\KPAPP.exe.manifest
 C:\NETZAR\KPSOFT\KPAPP\bin\Debug\KPAPP.application
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.exe.manifest
 C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.application
+C:\NETZAR\KPSOFT\KPAPP\obj\Debug\KPAPP.FrmEditarTarea.resources

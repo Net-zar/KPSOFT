@@ -23,7 +23,8 @@ namespace CDatos
             SqlConnection Cadena = new SqlConnection();
             try
             {
-                Cadena.ConnectionString = "Data Source= .\\sqlexpress; Initial Catalog=KPDB; Integrated Security=true";
+                Cadena.ConnectionString = "Data Source= DESKTOP-VER\\SQLEXPRESS; initial catalog=kpdb; integrated security=true";
+                //Cadena.ConnectionString = "Data Source= kp-pc002\\sqlexpress; Initial Catalog=KPDB; Integrated Security=true";
             }
             catch (Exception ex)
             {

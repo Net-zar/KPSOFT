@@ -41,6 +41,17 @@ namespace CNegocios
 
         }
 
+        public static DataTable MostrarCerradas()
+        {
+            DNueva_Fabricacion Datos = new DNueva_Fabricacion();
+            return Datos.MostrarCerradas();
+        }
+
+        public static DataTable Filtrar()
+        {
+            DNueva_Fabricacion Datos = new DNueva_Fabricacion();
+            return Datos.Filtrar();
+        }
         
 
         public static DataTable Buscar(string valor)

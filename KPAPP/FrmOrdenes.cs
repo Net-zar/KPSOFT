@@ -263,10 +263,14 @@ namespace KPAPP
 
                 {
                     DgvListado.DataSource = NNueva_Fabricacion.Filtrar();
+                    chkcurso.Enabled = false;
+                    chkcomp.Enabled = false;
 
                 } if (chkfilt.Checked == false)
                 {
                     DgvListado.DataSource = NNueva_Fabricacion.Listar();
+                    chkcurso.Enabled = true;
+                    chkcomp.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -284,11 +288,41 @@ namespace KPAPP
 
                 {
                     DgvListado.DataSource = NNueva_Fabricacion.MostrarCerradas();
+                    chkfilt.Enabled = false;
+                    chkcurso.Enabled = false;
 
                 }
                 if (chkcomp.Checked == false)
                 {
                     DgvListado.DataSource = NNueva_Fabricacion.Listar();
+                    chkfilt.Enabled = true;
+                    chkcurso.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en datos: " + ex.Message + ex.StackTrace);
+            }
+        }
+
+        private void chkcurso_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (chkcurso.Checked == true)
+
+                {
+                    DgvListado.DataSource = NNueva_Fabricacion.MostrarEnCurso();
+                    chkcomp.Enabled = false;
+                    chkfilt.Enabled = false;
+                }
+                if (chkcurso.Checked == false)
+                {
+                    DgvListado.DataSource = NNueva_Fabricacion.Listar();
+                    chkcomp.Enabled = true;
+                    chkfilt.Enabled = true;
+
                 }
             }
             catch (Exception ex)
